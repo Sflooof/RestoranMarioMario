@@ -1,0 +1,39 @@
+﻿<Page x:Class="RestoranMarioMario.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RestoranMarioMario.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="LoginPage">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Авторизация персонала" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+                <StackPanel>
+                    <TextBlock Text="Логин" Width="350"></TextBlock>
+                    <TextBox x:Name="TbLogin"></TextBox>
+                    <TextBlock Text="Пароль" Width="350"></TextBlock>
+                    <PasswordBox x:Name="PbLogin"></PasswordBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="BtLogin" Content="Войти" Height="45" Width="200" Click="BtLogin_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Авторизация гостей" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+                <StackPanel>
+                    <TextBlock Text="Номер стола" Width="350"></TextBlock>
+                    <TextBox x:Name="TbLoginTable"></TextBox>
+                    <TextBlock Text="Пароль" Width="350"></TextBlock>
+                    <PasswordBox x:Name="PbLoginTable"></PasswordBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="BtLoginTable" Content="Войти" Height="45" Width="200" Click="BtLoginTable_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
