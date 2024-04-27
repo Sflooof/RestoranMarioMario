@@ -5,44 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище restaurantModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="BarCard">
-          <Key>
-            <PropertyRef Name="IdBarCard" />
-          </Key>
-          <Property Name="IdBarCard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="Category" Type="int" />
-          <Property Name="Sum" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="PhotoBarCard" Type="varbinary(max)" />
-          <Property Name="Volume" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="BarCardIngredient">
-          <Key>
-            <PropertyRef Name="IdBarCardIngredient" />
-          </Key>
-          <Property Name="IdBarCardIngredient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdBarCard" Type="int" Nullable="false" />
-          <Property Name="IdIngredient" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CategoryBarCard">
-          <Key>
-            <PropertyRef Name="IdBarCard" />
-          </Key>
-          <Property Name="IdBarCard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
         <EntityType Name="CategoryMenu">
           <Key>
             <PropertyRef Name="IdCategoryMenu" />
           </Key>
           <Property Name="IdCategoryMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Check">
-          <Key>
-            <PropertyRef Name="IdCheck" />
-          </Key>
-          <Property Name="IdCheck" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Ingredient">
           <Key>
@@ -57,10 +25,10 @@
           </Key>
           <Property Name="IdMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="Category" Type="int" Nullable="false" />
+          <Property Name="Category" Type="int" />
           <Property Name="Sum" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="PhotoMenu" Type="varbinary(max)" />
-          <Property Name="Weight" Type="int" Nullable="false" />
+          <Property Name="Volume" Type="int" />
         </EntityType>
         <EntityType Name="MenuIngredient">
           <Key>
@@ -82,15 +50,15 @@
           <Property Name="NumberOrder" Type="varchar(max)" Nullable="false" />
           <Property Name="NoteOrder" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="OrderMenuBarCard">
+        <EntityType Name="OrderMenu">
           <Key>
             <PropertyRef Name="IdOrderMenu" />
           </Key>
           <Property Name="IdOrderMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameMenu" Type="int" />
-          <Property Name="NameBarCard" Type="int" />
-          <Property Name="NumberOrder" Type="int" Nullable="false" />
+          <Property Name="MenuBarCard" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" />
+          <Property Name="Sum" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Modification" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -98,12 +66,6 @@
           </Key>
           <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Stocks">
-          <Key>
-            <PropertyRef Name="IdStocks" />
-          </Key>
-          <Property Name="IdStocks" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -122,13 +84,6 @@
           <Property Name="IdTable" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TableNumber" Type="int" Nullable="false" />
           <Property Name="TablePassword" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TypeIngredient">
-          <Key>
-            <PropertyRef Name="IdTypeIngredient" />
-          </Key>
-          <Property Name="IdTypeIngredient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -152,43 +107,7 @@
           <Property Name="Patronymic" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK_BarCard_CategoryBarCard">
-          <End Role="CategoryBarCard" Type="Self.CategoryBarCard" Multiplicity="0..1" />
-          <End Role="BarCard" Type="Self.BarCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CategoryBarCard">
-              <PropertyRef Name="IdBarCard" />
-            </Principal>
-            <Dependent Role="BarCard">
-              <PropertyRef Name="Category" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BarCardIngredient_BarCard">
-          <End Role="BarCard" Type="Self.BarCard" Multiplicity="1" />
-          <End Role="BarCardIngredient" Type="Self.BarCardIngredient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BarCard">
-              <PropertyRef Name="IdBarCard" />
-            </Principal>
-            <Dependent Role="BarCardIngredient">
-              <PropertyRef Name="IdBarCard" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BarCardIngredient_Ingredient">
-          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
-          <End Role="BarCardIngredient" Type="Self.BarCardIngredient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ingredient">
-              <PropertyRef Name="IdIngredient" />
-            </Principal>
-            <Dependent Role="BarCardIngredient">
-              <PropertyRef Name="IdIngredient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Menu_CategoryMenu">
-          <End Role="CategoryMenu" Type="Self.CategoryMenu" Multiplicity="1" />
+          <End Role="CategoryMenu" Type="Self.CategoryMenu" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CategoryMenu">
@@ -199,7 +118,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MenuIngredient_Ingredient">
+        <Association Name="FK_BarCardIngredient_Ingredient">
           <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
           <End Role="MenuIngredient" Type="Self.MenuIngredient" Multiplicity="*" />
           <ReferentialConstraint>
@@ -247,39 +166,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderMenu_Menu">
-          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
-          <End Role="OrderMenuBarCard" Type="Self.OrderMenuBarCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Menu">
-              <PropertyRef Name="IdMenu" />
-            </Principal>
-            <Dependent Role="OrderMenuBarCard">
-              <PropertyRef Name="NameMenu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderMenu_Order">
-          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
-          <End Role="OrderMenuBarCard" Type="Self.OrderMenuBarCard" Multiplicity="*" />
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="IdOrder" />
             </Principal>
-            <Dependent Role="OrderMenuBarCard">
-              <PropertyRef Name="NameBarCard" />
+            <Dependent Role="OrderMenu">
+              <PropertyRef Name="MenuBarCard" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderMenuBarCard_BarCard">
-          <End Role="BarCard" Type="Self.BarCard" Multiplicity="0..1" />
-          <End Role="OrderMenuBarCard" Type="Self.OrderMenuBarCard" Multiplicity="*" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="BarCard">
-              <PropertyRef Name="IdBarCard" />
+            <Principal Role="Menu">
+              <PropertyRef Name="IdMenu" />
             </Principal>
-            <Dependent Role="OrderMenuBarCard">
-              <PropertyRef Name="NameBarCard" />
+            <Dependent Role="OrderMenu">
+              <PropertyRef Name="MenuBarCard" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -296,40 +203,22 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище restaurantModelContainer">
-          <EntitySet Name="BarCard" EntityType="Self.BarCard" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BarCardIngredient" EntityType="Self.BarCardIngredient" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CategoryBarCard" EntityType="Self.CategoryBarCard" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CategoryMenu" EntityType="Self.CategoryMenu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Check" EntityType="Self.Check" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MenuIngredient" EntityType="Self.MenuIngredient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OrderMenuBarCard" EntityType="Self.OrderMenuBarCard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderMenu" EntityType="Self.OrderMenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TypeIngredient" EntityType="Self.TypeIngredient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Waiter" EntityType="Self.Waiter" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BarCard_CategoryBarCard" Association="Self.FK_BarCard_CategoryBarCard">
-            <End Role="CategoryBarCard" EntitySet="CategoryBarCard" />
-            <End Role="BarCard" EntitySet="BarCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BarCardIngredient_BarCard" Association="Self.FK_BarCardIngredient_BarCard">
-            <End Role="BarCard" EntitySet="BarCard" />
-            <End Role="BarCardIngredient" EntitySet="BarCardIngredient" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BarCardIngredient_Ingredient" Association="Self.FK_BarCardIngredient_Ingredient">
-            <End Role="Ingredient" EntitySet="Ingredient" />
-            <End Role="BarCardIngredient" EntitySet="BarCardIngredient" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Menu_CategoryMenu" Association="Self.FK_Menu_CategoryMenu">
             <End Role="CategoryMenu" EntitySet="CategoryMenu" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
-          <AssociationSet Name="FK_MenuIngredient_Ingredient" Association="Self.FK_MenuIngredient_Ingredient">
+          <AssociationSet Name="FK_BarCardIngredient_Ingredient" Association="Self.FK_BarCardIngredient_Ingredient">
             <End Role="Ingredient" EntitySet="Ingredient" />
             <End Role="MenuIngredient" EntitySet="MenuIngredient" />
           </AssociationSet>
@@ -345,17 +234,13 @@
             <End Role="Waiter" EntitySet="Waiter" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderMenu_Menu" Association="Self.FK_OrderMenu_Menu">
-            <End Role="Menu" EntitySet="Menu" />
-            <End Role="OrderMenuBarCard" EntitySet="OrderMenuBarCard" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderMenu_Order" Association="Self.FK_OrderMenu_Order">
             <End Role="Order" EntitySet="Order" />
-            <End Role="OrderMenuBarCard" EntitySet="OrderMenuBarCard" />
+            <End Role="OrderMenu" EntitySet="OrderMenu" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderMenuBarCard_BarCard" Association="Self.FK_OrderMenuBarCard_BarCard">
-            <End Role="BarCard" EntitySet="BarCard" />
-            <End Role="OrderMenuBarCard" EntitySet="OrderMenuBarCard" />
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="OrderMenu" EntitySet="OrderMenu" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
             <End Role="Roles" EntitySet="Roles" />
@@ -366,51 +251,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="restaurantModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="BarCard">
-          <Key>
-            <PropertyRef Name="IdBarCard" />
-          </Key>
-          <Property Name="IdBarCard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Category" Type="Int32" />
-          <Property Name="Sum" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="PhotoBarCard" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Volume" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CategoryBarCard" Relationship="Self.FK_BarCard_CategoryBarCard" FromRole="BarCard" ToRole="CategoryBarCard" />
-          <NavigationProperty Name="BarCardIngredient" Relationship="Self.FK_BarCardIngredient_BarCard" FromRole="BarCard" ToRole="BarCardIngredient" />
-          <NavigationProperty Name="OrderMenuBarCard" Relationship="Self.FK_OrderMenuBarCard_BarCard" FromRole="BarCard" ToRole="OrderMenuBarCard" />
-        </EntityType>
-        <EntityType Name="BarCardIngredient">
-          <Key>
-            <PropertyRef Name="IdBarCardIngredient" />
-          </Key>
-          <Property Name="IdBarCardIngredient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdBarCard" Type="Int32" Nullable="false" />
-          <Property Name="IdIngredient" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BarCard" Relationship="Self.FK_BarCardIngredient_BarCard" FromRole="BarCardIngredient" ToRole="BarCard" />
-          <NavigationProperty Name="Ingredient" Relationship="Self.FK_BarCardIngredient_Ingredient" FromRole="BarCardIngredient" ToRole="Ingredient" />
-        </EntityType>
-        <EntityType Name="CategoryBarCard">
-          <Key>
-            <PropertyRef Name="IdBarCard" />
-          </Key>
-          <Property Name="IdBarCard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BarCard" Relationship="Self.FK_BarCard_CategoryBarCard" FromRole="CategoryBarCard" ToRole="BarCard" />
-        </EntityType>
         <EntityType Name="CategoryMenu">
           <Key>
             <PropertyRef Name="IdCategoryMenu" />
           </Key>
           <Property Name="IdCategoryMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK_Menu_CategoryMenu" FromRole="CategoryMenu" ToRole="Menu" />
-        </EntityType>
-        <EntityType Name="Check">
-          <Key>
-            <PropertyRef Name="IdCheck" />
-          </Key>
-          <Property Name="IdCheck" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_BarCard_CategoryBarCard" FromRole="CategoryMenu" ToRole="Menu" />
         </EntityType>
         <EntityType Name="Ingredient">
           <Key>
@@ -418,8 +265,7 @@
           </Key>
           <Property Name="IdIngredient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BarCardIngredient" Relationship="Self.FK_BarCardIngredient_Ingredient" FromRole="Ingredient" ToRole="BarCardIngredient" />
-          <NavigationProperty Name="MenuIngredient" Relationship="Self.FK_MenuIngredient_Ingredient" FromRole="Ingredient" ToRole="MenuIngredient" />
+          <NavigationProperty Name="MenuIngredient" Relationship="Self.FK_BarCardIngredient_Ingredient" FromRole="Ingredient" ToRole="MenuIngredient" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -427,13 +273,13 @@
           </Key>
           <Property Name="IdMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Category" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="Int32" />
           <Property Name="Sum" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="PhotoMenu" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Weight" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CategoryMenu" Relationship="Self.FK_Menu_CategoryMenu" FromRole="Menu" ToRole="CategoryMenu" />
+          <Property Name="Volume" Type="Int32" />
+          <NavigationProperty Name="CategoryMenu" Relationship="Self.FK_BarCard_CategoryBarCard" FromRole="Menu" ToRole="CategoryMenu" />
           <NavigationProperty Name="MenuIngredient" Relationship="Self.FK_MenuIngredient_Menu" FromRole="Menu" ToRole="MenuIngredient" />
-          <NavigationProperty Name="OrderMenuBarCard" Relationship="Self.FK_OrderMenu_Menu" FromRole="Menu" ToRole="OrderMenuBarCard" />
+          <NavigationProperty Name="OrderMenu" Relationship="Self.FK_OrderMenuBarCard_BarCard" FromRole="Menu" ToRole="OrderMenu" />
         </EntityType>
         <EntityType Name="MenuIngredient">
           <Key>
@@ -442,7 +288,7 @@
           <Property Name="IdMenuIngredient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdMenu" Type="Int32" Nullable="false" />
           <Property Name="IdIngredient" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Ingredient" Relationship="Self.FK_MenuIngredient_Ingredient" FromRole="MenuIngredient" ToRole="Ingredient" />
+          <NavigationProperty Name="Ingredient" Relationship="Self.FK_BarCardIngredient_Ingredient" FromRole="MenuIngredient" ToRole="Ingredient" />
           <NavigationProperty Name="Menu" Relationship="Self.FK_MenuIngredient_Menu" FromRole="MenuIngredient" ToRole="Menu" />
         </EntityType>
         <EntityType Name="Order">
@@ -458,20 +304,19 @@
           <Property Name="NoteOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Table" Relationship="Self.FK_Order_Table" FromRole="Order" ToRole="Table" />
           <NavigationProperty Name="Waiter1" Relationship="Self.FK_Order_Waiter" FromRole="Order" ToRole="Waiter" />
-          <NavigationProperty Name="OrderMenuBarCard" Relationship="Self.FK_OrderMenu_Order" FromRole="Order" ToRole="OrderMenuBarCard" />
+          <NavigationProperty Name="OrderMenu" Relationship="Self.FK_OrderMenu_Order" FromRole="Order" ToRole="OrderMenu" />
         </EntityType>
-        <EntityType Name="OrderMenuBarCard">
+        <EntityType Name="OrderMenu">
           <Key>
             <PropertyRef Name="IdOrderMenu" />
           </Key>
           <Property Name="IdOrderMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameMenu" Type="Int32" />
-          <Property Name="NameBarCard" Type="Int32" />
-          <Property Name="NumberOrder" Type="Int32" Nullable="false" />
+          <Property Name="MenuBarCard" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
-          <NavigationProperty Name="BarCard" Relationship="Self.FK_OrderMenuBarCard_BarCard" FromRole="OrderMenuBarCard" ToRole="BarCard" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK_OrderMenu_Menu" FromRole="OrderMenuBarCard" ToRole="Menu" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_OrderMenu_Order" FromRole="OrderMenuBarCard" ToRole="Order" />
+          <Property Name="Sum" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_OrderMenuBarCard_BarCard" FromRole="OrderMenu" ToRole="Menu" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderMenu_Order" FromRole="OrderMenu" ToRole="Order" />
+          <Property Name="Modification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -480,12 +325,6 @@
           <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
-        </EntityType>
-        <EntityType Name="Stocks">
-          <Key>
-            <PropertyRef Name="IdStocks" />
-          </Key>
-          <Property Name="IdStocks" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -503,15 +342,8 @@
           </Key>
           <Property Name="IdTable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TableNumber" Type="Int32" Nullable="false" />
+          <Property Name="TablePassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Table" FromRole="Table" ToRole="Order" />
-          <Property Name="TablePassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="TypeIngredient">
-          <Key>
-            <PropertyRef Name="IdTypeIngredient" />
-          </Key>
-          <Property Name="IdTypeIngredient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -537,55 +369,7 @@
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Waiter" FromRole="Waiter" ToRole="Order" />
         </EntityType>
         <Association Name="FK_BarCard_CategoryBarCard">
-          <End Role="CategoryBarCard" Type="Self.CategoryBarCard" Multiplicity="0..1" />
-          <End Role="BarCard" Type="Self.BarCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CategoryBarCard">
-              <PropertyRef Name="IdBarCard" />
-            </Principal>
-            <Dependent Role="BarCard">
-              <PropertyRef Name="Category" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BarCardIngredient_BarCard">
-          <End Role="BarCard" Type="Self.BarCard" Multiplicity="1" />
-          <End Role="BarCardIngredient" Type="Self.BarCardIngredient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BarCard">
-              <PropertyRef Name="IdBarCard" />
-            </Principal>
-            <Dependent Role="BarCardIngredient">
-              <PropertyRef Name="IdBarCard" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderMenuBarCard_BarCard">
-          <End Role="BarCard" Type="Self.BarCard" Multiplicity="0..1" />
-          <End Role="OrderMenuBarCard" Type="Self.OrderMenuBarCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BarCard">
-              <PropertyRef Name="IdBarCard" />
-            </Principal>
-            <Dependent Role="OrderMenuBarCard">
-              <PropertyRef Name="NameBarCard" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BarCardIngredient_Ingredient">
-          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
-          <End Role="BarCardIngredient" Type="Self.BarCardIngredient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ingredient">
-              <PropertyRef Name="IdIngredient" />
-            </Principal>
-            <Dependent Role="BarCardIngredient">
-              <PropertyRef Name="IdIngredient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Menu_CategoryMenu">
-          <End Role="CategoryMenu" Type="Self.CategoryMenu" Multiplicity="1" />
+          <End Role="CategoryMenu" Type="Self.CategoryMenu" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CategoryMenu">
@@ -596,7 +380,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MenuIngredient_Ingredient">
+        <Association Name="FK_BarCardIngredient_Ingredient">
           <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
           <End Role="MenuIngredient" Type="Self.MenuIngredient" Multiplicity="*" />
           <ReferentialConstraint>
@@ -620,15 +404,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderMenu_Menu">
-          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
-          <End Role="OrderMenuBarCard" Type="Self.OrderMenuBarCard" Multiplicity="*" />
+        <Association Name="FK_OrderMenuBarCard_BarCard">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Menu">
               <PropertyRef Name="IdMenu" />
             </Principal>
-            <Dependent Role="OrderMenuBarCard">
-              <PropertyRef Name="NameMenu" />
+            <Dependent Role="OrderMenu">
+              <PropertyRef Name="MenuBarCard" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -657,14 +441,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderMenu_Order">
-          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
-          <End Role="OrderMenuBarCard" Type="Self.OrderMenuBarCard" Multiplicity="*" />
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="IdOrder" />
             </Principal>
-            <Dependent Role="OrderMenuBarCard">
-              <PropertyRef Name="NameBarCard" />
+            <Dependent Role="OrderMenu">
+              <PropertyRef Name="MenuBarCard" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -681,44 +465,22 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="restaurantEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BarCard" EntityType="Self.BarCard" />
-          <EntitySet Name="BarCardIngredient" EntityType="Self.BarCardIngredient" />
-          <EntitySet Name="CategoryBarCard" EntityType="Self.CategoryBarCard" />
           <EntitySet Name="CategoryMenu" EntityType="Self.CategoryMenu" />
-          <EntitySet Name="Check" EntityType="Self.Check" />
           <EntitySet Name="Ingredient" EntityType="Self.Ingredient" />
           <EntitySet Name="Menu" EntityType="Self.Menu" />
           <EntitySet Name="MenuIngredient" EntityType="Self.MenuIngredient" />
           <EntitySet Name="Order" EntityType="Self.Order" />
-          <EntitySet Name="OrderMenuBarCard" EntityType="Self.OrderMenuBarCard" />
+          <EntitySet Name="OrderMenu" EntityType="Self.OrderMenu" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
-          <EntitySet Name="Stocks" EntityType="Self.Stocks" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Table" EntityType="Self.Table" />
-          <EntitySet Name="TypeIngredient" EntityType="Self.TypeIngredient" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="Waiter" EntityType="Self.Waiter" />
           <AssociationSet Name="FK_BarCard_CategoryBarCard" Association="Self.FK_BarCard_CategoryBarCard">
-            <End Role="CategoryBarCard" EntitySet="CategoryBarCard" />
-            <End Role="BarCard" EntitySet="BarCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BarCardIngredient_BarCard" Association="Self.FK_BarCardIngredient_BarCard">
-            <End Role="BarCard" EntitySet="BarCard" />
-            <End Role="BarCardIngredient" EntitySet="BarCardIngredient" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderMenuBarCard_BarCard" Association="Self.FK_OrderMenuBarCard_BarCard">
-            <End Role="BarCard" EntitySet="BarCard" />
-            <End Role="OrderMenuBarCard" EntitySet="OrderMenuBarCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BarCardIngredient_Ingredient" Association="Self.FK_BarCardIngredient_Ingredient">
-            <End Role="Ingredient" EntitySet="Ingredient" />
-            <End Role="BarCardIngredient" EntitySet="BarCardIngredient" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Menu_CategoryMenu" Association="Self.FK_Menu_CategoryMenu">
             <End Role="CategoryMenu" EntitySet="CategoryMenu" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
-          <AssociationSet Name="FK_MenuIngredient_Ingredient" Association="Self.FK_MenuIngredient_Ingredient">
+          <AssociationSet Name="FK_BarCardIngredient_Ingredient" Association="Self.FK_BarCardIngredient_Ingredient">
             <End Role="Ingredient" EntitySet="Ingredient" />
             <End Role="MenuIngredient" EntitySet="MenuIngredient" />
           </AssociationSet>
@@ -726,9 +488,9 @@
             <End Role="Menu" EntitySet="Menu" />
             <End Role="MenuIngredient" EntitySet="MenuIngredient" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderMenu_Menu" Association="Self.FK_OrderMenu_Menu">
+          <AssociationSet Name="FK_OrderMenuBarCard_BarCard" Association="Self.FK_OrderMenuBarCard_BarCard">
             <End Role="Menu" EntitySet="Menu" />
-            <End Role="OrderMenuBarCard" EntitySet="OrderMenuBarCard" />
+            <End Role="OrderMenu" EntitySet="OrderMenu" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Table" Association="Self.FK_Order_Table">
             <End Role="Table" EntitySet="Table" />
@@ -740,7 +502,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_OrderMenu_Order" Association="Self.FK_OrderMenu_Order">
             <End Role="Order" EntitySet="Order" />
-            <End Role="OrderMenuBarCard" EntitySet="OrderMenuBarCard" />
+            <End Role="OrderMenu" EntitySet="OrderMenu" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
             <End Role="Roles" EntitySet="Roles" />
@@ -753,47 +515,11 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище restaurantModelContainer" CdmEntityContainer="restaurantEntities">
-          <EntitySetMapping Name="BarCard">
-            <EntityTypeMapping TypeName="restaurantModel.BarCard">
-              <MappingFragment StoreEntitySet="BarCard">
-                <ScalarProperty Name="IdBarCard" ColumnName="IdBarCard" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="Sum" ColumnName="Sum" />
-                <ScalarProperty Name="PhotoBarCard" ColumnName="PhotoBarCard" />
-                <ScalarProperty Name="Volume" ColumnName="Volume" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BarCardIngredient">
-            <EntityTypeMapping TypeName="restaurantModel.BarCardIngredient">
-              <MappingFragment StoreEntitySet="BarCardIngredient">
-                <ScalarProperty Name="IdBarCardIngredient" ColumnName="IdBarCardIngredient" />
-                <ScalarProperty Name="IdBarCard" ColumnName="IdBarCard" />
-                <ScalarProperty Name="IdIngredient" ColumnName="IdIngredient" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CategoryBarCard">
-            <EntityTypeMapping TypeName="restaurantModel.CategoryBarCard">
-              <MappingFragment StoreEntitySet="CategoryBarCard">
-                <ScalarProperty Name="IdBarCard" ColumnName="IdBarCard" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CategoryMenu">
             <EntityTypeMapping TypeName="restaurantModel.CategoryMenu">
               <MappingFragment StoreEntitySet="CategoryMenu">
                 <ScalarProperty Name="IdCategoryMenu" ColumnName="IdCategoryMenu" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Check">
-            <EntityTypeMapping TypeName="restaurantModel.Check">
-              <MappingFragment StoreEntitySet="Check">
-                <ScalarProperty Name="IdCheck" ColumnName="IdCheck" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -813,7 +539,7 @@
                 <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Sum" ColumnName="Sum" />
                 <ScalarProperty Name="PhotoMenu" ColumnName="PhotoMenu" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -839,14 +565,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderMenuBarCard">
-            <EntityTypeMapping TypeName="restaurantModel.OrderMenuBarCard">
-              <MappingFragment StoreEntitySet="OrderMenuBarCard">
+          <EntitySetMapping Name="OrderMenu">
+            <EntityTypeMapping TypeName="restaurantModel.OrderMenu">
+              <MappingFragment StoreEntitySet="OrderMenu">
+                <ScalarProperty Name="Modification" ColumnName="Modification" />
                 <ScalarProperty Name="IdOrderMenu" ColumnName="IdOrderMenu" />
-                <ScalarProperty Name="NameMenu" ColumnName="NameMenu" />
-                <ScalarProperty Name="NameBarCard" ColumnName="NameBarCard" />
-                <ScalarProperty Name="NumberOrder" ColumnName="NumberOrder" />
+                <ScalarProperty Name="MenuBarCard" ColumnName="MenuBarCard" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -855,13 +581,6 @@
               <MappingFragment StoreEntitySet="Roles">
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Stocks">
-            <EntityTypeMapping TypeName="restaurantModel.Stocks">
-              <MappingFragment StoreEntitySet="Stocks">
-                <ScalarProperty Name="IdStocks" ColumnName="IdStocks" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -879,17 +598,9 @@
           <EntitySetMapping Name="Table">
             <EntityTypeMapping TypeName="restaurantModel.Table">
               <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="TablePassword" ColumnName="TablePassword" />
                 <ScalarProperty Name="IdTable" ColumnName="IdTable" />
                 <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TypeIngredient">
-            <EntityTypeMapping TypeName="restaurantModel.TypeIngredient">
-              <MappingFragment StoreEntitySet="TypeIngredient">
-                <ScalarProperty Name="IdTypeIngredient" ColumnName="IdTypeIngredient" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TablePassword" ColumnName="TablePassword" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

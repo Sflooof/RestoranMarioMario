@@ -12,8 +12,15 @@ namespace RestoranMarioMario.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Stocks
+    public partial class OrderMenu
     {
-        public int IdStocks { get; set; }
+        public int IdOrderMenu { get; set; }
+        public int MenuBarCard { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<decimal> Sum { get; set; }
+        public string Modification { get; set; }
+    
+        public virtual Menu Menu { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

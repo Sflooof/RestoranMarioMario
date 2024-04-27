@@ -39,17 +39,17 @@ namespace RestoranMarioMario.Pages.AdminPages
 
         private void BtEdit_Click(object sender, RoutedEventArgs e)
         {
-            var edit = (sender as Button).DataContext as OrderMenuBarCard;
+            var edit = (sender as Button).DataContext as OrderMenu;
             NavigationService.Navigate(new OrderMenuEditPage(edit));
         }
 
         private void BtDelete_Click(object sender, RoutedEventArgs e)
         {
-            var delete = (sender as Button).DataContext as OrderMenuBarCard;
+            var delete = (sender as Button).DataContext as OrderMenu;
             if (MessageBox.Show("Вы действительно хотите удалить эту сточку?", "Внимание!", MessageBoxButton.YesNo,
                 MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                App.db.OrderMenuBarCard.Remove(delete);
+                App.db.OrderMenu.Remove(delete);
                 App.db.SaveChanges();
                 UpdateData();
             }
@@ -77,25 +77,24 @@ namespace RestoranMarioMario.Pages.AdminPages
 
         private void UpdateData()
         {
-            var updateItem = App.db.OrderMenuBarCard.ToList();
-            updateItem = updateItem.Where(item => item.NameMenu.ToString().ToLower().Contains(TbFind.Text.ToLower())
-            || item.NameBarCard.ToString().ToLower().Contains(TbFind.Text.ToLower())).ToList();
+            var updateItem = App.db.OrderMenu.ToList();
+            updateItem = updateItem.Where(item => item.MenuBarCard.ToString().ToLower().Contains(TbFind.Text.ToLower())).ToList();
             if (CbSort.SelectedIndex == 0)
             {
-                updateItem = updateItem.OrderBy(item => item.NameBarCard).ToList();
+                updateItem = updateItem.OrderBy(item => item.MenuBarCard).ToList();
             }
             else if (CbSort.SelectedIndex == 1)
             {
-                updateItem = updateItem.OrderByDescending(item => item.NameBarCard).ToList();
+                updateItem = updateItem.OrderByDescending(item => item.MenuBarCard).ToList();
             }
             if (CbFilter.SelectedIndex > 0)
             {
                 var selectedCategory = CbFilter.SelectedIndex;
-                updateItem = updateItem.Where(item => item.NameMenu == selectedCategory).ToList();
+                updateItem = updateItem.Where(item => item.MenuBarCard == selectedCategory).ToList();
             }
             ListViewCatalog.ItemsSource = updateItem;
             int countFind = ListViewCatalog.Items.Count;
-            TbCountFind.Text = countFind.ToString() + " из " + App.db.OrderMenuBarCard.Count().ToString();
+            TbCountFind.Text = countFind.ToString() + " из " + App.db.OrderMenu.Count().ToString();
             if (countFind < 1)
             {
                 TbCountFind.Text += " по вашему запросу ничего не найдено";

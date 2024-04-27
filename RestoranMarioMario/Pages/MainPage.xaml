@@ -9,12 +9,12 @@
       Title="Главная страница">
 
     <Grid>
-        <Button x:Name="BtWaiter" Height="45" Width="200" Content="Вызов официанта" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
+        <Button x:Name="BtWaiter" Height="45" Width="200" Content="Вызов официанта" VerticalAlignment="Top" HorizontalAlignment="Right" Click="BtWaiter_Click"></Button>
         <TextBlock Text="Стол номер "></TextBlock>
         <TextBlock x:Name="TbTableNumber" Margin="90 10 0 0"></TextBlock>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="BtMenu" Content="Меню" Width="250" Height="350" Click="BtMenu_Click"></Button>
-            <Button x:Name="BtBarCard" Content="Барная карта" Width="250" Height="350" Click="BtBarCard_Click"></Button>
+            <Button x:Name="BtPlay" Content="Игра" Width="250" Height="350" Click="BtPlay_Click"></Button>
             <Button x:Name="BtBasket" Content="Корзина" Width="250" Height="350" Click="BtBasket_Click"></Button>
         </StackPanel>
     </Grid>

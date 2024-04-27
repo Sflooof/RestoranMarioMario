@@ -31,11 +31,6 @@ namespace RestoranMarioMario.Pages
             NavigationService.Navigate(new MenuPage());
         }
 
-        private void BtBarCard_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new BarCardPage());
-        }
-
         private void BtBasket_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new CartPage());
@@ -45,6 +40,16 @@ namespace RestoranMarioMario.Pages
         {
             var tableNumber = $"{App.CurrentTable.TableNumber}";
             TbTableNumber.Text = tableNumber;
+        }
+
+        private void BtWaiter_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Официант скоро к вам подойдет.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void BtPlay_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

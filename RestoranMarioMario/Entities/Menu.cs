@@ -18,20 +18,20 @@ namespace RestoranMarioMario.Entities
         public Menu()
         {
             this.MenuIngredient = new HashSet<MenuIngredient>();
-            this.OrderMenuBarCard = new HashSet<OrderMenuBarCard>();
+            this.OrderMenu = new HashSet<OrderMenu>();
         }
     
         public int IdMenu { get; set; }
         public string Name { get; set; }
-        public int Category { get; set; }
+        public Nullable<int> Category { get; set; }
         public decimal Sum { get; set; }
         public byte[] PhotoMenu { get; set; }
-        public int Weight { get; set; }
+        public Nullable<int> Volume { get; set; }
     
         public virtual CategoryMenu CategoryMenu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MenuIngredient> MenuIngredient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderMenuBarCard> OrderMenuBarCard { get; set; }
+        public virtual ICollection<OrderMenu> OrderMenu { get; set; }
     }
 }

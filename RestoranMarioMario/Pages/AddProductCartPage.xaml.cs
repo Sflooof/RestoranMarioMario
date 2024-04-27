@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestoranMarioMario.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,35 @@ namespace RestoranMarioMario.Pages
     /// </summary>
     public partial class AddProductCartPage : Page
     {
-        public AddProductCartPage()
+        private OrderMenu orderMenu = null;
+        //private Entities.Menu menu = null;
+        public AddProductCartPage(OrderMenu corOrderMenu)
         {
             InitializeComponent();
+            orderMenu = corOrderMenu;
+            //TbSum.Text = menu.Sum.ToString();
+            DataContext = orderMenu;
+        }
+
+        private void BtBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void BtSave_Click(object sender, RoutedEventArgs e)
+        {
+            var currentMenu = (sender as Button).DataContext as Entities.Menu;
+            var order = App.db.Order.Where(o => o.TableNumber == App.CurrentTable.IdTable).FirstOrDefault();
+            var orderMenu = new Entities.OrderMenu
+            {
+                MenuBarCard = currentMenu.IdMenu,
+                Quantity = 1,
+                Sum = currentMenu.Sum,
+                Modification = TbModification.Text,
+            };
+            App.db.OrderMenu.Add(orderMenu);
+            order.OrderSum += currentMenu.Sum;
+            App.db.SaveChanges();
         }
     }
 }

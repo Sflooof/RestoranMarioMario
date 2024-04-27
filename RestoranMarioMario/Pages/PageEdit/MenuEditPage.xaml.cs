@@ -40,14 +40,14 @@ namespace RestoranMarioMario.Pages.PageEdit
             {
                 menu = corMenu;
                 TbName.Text = corMenu.Name.ToString();
-                CbCategory.SelectedIndex = corMenu.Category - 1;
+                CbCategory.SelectedIndex = (int)corMenu.Category - 1;
                 TbSum.Text = corMenu.Sum.ToString();
                 if (corMenu.PhotoMenu != null)
                 {
                     ImagePhoto.Source = new ImageSourceConverter()
                         .ConvertFrom(corMenu.PhotoMenu) as ImageSource;
                 }
-                TbWeight.Text = corMenu.Weight.ToString();
+                TbWeight.Text = corMenu.Volume.ToString();
             }
         }
 
@@ -77,7 +77,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                             Category = int.Parse("NULL"),
                             Sum = int.Parse(TbSum.Text),
                             PhotoMenu = img,
-                            Weight = int.Parse(TbWeight.Text),
+                            Volume = int.Parse(TbWeight.Text),
                         };
                     }
                     else
@@ -88,7 +88,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                             Category = category.IdCategoryMenu,
                             Sum = int.Parse(TbSum.Text),
                             PhotoMenu = img,
-                            Weight = int.Parse(TbWeight.Text),
+                            Volume = int.Parse(TbWeight.Text),
                         };
                     }
                     App.db.Menu.Add(correstMenu);
@@ -103,7 +103,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     menu.Sum = int.Parse(TbSum.Text);
                     if (img != null)
                         menu.PhotoMenu = img;
-                    menu.Weight = int.Parse(TbWeight.Text);
+                    menu.Volume = int.Parse(TbWeight.Text);
                     App.db.SaveChanges();
                     MessageBox.Show("Блюдо успешно добавлено", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();

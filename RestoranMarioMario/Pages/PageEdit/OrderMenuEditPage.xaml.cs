@@ -22,36 +22,29 @@ namespace RestoranMarioMario.Pages.PageEdit
     /// </summary>
     public partial class OrderMenuEditPage : Page
     {
-        private Entities.OrderMenuBarCard orderMenu = null;
+        private Entities.OrderMenu orderMenu = null;
         Regex regexSum = new Regex(@"^\w{1,4}$");
         MatchCollection match;
         public OrderMenuEditPage()
         {
             InitializeComponent();
         }
-        public OrderMenuEditPage(Entities.OrderMenuBarCard corOrderMenu)
+        public OrderMenuEditPage(Entities.OrderMenu corOrderMenu)
         {
             InitializeComponent();
             if (corOrderMenu != null)
             {
                 orderMenu = corOrderMenu;
-                CbNameMenu.SelectedIndex = (int)(corOrderMenu.NameMenu - 1);
-                CbNameBarCard.SelectedIndex = (int)(corOrderMenu.NameBarCard - 1);
-                CbNumberOrder.SelectedIndex = corOrderMenu.NumberOrder - 1;
+                CbNameMenu.SelectedIndex = (int)(corOrderMenu.MenuBarCard - 1);
+                //CbNumberOrder.SelectedIndex = corOrderMenu.NumberOrder - 1;
                 TbQuantity.Text = corOrderMenu.Quantity.ToString();
             }
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var cbMenu = App.db.Menu.OrderBy(p => p.IdMenu).Select(p => p.Name).ToArray();
-            var cbBarCard = App.db.BarCard.OrderBy(p => p.IdBarCard).ToArray();
-            var cbOrder = App.db.Order.OrderBy(p => p.IdOrder).Select(p => p.NumberOrder).ToArray();
+            var cbMenu = App.db.Menu.OrderBy(p => p.IdMenu).Select(p => p.Name).ToArray();            
             for (int i = 0; i < cbMenu.Length; i++)
                 CbNameMenu.Items.Add(cbMenu[i]);
-            for (int i = 0; i < cbOrder.Length; i++)
-                CbNumberOrder.Items.Add(cbOrder[i]);
-            for (int i = 0; i < cbBarCard.Length; i++)
-                CbNameBarCard.Items.Add(cbBarCard[i]);
         }
 
         private void BtBack_Click(object sender, RoutedEventArgs e)
@@ -69,42 +62,37 @@ namespace RestoranMarioMario.Pages.PageEdit
             else
             {
                 var menu = App.db.Menu.Where(c => c.Name == CbNameMenu.SelectedItem.ToString()).FirstOrDefault();
-                var bar = App.db.BarCard.Where(c => c.Name == CbNameBarCard.SelectedItem.ToString()).FirstOrDefault();
-                var order = App.db.Order.Where(c => c.NumberOrder == CbNumberOrder.SelectedItem.ToString()).FirstOrDefault();
                 if (orderMenu == null)
                 {
-                    var correctMenu = new Entities.OrderMenuBarCard { };
+                    var correctMenu = new Entities.OrderMenu { };
                     if (CbNameMenu.Text == "")
                     {
-                        correctMenu = new Entities.OrderMenuBarCard
+                        correctMenu = new Entities.OrderMenu
                         {
-                            NameMenu = menu.IdMenu,
-                            NameBarCard = bar.IdBarCard,
-                            NumberOrder = order.IdOrder,
+                            MenuBarCard = menu.IdMenu,
                             Quantity = int.Parse(TbQuantity.Text),
+                            Sum = decimal.Parse(TbSum.Text)
                         };
                     }
                     else
                     {
-                        correctMenu = new Entities.OrderMenuBarCard
+                        correctMenu = new Entities.OrderMenu
                         {
-                            NameMenu = menu.IdMenu,
-                            NameBarCard = bar.IdBarCard,
-                            NumberOrder = order.IdOrder,
+                            MenuBarCard = menu.IdMenu,
                             Quantity = int.Parse(TbQuantity.Text),
+                            Sum = decimal.Parse(TbSum.Text)
                         };
                     }
-                    App.db.OrderMenuBarCard.Add(correctMenu);
+                    App.db.OrderMenu.Add(correctMenu);
                     App.db.SaveChanges();
                     MessageBox.Show("Данные успешно добавлены", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
                 else
                 {
-                    orderMenu.NameMenu = menu.IdMenu;
-                    orderMenu.NameBarCard = bar.IdBarCard;
-                    orderMenu.NumberOrder = order.IdOrder;
+                    orderMenu.MenuBarCard = menu.IdMenu;
                     orderMenu.Quantity = int.Parse(TbQuantity.Text);
+                    orderMenu.Sum = decimal.Parse(TbSum.Text);
                     App.db.SaveChanges();
                     MessageBox.Show("Данные успешно обновлены", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
@@ -115,18 +103,14 @@ namespace RestoranMarioMario.Pages.PageEdit
         {
             var errorBuilder = new StringBuilder();
             if (CbNameMenu.SelectedItem == null)
-                errorBuilder.AppendLine("Поле Блюдо обязательно для заполнения.");
-            if (CbNumberOrder.SelectedItem == null)
-                errorBuilder.AppendLine("Поле Номер заказа обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Позиция меню обязательно для заполнения.");
             if (string.IsNullOrWhiteSpace(TbQuantity.Text))
                 errorBuilder.AppendLine("Поле Количество обязательно для заполнения.");
+            if (string.IsNullOrWhiteSpace(TbSum.Text))
+                errorBuilder.AppendLine("Поле Сумма обязательно для заполнения.");
             match = regexSum.Matches(TbQuantity.Text);
             if (match.Count == 0)
                 errorBuilder.AppendLine("Некорректно введена количество.");
-            if (CbNameBarCard.Text != null && CbNameMenu.Text != null)
-            {
-                errorBuilder.AppendLine("Введмите значение только для меня или только для барной крты.");
-            }
             if (errorBuilder.Length > 0)
             {
                 errorBuilder.Insert(0, "Устраните следующие ошибки:\n");

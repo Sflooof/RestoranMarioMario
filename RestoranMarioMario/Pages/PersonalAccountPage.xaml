@@ -21,27 +21,18 @@
             <Button x:Name="BtTable" Content="Столы" Width="150" Height="150" Click="BtTable_Click"></Button>
             <Button x:Name="BtUser" Content="Пользователи" Width="150" Height="150" Click="BtUser_Click" Visibility="{Binding AdminVisibiliti}"></Button>
             <Button x:Name="BtRole" Content="Роль пользователя" Width="150" Height="150" Click="BtRole_Click"></Button>
-            <Button x:Name="BtBarCard" Content="Барная карта" Width="150" Height="150" Click="BtBarCard_Click"></Button>
-            <Button x:Name="BtBarCardInrgedient" Width="150" Height="150" Click="BtBarCardInrgedient_Click">
-                <TextBlock TextAlignment="Center">Барная карта <LineBreak/> - <LineBreak/> Ингредиенты</TextBlock>
-            </Button>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
-            <Button x:Name="BtCategoryBarCard" Width="150" Height="150" Click="BtCategoryBarCard_Click">
-                <TextBlock TextAlignment="Center"><LineBreak/>Категория <LineBreak/> барной карты</TextBlock>
-            </Button>
-            <Button x:Name="BtCategoryMenu" Content="Категория меню" Width="150" Height="150" Click="BtCategoryMenu_Click"></Button>
-            <Button x:Name="BtIngredient" Content="Ингредиенты" Width="150" Height="150" Click="BtIngredient_Click"></Button>
             <Button x:Name="BtMenu" Content="Меню" Width="150" Height="150" Click="BtMenu_Click"></Button>
-            <Button x:Name="BtMenuIngredient" Width="150" Height="150" Click="BtMenuIngredient_Click">
+            <Button x:Name="BtMenuInrgedient" Width="150" Height="150" Click="BtMenuIngredient_Click">
                 <TextBlock TextAlignment="Center">Меню <LineBreak/> - <LineBreak/> Ингредиенты</TextBlock>
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Name="BtCategoryMenu" Content="Категория меню" Width="150" Height="150" Click="BtCategoryMenu_Click"></Button>
+            <Button x:Name="BtIngredient" Content="Ингредиенты" Width="150" Height="150" Click="BtIngredient_Click"></Button>
             <Button x:Name="BtOrder" Content="Заказы" Width="150" Height="150" Click="BtOrder_Click"></Button>
             <Button x:Name="BtWaiter" Content="Официанты" Width="150" Height="150" Click="BtWaiter_Click"></Button>
             <Button x:Name="BtOrderMenu" Width="150" Height="150" Click="BtOrderMenu_Click">
-                <TextBlock TextAlignment="Center">Заказ <LineBreak/> - <LineBreak/> Меню <LineBreak/> - <LineBreak/> Барная карта</TextBlock>
+                <TextBlock TextAlignment="Center">Заказ <LineBreak/> - <LineBreak/> Меню</TextBlock>
             </Button>
         </StackPanel>
     </Grid>

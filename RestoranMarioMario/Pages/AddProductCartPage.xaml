@@ -12,10 +12,10 @@
         <Button x:Name="BtBack" Height="20" Width="20" HorizontalAlignment="Left" Click="BtBack_Click" VerticalAlignment="Top"></Button>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Введити модификации"></TextBlock>
-            <TextBox x:Name="CbExecuter" Text="{Binding executer1}" Height="177"></TextBox>
+            <TextBox x:Name="TbModification" Text="{Binding Modification}" Height="177"></TextBox>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Итог:"></TextBlock>
-                <TextBlock Text="{Binding }"></TextBlock>
+                <TextBlock x:Name="TbSum" Text="{Binding Sum}"></TextBlock>
             </StackPanel>
             <Button x:Name="BtSave" Content="сохранить" Click="BtSave_Click"></Button>
         </StackPanel>

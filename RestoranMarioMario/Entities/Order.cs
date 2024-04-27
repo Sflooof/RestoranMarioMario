@@ -17,7 +17,7 @@ namespace RestoranMarioMario.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.OrderMenuBarCard = new HashSet<OrderMenuBarCard>();
+            this.OrderMenu = new HashSet<OrderMenu>();
         }
     
         public int IdOrder { get; set; }
@@ -31,6 +31,6 @@ namespace RestoranMarioMario.Entities
         public virtual Table Table { get; set; }
         public virtual Waiter Waiter1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderMenuBarCard> OrderMenuBarCard { get; set; }
+        public virtual ICollection<OrderMenu> OrderMenu { get; set; }
     }
 }

@@ -98,7 +98,7 @@ namespace RestoranMarioMario.Pages.AdminPages
             }
             ListViewCatalog.ItemsSource = updateItem;
             int countFind = ListViewCatalog.Items.Count;
-            TbCountFind.Text = countFind.ToString() + " из " + App.db.BarCard.Count().ToString();
+            TbCountFind.Text = countFind.ToString() + " из " + App.db.Menu.Count().ToString();
             if (countFind < 1)
             {
                 TbCountFind.Text += " по вашему запросу ничего не найдено";

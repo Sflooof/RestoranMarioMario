@@ -20,6 +20,7 @@
         <FlowDocumentScrollViewer IsToolBarVisible="False" VerticalScrollBarVisibility="Hidden" Grid.Row="1">
             <FlowDocument>
                 <Paragraph>
+                    <Button x:Name="BtCtrtificate" Content="Сертификат" Width="130" Height="130" Click="BtCtrtificate_Click"></Button>
                     <Button x:Name="BtPizza" Content="Пицца" Width="130" Height="130" Click="BtPizza_Click"></Button>
                     <Button x:Name="BtFocaccia" Content="Фокачча" Width="130" Height="130" Click="BtFocaccia_Click"></Button>
                     <Button x:Name="BtPizzaSauce" Width="130" Height="130" Click="BtPizzaSauce_Click">
@@ -36,6 +37,47 @@
                         <TextBlock TextAlignment="Center">Горячие блюда <LineBreak/> из мяса</TextBlock>
                     </Button>
                     <Button x:Name="BtSideDish" Content="Гарнир" Width="130" Height="130" Click="BtSideDish_Click"></Button>
+                    <Button x:Name="BtHomemadeTinctures" Width="130" Height="130" Click="BtHomemadeTinctures_Click">
+                        <TextBlock TextAlignment="Center">Домашние <LineBreak/> настойки</TextBlock>
+                    </Button>
+                    <Button x:Name="BtBeerOnTap" Content="Пиво на кране" Width="130" Height="130" Click="BtBeerOnTap_Click"></Button>
+                    <Button x:Name="BtBottledBeer" Width="130" Height="130" Click="BtBottledBeer_Click">
+                        <TextBlock TextAlignment="Center">Пиво <LineBreak/> бутылочное</TextBlock>
+                    </Button>
+                    <Button x:Name="BtVodka" Content="Водка" Width="130" Height="130" Click="BtVodka_Click"></Button>
+                    <Button x:Name="BtTequila" Content="Текила" Width="130" Height="130" Click="BtTequila_Click"></Button>
+                    <Button x:Name="BtIceShot" Content="Ледяной шот" Width="130" Height="130" Click="BtIceShot_Click"></Button>
+                    <Button x:Name="BtWhiskey" Content="Виски" Width="130" Height="130" Click="BtWhiskey_Click"></Button>
+                    <Button x:Name="BtCognacBrandy" Width="130" Height="130" Click="BtCognacBrandy_Click">
+                        <TextBlock TextAlignment="Center"> Коньяк, <LineBreak/> бренди</TextBlock>
+                    </Button>
+                    <Button x:Name="BtRum" Content="Ром" Width="130" Height="130" Click="BtRum_Click"></Button>
+                    <Button x:Name="BtGin" Content="Джин" Width="130" Height="130" Click="BtGin_Click"></Button>
+                    <Button x:Name="BtVermouth" Content="Вермут" Width="130" Height="130" Click="BtVermouth_Click"></Button>
+                    <Button x:Name="BtAlcoholicCocktails" Width="130" Height="130" Click="BtAlcoholicCocktails_Click">
+                        <TextBlock TextAlignment="Center"> Алкогольные <LineBreak/> коктейли</TextBlock>
+                    </Button>
+                    <Button x:Name="BtTinctureCocktails" Width="130" Height="130" Click="BtTinctureCocktails_Click">
+                        <TextBlock TextAlignment="Center"> Коктейли <LineBreak/> на <LineBreak/> настойках</TextBlock>
+                    </Button>
+                    <Button x:Name="BtNonAlcoholicCocktails" Width="130" Height="130" Click="BtNonAlcoholicCocktails_Click">
+                        <TextBlock TextAlignment="Center"> Безалкогольные <LineBreak/> коктейли</TextBlock>
+                    </Button>
+                    <Button x:Name="BtMilkShakes" Content="Милк-шейки" Width="130" Height="130" Click="BtMilkShakes_Click"></Button>
+                    <Button x:Name="BtSmoothies" Content="Смузи" Width="130" Height="130" Click="BtSmoothies_Click"></Button>
+                    <Button x:Name="BtCocktailsWithJuice" Width="130" Height="130" Click="BtCocktailsWithJuice_Click">
+                        <TextBlock TextAlignment="Center"> Коктейли <LineBreak/> с соком</TextBlock>
+                    </Button>
+                    <Button x:Name="BtFresh" Content="Фреш" Width="130" Height="130" Click="BtFresh_Click"></Button>
+                    <Button x:Name="BtLemonade" Content="Лимонад" Width="130" Height="130" Click="BtLemonade_Click"></Button>
+                    <Button x:Name="BtMojito" Content="Мохито" Width="130" Height="130" Click="BtMojito_Click"></Button>
+                    <Button x:Name="BtJuice" Content="Сок" Width="130" Height="130" Click="BtJuice_Click"></Button>
+                    <Button x:Name="BtClassicTea" Width="130" Height="130" Click="BtClassicTea_Click">
+                        <TextBlock TextAlignment="Center"> Чай <LineBreak/> классический</TextBlock>
+                    </Button>
+                    <Button x:Name="BtHomemadeTea" Content="Чай домашний" Width="130" Height="130" Click="BtHomemadeTea_Click"></Button>
+                    <Button x:Name="BtCoffee" Content="Кофе" Width="130" Height="130" Click="BtCoffee_Click"></Button>
+                    <Button x:Name="BtDrink" Content="Напиток" Width="130" Height="130" Click="BtDrink_Click"></Button>
                 </Paragraph>
             </FlowDocument>
         </FlowDocumentScrollViewer>

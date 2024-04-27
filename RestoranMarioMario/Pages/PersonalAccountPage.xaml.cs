@@ -47,11 +47,6 @@ namespace RestoranMarioMario.Pages
             NavigationService.Navigate(new RolePage());
         }
 
-        private void BtBarCard_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AdminPages.BarCardPage());
-        }
-
         private void BtMenu_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AdminPages.MenuPage());
@@ -60,11 +55,6 @@ namespace RestoranMarioMario.Pages
         private void BtCategoryMenu_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AdminPages.CategoryMenuPage());
-        }
-
-        private void BtCategoryBarCard_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AdminPages.CategoryBarCard());
         }
 
         private void BtIngredient_Click(object sender, RoutedEventArgs e)
@@ -91,11 +81,6 @@ namespace RestoranMarioMario.Pages
             NavigationService.Navigate(new WaiterPage());
         }
 
-        private void BtBarCardInrgedient_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new BarCardIngredientPage());
-        }
-
         private void BtMenuIngredient_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MenuIngredientPage());
@@ -108,7 +93,7 @@ namespace RestoranMarioMario.Pages
 
         private void BtOrderBarCard_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdminPages.OrderMenuPage());
+            NavigationService.Navigate(new OrderMenuPage());
         }
     }
 }

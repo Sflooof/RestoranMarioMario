@@ -35,11 +35,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -72,19 +82,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\BarCard.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\BarCardIngredient.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\CategoryBarCard.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\CategoryMenu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Check.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Ingredient.cs">
@@ -114,22 +112,16 @@
     <Compile Include="Entities\Order.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\OrderMenuBarCard.cs">
+    <Compile Include="Entities\OrderMenu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Roles.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Stocks.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Table.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TypeIngredient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Users.cs">
@@ -143,18 +135,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AddProductCartPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AdminPages\BarCardIngredientPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AdminPages\BarCardPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AdminPages\CategoryBarCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,18 +170,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageEdit\BarCardEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\PageEdit\BarCardIngredientEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\PageEdit\CategoryBarCardEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\PageEdit\CategoryMenuEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -215,10 +183,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageEdit\MenuIngredientEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\PageEdit\OrderBarCardEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -247,14 +211,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AdminPages\WaiterPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\BarCardDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\BarCardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,15 +251,6 @@
     <Compile Include="Pages\AddProductCartPage.xaml.cs">
       <DependentUpon>AddProductCartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AdminPages\BarCardIngredientPage.xaml.cs">
-      <DependentUpon>BarCardIngredientPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AdminPages\BarCardPage.xaml.cs">
-      <DependentUpon>BarCardPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AdminPages\CategoryBarCard.xaml.cs">
-      <DependentUpon>CategoryBarCard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AdminPages\CategoryMenuPage.xaml.cs">
       <DependentUpon>CategoryMenuPage.xaml</DependentUpon>
     </Compile>
@@ -328,15 +275,6 @@
     <Compile Include="Pages\CartPage.xaml.cs">
       <DependentUpon>CartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageEdit\BarCardEditPage.xaml.cs">
-      <DependentUpon>BarCardEditPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PageEdit\BarCardIngredientEditPage.xaml.cs">
-      <DependentUpon>BarCardIngredientEditPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PageEdit\CategoryBarCardEditPage.xaml.cs">
-      <DependentUpon>CategoryBarCardEditPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PageEdit\CategoryMenuEditPage.xaml.cs">
       <DependentUpon>CategoryMenuEditPage.xaml</DependentUpon>
     </Compile>
@@ -348,9 +286,6 @@
     </Compile>
     <Compile Include="Pages\PageEdit\MenuIngredientEditPage.xaml.cs">
       <DependentUpon>MenuIngredientEditPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PageEdit\OrderBarCardEditPage.xaml.cs">
-      <DependentUpon>OrderBarCardEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageEdit\OrderEditPage.xaml.cs">
       <DependentUpon>OrderEditPage.xaml</DependentUpon>
@@ -372,12 +307,6 @@
     </Compile>
     <Compile Include="Pages\AdminPages\WaiterPage.xaml.cs">
       <DependentUpon>WaiterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\BarCardDetail.xaml.cs">
-      <DependentUpon>BarCardDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\BarCardPage.xaml.cs">
-      <DependentUpon>BarCardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -443,6 +372,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\mario.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
     <Content Include="Entities\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -453,7 +386,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\mario.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

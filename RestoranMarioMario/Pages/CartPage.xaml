@@ -25,21 +25,21 @@
                             <ColumnDefinition Width="200"/>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0" Source="{Binding correctPhoto}"/>
-                        <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                        <TextBlock Grid.Column="1" Text="{Binding MenuBarCard}" />
                         <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Стоимость: "/>
-                                <TextBlock Text="{Binding price}"/>
+                                <TextBlock Text="{Binding Sum}"/>
                                 <TextBlock Text="руб." />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Пометка:"/>
-                                <TextBlock Text="{Binding NoteOrder}"/>
+                                <TextBlock Text="{Binding Modification}"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Grid.Column="3" Orientation="Horizontal">
                             <Button Content="-" Name="BtMinus" Width="40" Height="40" Click="BtMinus_Click" />
-                            <TextBlock Text="{Binding Amount}" FontSize="20"/>
+                            <TextBlock Text="{Binding Quantity}" FontSize="20"/>
                             <Button Content="+" Name="BtPlus" Width="40" Height="40" Click="BtPlus_Click" />
                         </StackPanel>
                         <Button Grid.Column="4" Name="BtDelete" Click="BtDelete_Click" Content="Удалить"/>
@@ -49,5 +49,6 @@
         </ListView>
         <TextBlock Grid.Row="1" Name="OrderPriceBox" Text="Стоимость заказа: 5600 руб."/>
         <Button Grid.Row="2" Name="BtCreateOrder" Width="180" Height="40" Click="BtCreateOrder_Click" Content="Сформировать заказ"/>
+        <Button Grid.Row="2" x:Name="BtPDF" Width="180" Height="40" HorizontalAlignment="Right" Click="BtPDF_Click"></Button>
     </Grid>
 </Page>
