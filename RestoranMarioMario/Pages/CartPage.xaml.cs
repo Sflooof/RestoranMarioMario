@@ -200,7 +200,7 @@ namespace RestoranMarioMario.Pages
                 Paragraph waiter = new Paragraph($"Официант    {App.db.Waiter}", font1);///////sos
                 waiter.Alignment = Element.ALIGN_CENTER;
                 doc.Add(waiter);
-                Paragraph openDate = new Paragraph($"Счет открыт    {orderMenu.}", font1);
+                Paragraph openDate = new Paragraph($"Счет открыт    {orderMenu}", font1);
                 openDate.Alignment = Element.ALIGN_CENTER;
                 doc.Add(openDate);
                 Paragraph closeDate = new Paragraph($"Счет открыт    {timestamp}", font1);
