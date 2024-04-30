@@ -18,6 +18,7 @@ namespace RestoranMarioMario.Entities
         public Order()
         {
             this.OrderMenu = new HashSet<OrderMenu>();
+            this.OrderMenu1 = new HashSet<OrderMenu>();
         }
     
         public int IdOrder { get; set; }
@@ -32,5 +33,7 @@ namespace RestoranMarioMario.Entities
         public virtual Waiter Waiter1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderMenu> OrderMenu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderMenu> OrderMenu1 { get; set; }
     }
 }

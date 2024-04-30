@@ -16,11 +16,14 @@ namespace RestoranMarioMario.Entities
     {
         public int IdOrderMenu { get; set; }
         public int MenuBarCard { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public int Quantity { get; set; }
         public Nullable<decimal> Sum { get; set; }
         public string Modification { get; set; }
+        public int OrderId { get; set; }
+        public System.DateTime DateAdd { get; set; }
     
         public virtual Menu Menu { get; set; }
         public virtual Order Order { get; set; }
+        public virtual Order Order1 { get; set; }
     }
 }
