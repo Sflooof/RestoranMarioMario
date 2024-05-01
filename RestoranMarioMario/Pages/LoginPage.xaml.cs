@@ -26,11 +26,6 @@ namespace RestoranMarioMario.Pages
             InitializeComponent();
         }
 
-        private void BtBack_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new MainPage());
-        }
-
         private void BtLogin_Click(object sender, RoutedEventArgs e)
         {
             var login = App.db.Users.FirstOrDefault(x => x.Login == TbLogin.Text && x.Passrowd == PbLogin.Password);
@@ -70,6 +65,15 @@ namespace RestoranMarioMario.Pages
             else
             {
                 App.CurrentTable = loginTable;
+                App.CurrentOrder = new Entities.Order()
+                {
+                    TableNumber = loginTable.IdTable,
+                    Waiter = 1,
+                    OrderSum = 0,
+                    Date = DateTime.Now,
+                    NumberOrder = "1231"
+                };
+                App.CurrentOrderMenu = new List<Entities.OrderMenu>();
                 NavigationService.Navigate(new MainPage());
                 
             }

@@ -21,14 +21,13 @@ namespace RestoranMarioMario.Pages
     /// </summary>
     public partial class AddProductCartPage : Page
     {
-        private OrderMenu orderMenu = null;
-        //private Entities.Menu menu = null;
-        public AddProductCartPage(OrderMenu corOrderMenu)
+        private Entities.Menu curMenu = null;
+        public AddProductCartPage(Entities.Menu corOrderMenu)
         {
             InitializeComponent();
-            orderMenu = corOrderMenu;
+            curMenu = corOrderMenu;
             //TbSum.Text = menu.Sum.ToString();
-            DataContext = orderMenu;
+            DataContext = curMenu;
         }
 
         private void BtBack_Click(object sender, RoutedEventArgs e)
@@ -39,17 +38,32 @@ namespace RestoranMarioMario.Pages
         private void BtSave_Click(object sender, RoutedEventArgs e)
         {
             var currentMenu = (sender as Button).DataContext as Entities.Menu;
-            var order = App.db.Order.Where(o => o.TableNumber == App.CurrentTable.IdTable).FirstOrDefault();
-            var orderMenu = new Entities.OrderMenu
+            var modificationText = TbModification.Text;
+            if (modificationText == "")
             {
-                MenuBarCard = currentMenu.IdMenu,
-                Quantity = 1,
-                Sum = currentMenu.Sum,
-                Modification = TbModification.Text,
-            };
-            App.db.OrderMenu.Add(orderMenu);
-            order.OrderSum += currentMenu.Sum;
-            App.db.SaveChanges();
+                modificationText = null;
+            }
+            var currentOrderMenu = App.CurrentOrderMenu.SingleOrDefault(om => om.MenuBarCard == currentMenu.IdMenu && om.Modification == modificationText);
+            //var order = App.db.Order.Where(o => o.TableNumber == App.CurrentTable.IdTable).FirstOrDefault();
+            if (currentOrderMenu == null)
+            {
+                var orderMenu = new Entities.OrderMenu
+                {
+                    MenuBarCard = currentMenu.IdMenu,
+                    Quantity = 1,
+                    Sum = currentMenu.Sum,
+                    Modification = modificationText,
+                    DateAdd = DateTime.Now
+                };
+                App.CurrentOrderMenu.Add(orderMenu);
+            }
+            else
+            {
+                currentOrderMenu.Quantity++;
+            }
+            //App.db.OrderMenu.Add(orderMenu);
+            //App.db.SaveChanges();
+            App.CurrentOrder.OrderSum += currentMenu.Sum;
         }
     }
 }

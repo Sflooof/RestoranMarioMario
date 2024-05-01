@@ -17,7 +17,6 @@ namespace RestoranMarioMario.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.OrderMenu = new HashSet<OrderMenu>();
             this.OrderMenu1 = new HashSet<OrderMenu>();
         }
     
@@ -27,12 +26,9 @@ namespace RestoranMarioMario.Entities
         public Nullable<decimal> OrderSum { get; set; }
         public System.DateTime Date { get; set; }
         public string NumberOrder { get; set; }
-        public string NoteOrder { get; set; }
     
         public virtual Table Table { get; set; }
         public virtual Waiter Waiter1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderMenu> OrderMenu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderMenu> OrderMenu1 { get; set; }
     }

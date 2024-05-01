@@ -22,7 +22,6 @@
         <AssociationConnector Association="restaurantModel.FK_OrderMenuBarCard_BarCard" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_Order_Table" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_Order_Waiter" ManuallyRouted="false" />
-        <AssociationConnector Association="restaurantModel.FK_OrderMenu_Order" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_Users_Roles" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_OrderMenu_Order1" />
       </Diagram>

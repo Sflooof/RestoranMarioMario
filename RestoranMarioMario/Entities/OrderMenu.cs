@@ -23,7 +23,6 @@ namespace RestoranMarioMario.Entities
         public System.DateTime DateAdd { get; set; }
     
         public virtual Menu Menu { get; set; }
-        public virtual Order Order { get; set; }
         public virtual Order Order1 { get; set; }
     }
 }

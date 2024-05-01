@@ -24,8 +24,8 @@ namespace RestoranMarioMario.Pages
     /// </summary>
     public partial class MenuDetail : Page
     {
-        //private Entities.OrderMenu viewModel = null;
         public string path = Path.Combine(Directory.GetParent(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)).FullName, @"Resources\");
+        public Entities.Menu curMenuDetail = null;
         public MenuDetail(Entities.Menu menuDetail)
         {
             InitializeComponent();
@@ -41,6 +41,7 @@ namespace RestoranMarioMario.Pages
                 TbCategory.Text = curCategory.Name;
                 TbSum.Text = menuDetail.Sum.ToString();
                 TbWeight.Text = menuDetail.Volume.ToString();
+                curMenuDetail = menuDetail;
             }
         }
 
@@ -51,25 +52,7 @@ namespace RestoranMarioMario.Pages
 
         private void BtBasket_Click(object sender, RoutedEventArgs e)
         {
-            var edit = (sender as Button).DataContext as OrderMenu;
-            NavigationService.Navigate(new AddProductCartPage(edit));
-            //viewModel = new Entities.OrderMenu();
-            //viewModel.Menu = new Entities.Menu();
-            //DataContext = viewModel;
-            //OrderMenu orderMenu = new OrderMenu();
-            //orderMenu.MenuBarCard = viewModel.Menu.IdMenu;
-            //orderMenu.Quantity = 1;
-            //orderMenu.Sum = viewModel.Menu.Sum;
-            //App.db.OrderMenu.Add(orderMenu);
-            //try
-            //{
-            //    App.db.SaveChanges();
-            //    MessageBox.Show("Блюдо добавлено в корзину.");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Ошибка при сохранении данных: " + ex.Message);
-            //}
+            NavigationService.Navigate(new AddProductCartPage(curMenuDetail));
         }
     }
 }

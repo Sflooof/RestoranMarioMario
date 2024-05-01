@@ -48,7 +48,6 @@
           <Property Name="OrderSum" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="NumberOrder" Type="varchar(max)" Nullable="false" />
-          <Property Name="NoteOrder" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="OrderMenu">
           <Key>
@@ -168,18 +167,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderMenu_Order">
-          <End Role="Order" Type="Self.Order" Multiplicity="1" />
-          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="IdOrder" />
-            </Principal>
-            <Dependent Role="OrderMenu">
-              <PropertyRef Name="MenuBarCard" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderMenu_Order1">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
@@ -248,10 +235,6 @@
             <End Role="Waiter" EntitySet="Waiter" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderMenu_Order" Association="Self.FK_OrderMenu_Order">
-            <End Role="Order" EntitySet="Order" />
-            <End Role="OrderMenu" EntitySet="OrderMenu" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderMenu_Order1" Association="Self.FK_OrderMenu_Order1">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderMenu" EntitySet="OrderMenu" />
@@ -319,10 +302,8 @@
           <Property Name="OrderSum" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="NumberOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NoteOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Table" Relationship="Self.FK_Order_Table" FromRole="Order" ToRole="Table" />
           <NavigationProperty Name="Waiter1" Relationship="Self.FK_Order_Waiter" FromRole="Order" ToRole="Waiter" />
-          <NavigationProperty Name="OrderMenu" Relationship="Self.FK_OrderMenu_Order" FromRole="Order" ToRole="OrderMenu" />
           <NavigationProperty Name="OrderMenu1" Relationship="restaurantModel.FK_OrderMenu_Order1" FromRole="Order" ToRole="OrderMenu" />
         </EntityType>
         <EntityType Name="OrderMenu">
@@ -334,7 +315,6 @@
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Sum" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="Menu" Relationship="Self.FK_OrderMenuBarCard_BarCard" FromRole="OrderMenu" ToRole="Menu" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_OrderMenu_Order" FromRole="OrderMenu" ToRole="Order" />
           <Property Name="Modification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="DateAdd" Type="DateTime" Nullable="false" Precision="3" />
@@ -462,18 +442,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderMenu_Order">
-          <End Role="Order" Type="Self.Order" Multiplicity="1" />
-          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="IdOrder" />
-            </Principal>
-            <Dependent Role="OrderMenu">
-              <PropertyRef Name="MenuBarCard" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Users_Roles">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -521,10 +489,6 @@
           <AssociationSet Name="FK_Order_Waiter" Association="Self.FK_Order_Waiter">
             <End Role="Waiter" EntitySet="Waiter" />
             <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderMenu_Order" Association="Self.FK_OrderMenu_Order">
-            <End Role="Order" EntitySet="Order" />
-            <End Role="OrderMenu" EntitySet="OrderMenu" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
             <End Role="Roles" EntitySet="Roles" />
@@ -599,7 +563,6 @@
                 <ScalarProperty Name="OrderSum" ColumnName="OrderSum" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="NumberOrder" ColumnName="NumberOrder" />
-                <ScalarProperty Name="NoteOrder" ColumnName="NoteOrder" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

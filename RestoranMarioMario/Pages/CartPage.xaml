@@ -49,6 +49,9 @@
         </ListView>
         <TextBlock Grid.Row="1" Name="OrderPriceBox" Text="Стоимость заказа: 5600 руб."/>
         <Button Grid.Row="2" Name="BtCreateOrder" Width="180" Height="40" Click="BtCreateOrder_Click" Content="Сформировать заказ"/>
-        <Button Grid.Row="2" x:Name="BtPDF" Width="180" Height="40" HorizontalAlignment="Right" Click="BtPDF_Click"></Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Grid.Row="2" x:Name="BtPDF" Content="Чек" Width="100" Height="40" HorizontalAlignment="Right" Click="BtPDF_Click"></Button>
+            <Button Grid.Row="2" x:Name="BtBack" Content="Назад" Height="45" Width="200" Click="BtBack_Click"/>
+        </StackPanel>
     </Grid>
 </Page>
