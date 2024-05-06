@@ -81,22 +81,24 @@
                 </Paragraph>
             </FlowDocument>
         </FlowDocumentScrollViewer>
-        <Button x:Name="BtBack" Height="20" Width="20" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top"></Button>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
+            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        </Button>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" IsHitTestVisible="True">
-        <ListView x:Name="ListViewMenu" d:ItemsSource="{d:SampleData ItemCount=5}" Background="#6BB77B" HorizontalAlignment="Center" Height="500">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="3"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Button x:Name="BtProduct" Content="{Binding Name}" Height="200" Width="200" Click="BtProduct_Click"></Button>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </WrapPanel>
-</Grid>
+            <ListView x:Name="ListViewMenu" d:ItemsSource="{d:SampleData ItemCount=5}" Background="#6BB77B" HorizontalAlignment="Center" Height="500">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Button x:Name="BtProduct" Content="{Binding Name}" Height="200" Width="200" Click="BtProduct_Click"></Button>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </WrapPanel>
+    </Grid>
 </Page>

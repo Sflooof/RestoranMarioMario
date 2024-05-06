@@ -9,6 +9,9 @@
       Title="MenuDetail">
 
     <Grid>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
+            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        </Button>
         <WrapPanel Margin="0,0,0,80">
             <StackPanel Width="1000">
                 <StackPanel Orientation="Horizontal">
@@ -33,7 +36,6 @@
             </StackPanel>
         </WrapPanel>
         <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="BtBack" Content="Назад" Height="45" Width="200" Click="BtBack_Click"></Button>
             <Button x:Name="BtBasket" Content="Добавить в корзину" Height="45" Width="200" Click="BtBasket_Click"></Button>
         </StackPanel>
     </Grid>

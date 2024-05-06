@@ -47,7 +47,9 @@
         </ListView>
         <TextBlock Grid.Row="0" Text="Роли пользователей" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
         <Button x:Name="BtAdd" Content="Добавить роль пользователя" Grid.Row="3" Click="BtAdd_Click" Width="250" HorizontalAlignment="Right"></Button>
-        <Button x:Name="BtBack" Click="BtBack_Click" Height="20" Width="20" HorizontalAlignment="Left"></Button>
+        <Button x:Name="BtBack" Click="BtBack_Click" Height="20" Width="20" HorizontalAlignment="Left">
+            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        </Button>
         <TextBlock Name="TbCountFind" HorizontalAlignment="Center" Grid.Row="3"/>
     </Grid>
 </Page>

@@ -15,7 +15,9 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="BtBack" Height="20" Width="20" HorizontalAlignment="Left" Click="BtBack_Click"></Button>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
+            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        </Button>
         <TextBlock x:Name="TbFullName" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="BtTable" Content="Столы" Width="150" Height="150" Click="BtTable_Click"></Button>

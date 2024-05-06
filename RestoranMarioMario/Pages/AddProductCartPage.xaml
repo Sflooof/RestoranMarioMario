@@ -9,15 +9,22 @@
       Title="AddProductCartPage">
 
     <Grid>
-        <Button x:Name="BtBack" Height="20" Width="20" HorizontalAlignment="Left" Click="BtBack_Click" VerticalAlignment="Top"></Button>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
+            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        </Button>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Введити модификации"></TextBlock>
+            <TextBlock Text="Введите модификации"></TextBlock>
             <TextBox x:Name="TbModification" Text="{Binding Modification}" Height="177"></TextBox>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Итог:"></TextBlock>
                 <TextBlock x:Name="TbSum" Text="{Binding Sum}"></TextBlock>
             </StackPanel>
-            <Button x:Name="BtSave" Content="сохранить" Click="BtSave_Click"></Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="-" Name="BtMinus" Width="40" Height="40" Click="BtMinus_Click" />
+                <TextBlock x:Name="TbQuantity" FontSize="20" Text="{Binding Quantity}" />
+                <Button Content="+" Name="BtPlus" Width="40" Height="40" Click="BtPlus_Click" />
+            </StackPanel>
+            <Button x:Name="BtSave" Content="Сохранить" Click="BtSave_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>

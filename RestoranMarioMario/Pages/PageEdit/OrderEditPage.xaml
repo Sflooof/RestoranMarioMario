@@ -10,7 +10,9 @@
 
     <Grid>
         <TextBlock Margin="20" FontSize="28" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование заказа</TextBlock>
-        <Button x:Name="BtBack" Click="BtBack_Click" Height="20" Width="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"></Button>
+        <Button x:Name="BtBack" Click="BtBack_Click" Height="20" Width="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        </Button>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
                 <TextBlock>Номер заказа*</TextBlock>

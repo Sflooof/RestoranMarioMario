@@ -10,10 +10,14 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="0" Name="orderProductsListView" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
+            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        </Button>
+        <ListView Grid.Row="1" Name="orderProductsListView" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -47,11 +51,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Grid.Row="1" Name="OrderPriceBox" Text="Стоимость заказа: 5600 руб."/>
+        <TextBlock Grid.Row="2" Name="OrderPriceBox" Text="Стоимость заказа: 0 руб."/>
         <Button Grid.Row="2" Name="BtCreateOrder" Width="180" Height="40" Click="BtCreateOrder_Click" Content="Сформировать заказ"/>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Grid.Row="2" x:Name="BtPDF" Content="Чек" Width="100" Height="40" HorizontalAlignment="Right" Click="BtPDF_Click"></Button>
-            <Button Grid.Row="2" x:Name="BtBack" Content="Назад" Height="45" Width="200" Click="BtBack_Click"/>
         </StackPanel>
     </Grid>
 </Page>

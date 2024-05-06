@@ -26,7 +26,6 @@ namespace RestoranMarioMario.Pages
         {
             InitializeComponent();
             curMenu = corOrderMenu;
-            //TbSum.Text = menu.Sum.ToString();
             DataContext = curMenu;
         }
 
@@ -44,7 +43,6 @@ namespace RestoranMarioMario.Pages
                 modificationText = null;
             }
             var currentOrderMenu = App.CurrentOrderMenu.SingleOrDefault(om => om.MenuBarCard == currentMenu.IdMenu && om.Modification == modificationText);
-            //var order = App.db.Order.Where(o => o.TableNumber == App.CurrentTable.IdTable).FirstOrDefault();
             if (currentOrderMenu == null)
             {
                 var orderMenu = new Entities.OrderMenu
@@ -61,8 +59,63 @@ namespace RestoranMarioMario.Pages
             {
                 currentOrderMenu.Quantity++;
             }
-            //App.db.OrderMenu.Add(orderMenu);
-            //App.db.SaveChanges();
+            App.CurrentOrder.OrderSum += currentMenu.Sum;
+            MessageBox.Show("Товар добавлен к корзину", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+            NavigationService.Navigate(new MenuPage());
+        }
+
+        private void BtMinus_Click(object sender, RoutedEventArgs e)
+        {
+            var currentMenu = (sender as Button).DataContext as Entities.Menu;
+            var modificationText = TbQuantity.Text;
+            if (modificationText == "")
+            {
+                modificationText = null;
+            }
+
+            var currentOrderMenu = App.CurrentOrderMenu.SingleOrDefault(om => om.MenuBarCard == currentMenu.IdMenu && om.Modification == modificationText);
+            if (currentOrderMenu != null)
+            {
+                if (currentOrderMenu.Quantity > 1)
+                {
+                    currentOrderMenu.Quantity--;
+                    App.CurrentOrder.OrderSum -= currentMenu.Sum;
+                }
+                else
+                {
+                    App.CurrentOrderMenu.Remove(currentOrderMenu);
+                    App.CurrentOrder.OrderSum -= currentMenu.Sum;
+                }
+            }
+        }
+
+        private void BtPlus_Click(object sender, RoutedEventArgs e)
+        {
+            var currentMenu = (sender as Button).DataContext as Entities.Menu;
+            var modificationText = TbQuantity.Text;
+            if (modificationText == "")
+            {
+                modificationText = null;
+            }
+
+            var currentOrderMenu = App.CurrentOrderMenu.SingleOrDefault(om => om.MenuBarCard == currentMenu.IdMenu && om.Modification == modificationText);
+            if (currentOrderMenu == null)
+            {
+                var orderMenu = new Entities.OrderMenu
+                {
+                    MenuBarCard = currentMenu.IdMenu,
+                    Quantity = 1,
+                    Sum = currentMenu.Sum,
+                    Modification = modificationText,
+                    DateAdd = DateTime.Now
+                };
+                App.CurrentOrderMenu.Add(orderMenu);
+            }
+            else
+            {
+                currentOrderMenu.Quantity++;
+            }
+
             App.CurrentOrder.OrderSum += currentMenu.Sum;
         }
     }
