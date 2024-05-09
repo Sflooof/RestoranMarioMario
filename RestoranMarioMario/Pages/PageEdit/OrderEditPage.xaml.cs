@@ -39,7 +39,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                 order = corOrder;
                 TbNumberOrder.Text = corOrder.NumberOrder.ToString();
                 CbNumberTable.SelectedIndex = corOrder.TableNumber - 1;
-                CbWaiter.SelectedIndex = corOrder.Waiter - 1;
+                //CbWaiter.SelectedIndex = corOrder.Waiter - 1;
                 DpDate.SelectedDate = corOrder.Date;
                 TbSum.Text = corOrder.OrderSum.ToString();
 
@@ -81,7 +81,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                         correctOrder = new Entities.Order
                         {
                             TableNumber = table.IdTable,
-                            Waiter = waiter.IdWaiter,
+                            //Waiter = waiter.IdWaiter,
                             OrderSum = int.Parse(TbSum.Text),
                             Date = (DateTime)DpDate.SelectedDate,
                             NumberOrder = TbNumberOrder.Text,
@@ -92,7 +92,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                         correctOrder = new Entities.Order
                         {
                             TableNumber = table.IdTable,
-                            Waiter = waiter.IdWaiter,
+                            //Waiter = waiter.IdWaiter,
                             OrderSum = int.Parse(TbSum.Text),
                             Date = (DateTime)DpDate.SelectedDate,
                             NumberOrder = TbNumberOrder.Text,
@@ -106,7 +106,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                 else
                 {
                     order.TableNumber = table.IdTable;
-                    order.Waiter = waiter.IdWaiter;
+                    //order.Waiter = waiter.IdWaiter;
                     order.OrderSum = int.Parse(TbSum.Text);
                     order.Date = (DateTime)DpDate.SelectedDate;
                     order.NumberOrder = TbNumberOrder.Text;

@@ -22,13 +22,11 @@ namespace RestoranMarioMario.Entities
     
         public int IdOrder { get; set; }
         public int TableNumber { get; set; }
-        public int Waiter { get; set; }
         public Nullable<decimal> OrderSum { get; set; }
         public System.DateTime Date { get; set; }
         public string NumberOrder { get; set; }
     
         public virtual Table Table { get; set; }
-        public virtual Waiter Waiter1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderMenu> OrderMenu { get; set; }
     }

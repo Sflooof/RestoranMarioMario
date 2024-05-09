@@ -21,15 +21,7 @@ namespace RestoranMarioMario.Entities
         public string Modification { get; set; }
         public int OrderId { get; set; }
         public System.DateTime DateAdd { get; set; }
-
-        public string CorrectMenu
-        {
-            get
-            {
-                return Menu.Name.ToString();
-            }
-        }
-
+    
         public virtual Menu Menu { get; set; }
         public virtual Order Order { get; set; }
     }

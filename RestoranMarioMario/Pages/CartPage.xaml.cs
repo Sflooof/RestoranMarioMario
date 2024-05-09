@@ -79,7 +79,7 @@ namespace RestoranMarioMario.Pages
             App.CurrentOrder = new Entities.Order()
             {
                 TableNumber = createdOrder.TableNumber,
-                Waiter = 1,
+                //Waiter = 1,
                 OrderSum = 0,
                 Date = DateTime.Now,
                 NumberOrder = "1231"
@@ -274,12 +274,14 @@ namespace RestoranMarioMario.Pages
         {
             Document doc = new Document();
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+            string time = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
             int numberCheque = 1;
             int numverTable = App.CurrentTable.TableNumber;
-            var waiterOrder = App.db.Order.Where(x => x.Waiter == 5).First();
-            var waiterInfo = App.db.Waiter.Where(w => w.IdWaiter == waiterOrder.Waiter).Select(w => new { w.Surname, w.Name, w.Patronymic }).First();
+            var waiterOrder = App.db.Table.Where(x => x.TableWaiter == numverTable).First();
+            var waiterInfo = App.db.Waiter.Where(w => w.IdWaiter == waiterOrder.TableWaiter).Select(w => new { w.Surname, w.Name, w.Patronymic }).First();
             string fullName = $"{waiterInfo.Surname} {waiterInfo.Name} {waiterInfo.Patronymic}";
             var orderMenu = App.db.OrderMenu.GroupBy(x => x.DateAdd).OrderBy(x => x.Min(y => y.DateAdd)).Select(x => x.Key).First();
+            //var firstDateAdded = App.db.OrderMenu.Where(om => om.Order.Table.TableNumber ==IdTable).Min(om => om.DateAdd);
             try
             {
                 PdfWriter.GetInstance(doc, new FileStream($"..\\..\\Сheque\\cheque_{timestamp}.pdf", FileMode.Create));
@@ -287,10 +289,10 @@ namespace RestoranMarioMario.Pages
                 BaseFont baseFont = BaseFont.CreateFont("C:\\Windows\\Fonts\\times.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
                 Font font = new Font(baseFont, 14);
                 Font font1 = new Font(baseFont, 24, 1, BaseColor.BLACK);
-                Paragraph prechek = new Paragraph($"Пречек №        {numberCheque}  {timestamp}", font);
+                Paragraph prechek = new Paragraph($"Пречек №        {numberCheque++}  {time}", font);
                 prechek.Alignment = Element.ALIGN_LEFT;
                 doc.Add(prechek);
-                Paragraph bill = new Paragraph($"Счет №            {numberCheque}", font);
+                Paragraph bill = new Paragraph($"Счет №            {numberCheque++}", font);
                 bill.Alignment = Element.ALIGN_LEFT;
                 doc.Add(bill);
                 numberCheque++;
@@ -303,7 +305,7 @@ namespace RestoranMarioMario.Pages
                 Paragraph openDate = new Paragraph($"Счет открыт    {orderMenu}", font);
                 openDate.Alignment = Element.ALIGN_LEFT;
                 doc.Add(openDate);
-                Paragraph closeDate = new Paragraph($"Счет закрыт    {timestamp}", font);
+                Paragraph closeDate = new Paragraph($"Счет закрыт    {time}", font);
                 closeDate.Alignment = Element.ALIGN_LEFT;
                 doc.Add(closeDate);
                 Paragraph dash = new Paragraph("----------------------------------------------------------------------------------------------------------------", font);
@@ -349,7 +351,7 @@ namespace RestoranMarioMario.Pages
                 Paragraph dash4 = new Paragraph("----------------------------------------------------------------------------------------------------------------", font);
                 dash4.Alignment = Element.ALIGN_LEFT;
                 doc.Add(dash4);
-                Paragraph datePrint = new Paragraph($"Дата печати {timestamp}", font);
+                Paragraph datePrint = new Paragraph($"Дата печати {time}", font);
                 datePrint.Alignment = Element.ALIGN_LEFT;
                 doc.Add(datePrint);
                 Paragraph final = new Paragraph($"Благодарим за визит!", font);

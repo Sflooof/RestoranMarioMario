@@ -68,7 +68,7 @@ namespace RestoranMarioMario.Pages
 
         private void BtBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new MainPage());
         }
 
         private void BtProduct_Click(object sender, RoutedEventArgs e)

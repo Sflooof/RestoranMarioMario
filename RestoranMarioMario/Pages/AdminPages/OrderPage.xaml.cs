@@ -54,11 +54,11 @@ namespace RestoranMarioMario.Pages.AdminPages
             {
                 updateItem = updateItem.OrderByDescending(item => item.Date).ToList();
             }
-            if (CbFilter.SelectedIndex > 0)
-            {
-                var selectedCategory = CbFilter.SelectedIndex + 1;
-                updateItem = updateItem.Where(item => item.Waiter == selectedCategory).ToList();
-            }
+            //if (CbFilter.SelectedIndex > 0)
+            //{
+            //    var selectedCategory = CbFilter.SelectedIndex + 1;
+            //    updateItem = updateItem.Where(item => item.Date == selectedCategory).ToList();
+            //}
             ListViewCatalog.ItemsSource = updateItem;
             int countFind = ListViewCatalog.Items.Count;
             TbCountFind.Text = countFind.ToString() + " из " + App.db.Order.Count().ToString();
@@ -104,11 +104,11 @@ namespace RestoranMarioMario.Pages.AdminPages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateData();
-            var type = App.db.Waiter.OrderBy(x => x.IdWaiter).Select(x => x.Surname).ToArray();
-            for (int i = 0; i < type.Length; i++)
-            {
-                CbFilter.Items.Add(type[i]);
-            }
+            //var type = App.db.Waiter.OrderBy(x => x.IdWaiter).Select(x => x.Surname).ToArray();
+            //for (int i = 0; i < type.Length; i++)
+            //{
+            //    CbFilter.Items.Add(type[i]);
+            //}
         }
     }
 }

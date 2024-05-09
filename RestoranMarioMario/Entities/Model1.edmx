@@ -44,7 +44,6 @@
           </Key>
           <Property Name="IdOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TableNumber" Type="int" Nullable="false" />
-          <Property Name="Waiter" Type="int" Nullable="false" />
           <Property Name="OrderSum" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="NumberOrder" Type="varchar(max)" Nullable="false" />
@@ -85,6 +84,7 @@
           <Property Name="IdTable" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TableNumber" Type="int" Nullable="false" />
           <Property Name="TablePassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TableWaiter" Type="int" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -155,18 +155,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Waiter">
-          <End Role="Waiter" Type="Self.Waiter" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Waiter">
-              <PropertyRef Name="IdWaiter" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="Waiter" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderMenu_Order1">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
@@ -188,6 +176,18 @@
             </Principal>
             <Dependent Role="OrderMenu">
               <PropertyRef Name="MenuBarCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Waiter">
+          <End Role="Waiter" Type="Self.Waiter" Multiplicity="0..1" />
+          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Waiter">
+              <PropertyRef Name="IdWaiter" />
+            </Principal>
+            <Dependent Role="Table">
+              <PropertyRef Name="TableWaiter" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -231,10 +231,6 @@
             <End Role="Table" EntitySet="Table" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Waiter" Association="Self.FK_Order_Waiter">
-            <End Role="Waiter" EntitySet="Waiter" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderMenu_Order1" Association="Self.FK_OrderMenu_Order1">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderMenu" EntitySet="OrderMenu" />
@@ -242,6 +238,10 @@
           <AssociationSet Name="FK_OrderMenuBarCard_BarCard" Association="Self.FK_OrderMenuBarCard_BarCard">
             <End Role="Menu" EntitySet="Menu" />
             <End Role="OrderMenu" EntitySet="OrderMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Waiter" Association="Self.FK_Table_Waiter">
+            <End Role="Waiter" EntitySet="Waiter" />
+            <End Role="Table" EntitySet="Table" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
             <End Role="Roles" EntitySet="Roles" />
@@ -299,12 +299,10 @@
           </Key>
           <Property Name="IdOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TableNumber" Type="Int32" Nullable="false" />
-          <Property Name="Waiter" Type="Int32" Nullable="false" />
           <Property Name="OrderSum" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="NumberOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Table" Relationship="Self.FK_Order_Table" FromRole="Order" ToRole="Table" />
-          <NavigationProperty Name="Waiter1" Relationship="Self.FK_Order_Waiter" FromRole="Order" ToRole="Waiter" />
           <NavigationProperty Name="OrderMenu" Relationship="Self.FK_OrderMenu_Order1" FromRole="Order" ToRole="OrderMenu" />
         </EntityType>
         <EntityType Name="OrderMenu">
@@ -346,7 +344,9 @@
           <Property Name="IdTable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TableNumber" Type="Int32" Nullable="false" />
           <Property Name="TablePassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TableWaiter" Type="Int32" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Table" FromRole="Table" ToRole="Order" />
+          <NavigationProperty Name="Waiter" Relationship="Self.FK_Table_Waiter" FromRole="Table" ToRole="Waiter" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -369,7 +369,7 @@
           <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Waiter" FromRole="Waiter" ToRole="Order" />
+          <NavigationProperty Name="Table" Relationship="Self.FK_Table_Waiter" FromRole="Waiter" ToRole="Table" />
         </EntityType>
         <Association Name="FK_BarCard_CategoryBarCard">
           <End Role="CategoryMenu" Type="Self.CategoryMenu" Multiplicity="0..1" />
@@ -431,18 +431,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Waiter">
-          <End Role="Waiter" Type="Self.Waiter" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Waiter">
-              <PropertyRef Name="IdWaiter" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="Waiter" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderMenu_Order1">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
@@ -464,6 +452,18 @@
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Waiter">
+          <End Role="Waiter" Type="Self.Waiter" Multiplicity="0..1" />
+          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Waiter">
+              <PropertyRef Name="IdWaiter" />
+            </Principal>
+            <Dependent Role="Table">
+              <PropertyRef Name="TableWaiter" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -499,10 +499,6 @@
             <End Role="Table" EntitySet="Table" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Waiter" Association="Self.FK_Order_Waiter">
-            <End Role="Waiter" EntitySet="Waiter" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderMenu_Order1" Association="Self.FK_OrderMenu_Order1">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderMenu" EntitySet="OrderMenu" />
@@ -510,6 +506,10 @@
           <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Waiter" Association="Self.FK_Table_Waiter">
+            <End Role="Waiter" EntitySet="Waiter" />
+            <End Role="Table" EntitySet="Table" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -560,7 +560,6 @@
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
                 <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
-                <ScalarProperty Name="Waiter" ColumnName="Waiter" />
                 <ScalarProperty Name="OrderSum" ColumnName="OrderSum" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="NumberOrder" ColumnName="NumberOrder" />
@@ -605,6 +604,7 @@
                 <ScalarProperty Name="IdTable" ColumnName="IdTable" />
                 <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
                 <ScalarProperty Name="TablePassword" ColumnName="TablePassword" />
+                <ScalarProperty Name="TableWaiter" ColumnName="TableWaiter" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

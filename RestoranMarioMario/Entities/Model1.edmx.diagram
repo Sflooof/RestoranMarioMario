@@ -4,26 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9cf0bcd10326474092fdcae2025914a8" Name="Diagram1">
-        <EntityTypeShape EntityType="restaurantModel.CategoryMenu" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.Ingredient" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.Menu" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.MenuIngredient" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.OrderMenu" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.Roles" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.Table" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.Users" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="restaurantModel.Waiter" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+      <Diagram DiagramId="d21b1fcb39754dc6bc653673dee55bb6" Name="Diagram1">
+        <EntityTypeShape EntityType="restaurantModel.CategoryMenu" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.Ingredient" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.Menu" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.MenuIngredient" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.Order" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.OrderMenu" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.Roles" Width="1.5" PointX="8.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.Table" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.Users" Width="1.5" PointX="11" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="restaurantModel.Waiter" Width="1.5" PointX="1.5" PointY="8.5" IsExpanded="true" />
         <AssociationConnector Association="restaurantModel.FK_BarCard_CategoryBarCard" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_BarCardIngredient_Ingredient" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_MenuIngredient_Menu" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_OrderMenuBarCard_BarCard" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_Order_Table" ManuallyRouted="false" />
-        <AssociationConnector Association="restaurantModel.FK_Order_Waiter" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_OrderMenu_Order1" ManuallyRouted="false" />
         <AssociationConnector Association="restaurantModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="restaurantModel.FK_Table_Waiter" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

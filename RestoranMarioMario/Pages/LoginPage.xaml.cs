@@ -68,7 +68,6 @@ namespace RestoranMarioMario.Pages
                 App.CurrentOrder = new Entities.Order()
                 {
                     TableNumber = loginTable.IdTable,
-                    Waiter = 1,
                     OrderSum = 0,
                     Date = DateTime.Now,
                     NumberOrder = "1231"

@@ -49,7 +49,7 @@ namespace RestoranMarioMario.Pages
 
         private void BtPlay_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new GamePage());
         }
     }
 }

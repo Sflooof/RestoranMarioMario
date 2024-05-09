@@ -17,7 +17,7 @@ namespace RestoranMarioMario.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Waiter()
         {
-            this.Order = new HashSet<Order>();
+            this.Table = new HashSet<Table>();
         }
     
         public int IdWaiter { get; set; }
@@ -26,6 +26,6 @@ namespace RestoranMarioMario.Entities
         public string Patronymic { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Table> Table { get; set; }
     }
 }
