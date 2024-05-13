@@ -237,5 +237,10 @@ namespace RestoranMarioMario.Pages
             InitialGame();
             BtStart.Visibility = Visibility.Collapsed;
         }
+
+        private void BtBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

@@ -59,5 +59,6 @@ namespace RestoranMarioMario.Pages
         {
             NavigationService.Navigate(new AdminPages.WaiterPage());
         }
+
     }
 }

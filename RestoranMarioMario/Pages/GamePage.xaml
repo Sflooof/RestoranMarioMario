@@ -13,9 +13,16 @@
             <ColumnDefinition  Width="5*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="CanvasGame" Background="White" Focusable="True"></Canvas>
-        <Button x:Name="BtStart" Content="Начать игру!" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtStart_Click"></Button>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
+            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        </Button>
+        <Canvas x:Name="CanvasGame" Grid.Row="1" Background="White" Focusable="True"></Canvas>
+        <Button x:Name="BtStart"  Grid.Row="1" Content="Начать игру!" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtStart_Click"></Button>
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
             <TextBlock x:Name="TbScore" Text="Счет: 0" HorizontalAlignment="Center"></TextBlock>
             <Button x:Name="BtRestart" Content="Начать заново!"  Visibility="Collapsed" Click="BtRestart_Click"></Button>
         </StackPanel>

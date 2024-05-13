@@ -17,44 +17,50 @@
         <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
             <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
-        <ListView Grid.Row="1" Name="orderProductsListView" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView Grid.Row="1" Name="orderProductsListView" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="orderProductsListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="300"/>
-                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="350"/>
                             <ColumnDefinition Width="200"/>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0" Source="{Binding correctPhoto}"/>
-                        <TextBlock Grid.Column="1" Text="{Binding MenuBarCard}" />
-                        <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center">
+                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Стоимость: "/>
-                                <TextBlock Text="{Binding Sum}"/>
-                                <TextBlock Text="руб." />
+                                <TextBlock Text="{Binding MenuBarCard}" FontSize="35"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Пометка:"/>
                                 <TextBlock Text="{Binding Modification}"/>
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel Grid.Column="3" Orientation="Horizontal">
-                            <Button Content="-" Name="BtMinus" Width="40" Height="40" Click="BtMinus_Click" />
-                            <TextBlock Text="{Binding Quantity}" FontSize="20"/>
-                            <Button Content="+" Name="BtPlus" Width="40" Height="40" Click="BtPlus_Click" />
+
+                        <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding Sum}" FontSize="30"/>
+                                <TextBlock Text="руб." FontSize="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="-" Name="BtMinus" Width="40" Height="40" Click="BtMinus_Click" />
+                                <TextBlock Text="{Binding Quantity}" FontSize="20"/>
+                                <Button Content="+" Name="BtPlus" Width="40" Height="40" Click="BtPlus_Click" />
+                            </StackPanel>
                         </StackPanel>
-                        <Button Grid.Column="4" Name="BtDelete" Click="BtDelete_Click" Content="Удалить"/>
+                        <Button Grid.Column="3" Name="BtDelete" Click="BtDelete_Click" Width="70" Height="70">
+                            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\biggarbagebin_121980.png" Width="50" Height="50"></Image>
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Grid.Row="2" Name="OrderPriceBox" Text="Стоимость заказа: 0 руб."/>
-        <Button Grid.Row="2" Name="BtCreateOrder" Width="180" Height="40" Click="BtCreateOrder_Click" Content="Сформировать заказ"/>
+        <TextBlock Grid.Row="2" Name="OrderPriceBox" FontSize="35" Text="Итого: 0 руб."/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 135 0">
+            <Button Grid.Row="2" Name="BtCreateOrder" Width="130" Height="40" Click="BtCreateOrder_Click" Content="Заказать"/>
+        </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Grid.Row="2" x:Name="BtPDF" Content="Чек" Width="100" Height="40" HorizontalAlignment="Right" Click="BtPDF_Click"></Button>
+            <Button Grid.Row="2" x:Name="BtPDF" Content="Пречек" Width="130" Height="40" HorizontalAlignment="Right" Click="BtPDF_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>

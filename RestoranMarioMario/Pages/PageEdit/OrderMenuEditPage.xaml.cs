@@ -1,6 +1,7 @@
 ﻿using RestoranMarioMario.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -36,8 +37,11 @@ namespace RestoranMarioMario.Pages.PageEdit
             {
                 orderMenu = corOrderMenu;
                 CbNameMenu.SelectedIndex = (int)(corOrderMenu.MenuBarCard - 1);
-                //CbNumberOrder.SelectedIndex = corOrderMenu.NumberOrder - 1;
                 TbQuantity.Text = corOrderMenu.Quantity.ToString();
+                TbSum.Text = corOrderMenu.Sum.ToString();
+                TbModification.Text = corOrderMenu.Modification.ToString();
+                CbOrderId.SelectedIndex = corOrderMenu.OrderId - 1;
+                DpDate.SelectedDate = corOrderMenu.DateAdd;
             }
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -62,6 +66,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             else
             {
                 var menu = App.db.Menu.Where(c => c.Name == CbNameMenu.SelectedItem.ToString()).FirstOrDefault();
+                var order = App.db.Order.Where(c => c.NumberOrder == CbOrderId.SelectedItem.ToString()).FirstOrDefault();
                 if (orderMenu == null)
                 {
                     var correctMenu = new Entities.OrderMenu { };
@@ -71,7 +76,10 @@ namespace RestoranMarioMario.Pages.PageEdit
                         {
                             MenuBarCard = menu.IdMenu,
                             Quantity = int.Parse(TbQuantity.Text),
-                            Sum = decimal.Parse(TbSum.Text)
+                            Sum = decimal.Parse(TbSum.Text),
+                            Modification = "NULL",
+                            OrderId = order.IdOrder,
+                            DateAdd = (DateTime)DpDate.SelectedDate,
                         };
                     }
                     else
@@ -80,7 +88,10 @@ namespace RestoranMarioMario.Pages.PageEdit
                         {
                             MenuBarCard = menu.IdMenu,
                             Quantity = int.Parse(TbQuantity.Text),
-                            Sum = decimal.Parse(TbSum.Text)
+                            Sum = decimal.Parse(TbSum.Text),
+                            Modification = TbModification.Text,
+                            OrderId = order.IdOrder,
+                            DateAdd = (DateTime)DpDate.SelectedDate,
                         };
                     }
                     App.db.OrderMenu.Add(correctMenu);
@@ -93,6 +104,9 @@ namespace RestoranMarioMario.Pages.PageEdit
                     orderMenu.MenuBarCard = menu.IdMenu;
                     orderMenu.Quantity = int.Parse(TbQuantity.Text);
                     orderMenu.Sum = decimal.Parse(TbSum.Text);
+                    orderMenu.Modification = TbModification.Text;
+                    orderMenu.OrderId = order.IdOrder;
+                    orderMenu.DateAdd = (DateTime)DpDate.SelectedDate;
                     App.db.SaveChanges();
                     MessageBox.Show("Данные успешно обновлены", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();

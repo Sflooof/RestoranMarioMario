@@ -87,6 +87,17 @@ namespace RestoranMarioMario.Pages
                     App.CurrentOrder.OrderSum -= currentMenu.Sum;
                 }
             }
+            int count = int.Parse(TbCount.Text);
+            if (count > 0)
+            {
+                count--;
+                TbCount.Text = count.ToString();
+            }
+            else
+            {
+                count = 0;
+                TbCount.Text = count.ToString();
+            }
         }
 
         private void BtPlus_Click(object sender, RoutedEventArgs e)
@@ -117,6 +128,9 @@ namespace RestoranMarioMario.Pages
             }
 
             App.CurrentOrder.OrderSum += currentMenu.Sum;
+            int count = int.Parse(TbCount.Text);
+            count++;
+            TbCount.Text = count.ToString();
         }
     }
 }

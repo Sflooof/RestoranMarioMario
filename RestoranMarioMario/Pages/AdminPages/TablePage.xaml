@@ -33,12 +33,16 @@
                         <StackPanel Orientation="Horizontal">
                             <StackPanel>
                                 <TextBlock Text="Номер стола:"></TextBlock>
+                                <TextBlock Text="Пароль стола:"></TextBlock>
+                                <TextBlock Text="Официант:"></TextBlock>
                             </StackPanel>
                             <StackPanel>
                                 <TextBlock Text="{Binding TableNumber}"></TextBlock>
+                                <TextBlock Text="{Binding TablePassword}"></TextBlock>
+                                <TextBlock Text="{Binding TableWaiter}"></TextBlock>
                             </StackPanel>
                         </StackPanel>
-                        <Button x:Name="BtDelete" Content="Удалить" Grid.Column="1" Click="BtDelete_Click"></Button>
+                        <Button x:Name="BtDelete" Content="Удалить" Grid.Column="1" VerticalAlignment="Top" Click="BtDelete_Click"></Button>
                         <Button x:Name="BtEdit" Content="Редактировать" VerticalAlignment="Top" Grid.Column="2" Click="BtEdit_Click"></Button>
                     </Grid>
                 </DataTemplate>

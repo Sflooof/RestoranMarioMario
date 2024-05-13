@@ -38,15 +38,19 @@
                         <StackPanel Orientation="Horizontal">
                             <StackPanel>
                                 <TextBlock Text="Название блюда:"></TextBlock>
-                                <TextBlock Text="Название напитка:"></TextBlock>
-                                <TextBlock Text="Номер заказа:"></TextBlock>
                                 <TextBlock Text="Количество:"></TextBlock>
+                                <TextBlock Text="Сумма:"></TextBlock>
+                                <TextBlock Text="Модификация:"></TextBlock>
+                                <TextBlock Text="Номер заказа:"></TextBlock>
+                                <TextBlock Text="Дата заказа:"></TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="1">
-                                <TextBlock Text="{Binding CorNameMenu}"></TextBlock>
-                                <TextBlock Text="{Binding CorNameBarCard}"></TextBlock>
-                                <TextBlock Text="{Binding CorNumberOrder}"></TextBlock>
+                                <TextBlock Text="{Binding MenuBarCard}"></TextBlock>
                                 <TextBlock Text="{Binding Quantity}"></TextBlock>
+                                <TextBlock Text="{Binding Sum}"></TextBlock>
+                                <TextBlock Text="{Binding Modification}"></TextBlock>
+                                <TextBlock Text="{Binding OrderId}"></TextBlock>
+                                <TextBlock Text="{Binding DateAdd}"></TextBlock>
                             </StackPanel>
                         </StackPanel>
                         <Button x:Name="BtDelete" Content="Удалить" VerticalAlignment="Top" Grid.Column="2" Click="BtDelete_Click"></Button>

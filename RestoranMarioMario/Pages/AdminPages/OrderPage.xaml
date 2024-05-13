@@ -38,14 +38,12 @@
                             <StackPanel>
                                 <TextBlock Text="Номер заказа:"></TextBlock>
                                 <TextBlock Text="Номер стола:"></TextBlock>
-                                <TextBlock Text="Официант:"></TextBlock>
                                 <TextBlock Text="Сумма заказа:"></TextBlock>
                                 <TextBlock Text="Дата заказа:"></TextBlock>
                             </StackPanel>
                             <StackPanel>
-                                <TextBlock Text="{Binding IdOrder}"></TextBlock>
+                                <TextBlock Text="{Binding NumberOrder}"></TextBlock>
                                 <TextBlock Text="{Binding correctTableNumber}"></TextBlock>
-                                <TextBlock Text="{Binding correctWaiter}"></TextBlock>
                                 <TextBlock Text="{Binding OrderSum}"></TextBlock>
                                 <TextBlock Text="{Binding correctDate}"></TextBlock>
                             </StackPanel>

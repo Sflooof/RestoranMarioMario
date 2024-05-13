@@ -19,8 +19,6 @@
                 <TextBox x:Name="TbNumberOrder"></TextBox>
                 <TextBlock>Номер стола*</TextBlock>
                 <ComboBox x:Name="CbNumberTable"></ComboBox>
-                <TextBlock>Официант*</TextBlock>
-                <ComboBox x:Name="CbWaiter"></ComboBox>
             </StackPanel>
             <StackPanel>
                 <TextBlock>Дата заказа*</TextBlock>

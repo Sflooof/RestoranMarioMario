@@ -85,7 +85,7 @@
             <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" IsHitTestVisible="True">
-            <ListView x:Name="ListViewMenu" d:ItemsSource="{d:SampleData ItemCount=5}" Background="#6BB77B" HorizontalAlignment="Center" Height="500">
+            <ListView x:Name="ListViewMenu" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Height="500">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="3"/>

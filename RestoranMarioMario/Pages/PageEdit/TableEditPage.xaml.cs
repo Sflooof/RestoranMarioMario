@@ -38,6 +38,8 @@ namespace RestoranMarioMario.Pages.AdminPages
             {
                 table = curTable;
                 TbNumber.Text = curTable.TableNumber.ToString();
+                TbPassword.Text = curTable.TablePassword.ToString();
+                CbWaiter.SelectedIndex = (int)curTable.TableWaiter - 1;
             }
         }
 
@@ -50,21 +52,27 @@ namespace RestoranMarioMario.Pages.AdminPages
             }
             else
             {
+                var waiter = App.db.Waiter.Where(c => c.Surname == CbWaiter.SelectedItem.ToString()).FirstOrDefault();
                 if (table == null)
                 {
                     var numTable = new Entities.Table { };
+                    
                     if (TbNumber.Text == "")
                     {
                         numTable = new Entities.Table
                         {
-                            TableNumber = int.Parse(TbNumber.Text)
+                            TableNumber = int.Parse(TbNumber.Text),
+                            TablePassword = TbPassword.Text,
+                            TableWaiter = waiter.IdWaiter
                         };
                     }
                     else
                     {
                         numTable = new Entities.Table
                         {
-                            TableNumber = int.Parse(TbNumber.Text)
+                            TableNumber = int.Parse(TbNumber.Text),
+                            TablePassword = TbPassword.Text,
+                            TableWaiter = waiter.IdWaiter
                         };
                     }
 
@@ -76,6 +84,8 @@ namespace RestoranMarioMario.Pages.AdminPages
                 else
                 {
                     table.TableNumber = int.Parse(TbNumber.Text);
+                    table.TablePassword = TbPassword.Text;
+                    table.TableWaiter = waiter.IdWaiter;
                     App.db.SaveChanges();
                     MessageBox.Show("Стол успешно обновлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();

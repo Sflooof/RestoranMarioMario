@@ -16,6 +16,10 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock>Номер стола*</TextBlock>
             <TextBox x:Name="TbNumber"></TextBox>
+            <TextBlock>Пароль*</TextBlock>
+            <TextBox x:Name="TbPassword"></TextBox>
+            <TextBlock>Официант*</TextBlock>
+            <ComboBox x:Name="CbWaiter"></ComboBox>
             <Button Width="280" Height="45" Content="Сохранить" Click="Button_Click"></Button>
         </StackPanel>
     </Grid>

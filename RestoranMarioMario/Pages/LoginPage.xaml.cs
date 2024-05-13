@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace RestoranMarioMario.Pages
 {
@@ -49,6 +51,30 @@ namespace RestoranMarioMario.Pages
                     NavigationService.Navigate(new PersonalAccountMemegerPage());
                 }
             }
+            //var query = App.db.Order.AsNoTracking();
+
+            //// Подписаться на уведомления об изменениях
+            //query.RegisterNotification(entity =>
+            //{
+            //    // Выполнить код, когда в таблице Order появятся новые данные
+            //    if (entity.EntityState == EntityState.Added)
+            //    {
+            //        // Вывести уведомление менеджеру
+            //        MessageBox.Show("Появился новый заказ!");
+            //    }
+            //});
+
+            //// Запустить асинхронную операцию для отслеживания изменений
+            //Task.Run(() =>
+            //{
+            //    while (true)
+            //    {
+            //        // Бесконечный цикл для ожидания уведомлений об изменениях
+            //        // Время ожидания равно 100 миллисекундам
+            //        query.Load();
+            //        Thread.Sleep(100);
+            //    }
+            //});
         }
 
         private void BtLoginTable_Click(object sender, RoutedEventArgs e)

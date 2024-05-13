@@ -39,7 +39,6 @@ namespace RestoranMarioMario.Pages.PageEdit
                 order = corOrder;
                 TbNumberOrder.Text = corOrder.NumberOrder.ToString();
                 CbNumberTable.SelectedIndex = corOrder.TableNumber - 1;
-                //CbWaiter.SelectedIndex = corOrder.Waiter - 1;
                 DpDate.SelectedDate = corOrder.Date;
                 TbSum.Text = corOrder.OrderSum.ToString();
 
@@ -49,11 +48,8 @@ namespace RestoranMarioMario.Pages.PageEdit
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             var cbTable = App.db.Table.OrderBy(p => p.IdTable).Select(p => p.TableNumber).ToArray();
-            var cbWaiter = App.db.Waiter.OrderBy(p => p.IdWaiter).Select(p => p.Surname).ToArray();
             for (int i = 0; i < cbTable.Length; i++)
                 CbNumberTable.Items.Add(cbTable[i]);
-            for (int i = 0; i < cbWaiter.Length; i++)
-                CbWaiter.Items.Add(cbWaiter[i]);
         }
 
         private void BtBack_Click(object sender, RoutedEventArgs e)
@@ -72,7 +68,6 @@ namespace RestoranMarioMario.Pages.PageEdit
             {
 
                 var table = App.db.Table.Where(c => c.TableNumber.ToString() == CbNumberTable.SelectedItem.ToString()).FirstOrDefault();
-                var waiter = App.db.Waiter.Where(c => c.Surname == CbWaiter.SelectedItem.ToString()).FirstOrDefault();
                 if (order == null)
                 {
                     var correctOrder = new Entities.Order { };
@@ -81,7 +76,6 @@ namespace RestoranMarioMario.Pages.PageEdit
                         correctOrder = new Entities.Order
                         {
                             TableNumber = table.IdTable,
-                            //Waiter = waiter.IdWaiter,
                             OrderSum = int.Parse(TbSum.Text),
                             Date = (DateTime)DpDate.SelectedDate,
                             NumberOrder = TbNumberOrder.Text,
@@ -92,7 +86,6 @@ namespace RestoranMarioMario.Pages.PageEdit
                         correctOrder = new Entities.Order
                         {
                             TableNumber = table.IdTable,
-                            //Waiter = waiter.IdWaiter,
                             OrderSum = int.Parse(TbSum.Text),
                             Date = (DateTime)DpDate.SelectedDate,
                             NumberOrder = TbNumberOrder.Text,
@@ -106,7 +99,6 @@ namespace RestoranMarioMario.Pages.PageEdit
                 else
                 {
                     order.TableNumber = table.IdTable;
-                    //order.Waiter = waiter.IdWaiter;
                     order.OrderSum = int.Parse(TbSum.Text);
                     order.Date = (DateTime)DpDate.SelectedDate;
                     order.NumberOrder = TbNumberOrder.Text;
@@ -123,8 +115,6 @@ namespace RestoranMarioMario.Pages.PageEdit
                 errorBuilder.AppendLine("Поле Номер заказа обязательно для заполнения.");
             if (CbNumberTable.SelectedItem == null)
                 errorBuilder.AppendLine("Поле Номер стола обязательно для заполнения.");
-            if (CbWaiter.SelectedItem == null)
-                errorBuilder.AppendLine("Поле Официант обязательно для заполнения.");
             if (string.IsNullOrWhiteSpace(DpDate.Text))
                 errorBuilder.AppendLine("Поле Дата обязательно для заполнения.");
             match = regexSum.Matches(TbSum.Text);
