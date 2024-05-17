@@ -11,15 +11,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="85"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBox x:Name="TbFind" TextChanged="TbFind_TextChanged"></TextBox>
-            <ComboBox x:Name="CbFilter" SelectionChanged="CbFilter_SelectionChanged">
-                <ComboBoxItem Content="Показать все"></ComboBoxItem>
-            </ComboBox>
             <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged">
                 <ComboBoxItem Content="От А до Я"></ComboBoxItem>
                 <ComboBoxItem Content="От Я до А"></ComboBoxItem>
@@ -31,7 +28,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="280"></ColumnDefinition>
                             <ColumnDefinition Width="280"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
@@ -41,8 +38,8 @@
                                 <TextBlock Text="Ингредиент:"></TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="1">
-                                <TextBlock Text="{Binding CorMenu}"></TextBlock>
-                                <TextBlock Text="{Binding CorIngredient}"></TextBlock>
+                                <TextBlock Text="{Binding correctMenu}"></TextBlock>
+                                <TextBlock Text="{Binding correctIngredien}"></TextBlock>
                             </StackPanel>
                         </StackPanel>
                         <Button x:Name="BtDelete" Content="Удалить" VerticalAlignment="Top" Grid.Column="2" Click="BtDelete_Click"></Button>

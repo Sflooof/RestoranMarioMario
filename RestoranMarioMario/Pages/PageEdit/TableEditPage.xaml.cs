@@ -108,6 +108,10 @@ namespace RestoranMarioMario.Pages.AdminPages
             {
                 errorBuilder.Insert(0, "Устраните следующие ошибки:\n");
             }
+            if (CbWaiter.SelectedItem == null)
+            {
+                errorBuilder.AppendLine("Поле Категория обязательно для заполнения.");
+            }
 
             return errorBuilder.ToString();
         }
@@ -115,6 +119,15 @@ namespace RestoranMarioMario.Pages.AdminPages
         private void BtBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var waiter = App.db.Waiter.OrderBy(x => x.IdWaiter).Select(x => x.Surname).ToArray();
+            for (int i = 0; i < waiter.Length; i++)
+            {
+                CbWaiter.Items.Add(waiter[i]);
+            }
         }
     }
 }

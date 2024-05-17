@@ -23,7 +23,7 @@
             <Button x:Name="BtTable" Content="Столы" Width="150" Height="150" Click="BtTable_Click"></Button>
             
             <Button x:Name="BtOrder" Content="Заказы" Width="150" Height="150" Click="BtOrder_Click"></Button>
-            <Button x:Name="BtIngredient" Content="Ингредиент" Width="150" Height="150" Click="BtIngredient_Click"></Button>
+            <Button x:Name="BtIngredient" Content="Ингредиенты" Width="150" Height="150" Click="BtIngredient_Click"></Button>
             <Button x:Name="BtWaiter" Content="Официанты" Width="150" Height="150" Click="BtWaiter_Click"></Button>
         </StackPanel>
     </Grid>

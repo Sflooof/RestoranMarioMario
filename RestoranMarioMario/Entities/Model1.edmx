@@ -96,7 +96,7 @@
           <Property Name="Patronymic" Type="nvarchar" MaxLength="100" />
           <Property Name="Role" Type="int" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Passrowd" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Waiter">
           <Key>
@@ -279,7 +279,7 @@
           <Property Name="Sum" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="PhotoMenu" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Volume" Type="Int32" />
-          <NavigationProperty Name="CategoryMenu" Relationship="Self.FK_BarCard_CategoryBarCard" FromRole="Menu" ToRole="CategoryMenu" />
+          <NavigationProperty Name="CategoryMenu1" Relationship="Self.FK_BarCard_CategoryBarCard" FromRole="Menu" ToRole="CategoryMenu" />
           <NavigationProperty Name="MenuIngredient" Relationship="Self.FK_MenuIngredient_Menu" FromRole="Menu" ToRole="MenuIngredient" />
           <NavigationProperty Name="OrderMenu" Relationship="Self.FK_OrderMenuBarCard_BarCard" FromRole="Menu" ToRole="OrderMenu" />
         </EntityType>
@@ -290,8 +290,8 @@
           <Property Name="IdMenuIngredient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdMenu" Type="Int32" Nullable="false" />
           <Property Name="IdIngredient" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Ingredient" Relationship="Self.FK_BarCardIngredient_Ingredient" FromRole="MenuIngredient" ToRole="Ingredient" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK_MenuIngredient_Menu" FromRole="MenuIngredient" ToRole="Menu" />
+          <NavigationProperty Name="Ingredient1" Relationship="Self.FK_BarCardIngredient_Ingredient" FromRole="MenuIngredient" ToRole="Ingredient" />
+          <NavigationProperty Name="Menu1" Relationship="Self.FK_MenuIngredient_Menu" FromRole="MenuIngredient" ToRole="Menu" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -316,8 +316,8 @@
           <Property Name="Modification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="DateAdd" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK_OrderMenuBarCard_BarCard" FromRole="OrderMenu" ToRole="Menu" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_OrderMenu_Order1" FromRole="OrderMenu" ToRole="Order" />
+          <NavigationProperty Name="Menu1" Relationship="Self.FK_OrderMenuBarCard_BarCard" FromRole="OrderMenu" ToRole="Menu" />
+          <NavigationProperty Name="Order1" Relationship="Self.FK_OrderMenu_Order1" FromRole="OrderMenu" ToRole="Order" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -358,8 +358,8 @@
           <Property Name="Patronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Role" Type="Int32" Nullable="false" />
           <Property Name="Login" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Passrowd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Roles" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Roles1" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
         </EntityType>
         <EntityType Name="Waiter">
           <Key>
@@ -617,7 +617,7 @@
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Passrowd" ColumnName="Passrowd" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

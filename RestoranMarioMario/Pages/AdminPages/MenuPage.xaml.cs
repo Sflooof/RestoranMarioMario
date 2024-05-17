@@ -58,11 +58,11 @@ namespace RestoranMarioMario.Pages.AdminPages
             updateItem = updateItem.Where(item => item.Name.ToLower().Contains(TbFind.Text.ToLower())).ToList();
             if (CbSort.SelectedIndex == 0)
             {
-                updateItem = updateItem.OrderBy(x => x.Sum).ToList();
+                updateItem = updateItem.OrderBy(x => x.Name).ToList();
             }
             else if (CbSort.SelectedIndex == 1)
             {
-                updateItem = updateItem.OrderByDescending(x => x.Sum).ToList();
+                updateItem = updateItem.OrderByDescending(x => x.Name).ToList();
             }
             if (CbFilter.SelectedIndex == 1)
             {

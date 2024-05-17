@@ -17,9 +17,9 @@
             <TextBlock>Фамилия*</TextBlock>
             <TextBox x:Name="TbSurname"></TextBox>
             <TextBlock>Имя*</TextBlock>
-            <ComboBox x:Name="TbName"></ComboBox>
+            <TextBox x:Name="TbName"></TextBox>
             <TextBlock>Отчество</TextBlock>
-            <ComboBox x:Name="TbPatronymic"></ComboBox>
+            <TextBox x:Name="TbPatronymic"></TextBox>
             <Button Name="BtSave" Width="280" Height="45" Content="Сохранить" Click="BtSave_Click"></Button>
         </StackPanel>
     </Grid>

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:RestoranMarioMario.Pages.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="TableEditPage">
+      Title="TableEditPage" Loaded="Page_Loaded">
 
     <Grid>
         <TextBlock Margin="20" FontSize="28" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование стола</TextBlock>

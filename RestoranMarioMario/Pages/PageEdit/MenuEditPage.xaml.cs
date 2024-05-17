@@ -26,7 +26,7 @@ namespace RestoranMarioMario.Pages.PageEdit
     {
         private Entities.Menu menu = null;
         private byte[] img = null;
-        Regex regexName = new Regex(@"^[А-ЯЁ][а-яё]+$");
+        Regex regexName = new Regex(@"^[А-ЯЁа-яё\s]+$");
         Regex regexSum = new Regex(@"^\w{2,4}$");
         MatchCollection match;
         public MenuEditPage()

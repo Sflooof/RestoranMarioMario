@@ -18,7 +18,7 @@ namespace RestoranMarioMario.Entities
         public int IdMenu { get; set; }
         public int IdIngredient { get; set; }
     
-        public virtual Ingredient Ingredient { get; set; }
-        public virtual Menu Menu { get; set; }
+        public virtual Ingredient Ingredient1 { get; set; }
+        public virtual Menu Menu1 { get; set; }
     }
 }

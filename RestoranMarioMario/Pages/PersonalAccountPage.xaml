@@ -22,14 +22,16 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="BtTable" Content="Столы" Width="150" Height="150" Click="BtTable_Click"></Button>
             <Button x:Name="BtUser" Content="Пользователи" Width="150" Height="150" Click="BtUser_Click" Visibility="{Binding AdminVisibiliti}"></Button>
-            <Button x:Name="BtRole" Content="Роль пользователя" Width="150" Height="150" Click="BtRole_Click"></Button>
+            <Button x:Name="BtRole" Width="150" Height="150" Click="BtRole_Click">
+                <TextBlock TextAlignment="Center">Роли <LineBreak/> пользователей</TextBlock>
+            </Button>
             <Button x:Name="BtMenu" Content="Меню" Width="150" Height="150" Click="BtMenu_Click"></Button>
             <Button x:Name="BtMenuInrgedient" Width="150" Height="150" Click="BtMenuIngredient_Click">
                 <TextBlock TextAlignment="Center">Меню <LineBreak/> - <LineBreak/> Ингредиенты</TextBlock>
             </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
-            <Button x:Name="BtCategoryMenu" Content="Категория меню" Width="150" Height="150" Click="BtCategoryMenu_Click"></Button>
+            <Button x:Name="BtCategoryMenu" Content="Категории меню" Width="150" Height="150" Click="BtCategoryMenu_Click"></Button>
             <Button x:Name="BtIngredient" Content="Ингредиенты" Width="150" Height="150" Click="BtIngredient_Click"></Button>
             <Button x:Name="BtOrder" Content="Заказы" Width="150" Height="150" Click="BtOrder_Click"></Button>
             <Button x:Name="BtWaiter" Content="Официанты" Width="150" Height="150" Click="BtWaiter_Click"></Button>

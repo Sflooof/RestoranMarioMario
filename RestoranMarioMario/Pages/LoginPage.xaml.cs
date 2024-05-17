@@ -30,7 +30,7 @@ namespace RestoranMarioMario.Pages
 
         private void BtLogin_Click(object sender, RoutedEventArgs e)
         {
-            var login = App.db.Users.FirstOrDefault(x => x.Login == TbLogin.Text && x.Passrowd == PbLogin.Password);
+            var login = App.db.Users.FirstOrDefault(x => x.Login == TbLogin.Text && x.Password == PbLogin.Password);
             if (TbLogin.Text == "" || PbLogin.Password == "")
             {
                 MessageBox.Show("Не все поля заполнены", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);

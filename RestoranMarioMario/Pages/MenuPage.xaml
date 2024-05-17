@@ -84,8 +84,8 @@
         <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
             <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
-        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" IsHitTestVisible="True">
-            <ListView x:Name="ListViewMenu" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Height="500">
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" IsHitTestVisible="True" >
+            <ListView x:Name="ListViewMenu" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Height="500" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="3"/>

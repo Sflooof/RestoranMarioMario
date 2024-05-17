@@ -12,26 +12,25 @@
         <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
             <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
-        <WrapPanel Margin="30,0,0,80">
+        <WrapPanel>
             <StackPanel Width="1000">
-                <StackPanel Orientation="Horizontal">
-                    <Image Name ="ImgPhoto" Height="200" Width="400" HorizontalAlignment="Center"></Image>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Name ="ImgPhoto" Height="250" Width="500"></Image>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="Название:" FontWeight="Bold"></TextBlock>
-                    <TextBlock Name = "TbName" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
+                    <TextBlock Name = "TbName" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" FontSize="42"></TextBlock>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock Text="Категория:" FontWeight="Bold"></TextBlock>
                     <TextBlock Name = "TbCategory" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="Цена:" FontWeight="Bold"></TextBlock>
-                    <TextBlock Name = "TbSum" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
-                </StackPanel>
-                <StackPanel>
                     <TextBlock Text="Вес (г):" FontWeight="Bold"></TextBlock>
                     <TextBlock Name = "TbWeight" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name = "TbSum" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5"  FontSize="42"></TextBlock>
+                    <TextBlock Text="р." VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5"  FontSize="42"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </WrapPanel>

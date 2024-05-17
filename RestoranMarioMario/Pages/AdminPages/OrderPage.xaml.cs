@@ -48,17 +48,12 @@ namespace RestoranMarioMario.Pages.AdminPages
             updateItem = updateItem.Where(item => item.NumberOrder.ToString().Contains(TbFind.Text.ToLower())).ToList();
             if (CbSort.SelectedIndex == 0)
             {
-                updateItem = updateItem.OrderBy(item => item.Date).ToList();
+                updateItem = updateItem.OrderByDescending(item => item.Date).ToList();
             }
             else if (CbSort.SelectedIndex == 1)
             {
-                updateItem = updateItem.OrderByDescending(item => item.Date).ToList();
+                updateItem = updateItem.OrderBy(item => item.Date).ToList();
             }
-            //if (CbFilter.SelectedIndex > 0)
-            //{
-            //    var selectedCategory = CbFilter.SelectedIndex + 1;
-            //    updateItem = updateItem.Where(item => item.Date == selectedCategory).ToList();
-            //}
             ListViewCatalog.ItemsSource = updateItem;
             int countFind = ListViewCatalog.Items.Count;
             TbCountFind.Text = countFind.ToString() + " из " + App.db.Order.Count().ToString();

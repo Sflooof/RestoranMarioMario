@@ -18,7 +18,6 @@ namespace RestoranMarioMario
         public static restaurantEntities db { get; } = new restaurantEntities();
         public static Users CurrentUser = null;
         public static Table CurrentTable = null;
-        //public static Entities.Menu CurrentMenu = null;
         public static Order CurrentOrder = null;
         public static List<OrderMenu> CurrentOrderMenu = null;
     }

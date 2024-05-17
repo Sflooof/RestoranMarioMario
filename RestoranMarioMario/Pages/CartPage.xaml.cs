@@ -35,6 +35,35 @@ namespace RestoranMarioMario.Pages
             InitializeComponent();
             orderProductsListView.ItemsSource = App.CurrentOrderMenu;
         }
+        //private void Update()
+        //{
+        //    orderProductsListView.ItemsSource = null;
+        //    if (App.CurrentUser != null)
+        //    {
+        //        var currentOrderProducts = App.db.OrderMenu.Where(op => op.MenuBarCard == currentOrder.IdOrder).ToList();
+        //        orderProductsListView.ItemsSource = currentOrderProducts;
+        //        double sum = 0;
+        //        foreach (var product in currentOrderProducts)
+        //        {
+        //            var currentProduct = App.db.Menu.Where(p => p.IdMenu == product.MenuBarCard).First();
+        //            double productPrice = (double)currentProduct.Sum;
+        //            sum += productPrice * (int)product.Quantity;
+        //        }
+        //        OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
+        //    }
+        //    else
+        //    {
+        //        orderProductsListView.ItemsSource = App.CurrentOrderMenu;
+        //        double sum = 0;
+        //        foreach (var product in App.CurrentOrderMenu)
+        //        {
+        //            var currentProduct = App.db.Menu.Where(p => p.IdMenu == product.MenuBarCard).First();
+        //            double productPrice = (double)currentProduct.Sum;
+        //            sum += productPrice * (int)product.Quantity;
+        //        }
+        //        OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
+        //    }
+        //}
         private void Update()
         {
             orderProductsListView.ItemsSource = null;
@@ -45,9 +74,12 @@ namespace RestoranMarioMario.Pages
                 double sum = 0;
                 foreach (var product in currentOrderProducts)
                 {
-                    var currentProduct = App.db.Menu.Where(p => p.IdMenu == product.MenuBarCard).First();
-                    double productPrice = (double)currentProduct.Sum;
-                    sum += productPrice * (int)product.Quantity;
+                    var currentProduct = App.db.Menu.FirstOrDefault(p => p.IdMenu == product.MenuBarCard);
+                    if (currentProduct != null)
+                    {
+                        double productPrice = (double)currentProduct.Sum;
+                        sum += productPrice * (int)product.Quantity;
+                    }
                 }
                 OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
             }
@@ -57,9 +89,12 @@ namespace RestoranMarioMario.Pages
                 double sum = 0;
                 foreach (var product in App.CurrentOrderMenu)
                 {
-                    var currentProduct = App.db.Menu.Where(p => p.IdMenu == product.MenuBarCard).First();
-                    double productPrice = (double)currentProduct.Sum;
-                    sum += productPrice * (int)product.Quantity;
+                    var currentProduct = App.db.Menu.FirstOrDefault(p => p.IdMenu == product.MenuBarCard);
+                    if (currentProduct != null)
+                    {
+                        double productPrice = (double)currentProduct.Sum;
+                        sum += productPrice * (int)product.Quantity;
+                    }
                 }
                 OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
             }
@@ -75,7 +110,7 @@ namespace RestoranMarioMario.Pages
                 App.db.OrderMenu.Add(order);
             }
             App.db.SaveChanges();
-            MessageBox.Show("Заказ создан", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Заказ создан. Скоро к Вам подойдет менеджер для оплаты.", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
             App.CurrentOrder = new Entities.Order()
             {
                 TableNumber = createdOrder.TableNumber,
@@ -84,7 +119,7 @@ namespace RestoranMarioMario.Pages
                 NumberOrder = "1231"
             };
             App.CurrentOrderMenu = new List<Entities.OrderMenu>();
-            MessageBox.Show("Скоро к Вам подойдет менеджер для оплаты", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+            NavigationService.GoBack();
         }
 
         private void BtMinus_Click(object sender, RoutedEventArgs e)

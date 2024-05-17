@@ -27,8 +27,17 @@ namespace RestoranMarioMario.Entities
         public decimal Sum { get; set; }
         public byte[] PhotoMenu { get; set; }
         public Nullable<int> Volume { get; set; }
-    
-        public virtual CategoryMenu CategoryMenu { get; set; }
+
+        public string correctCategoryMenu
+        {
+            get
+            {
+                return CategoryMenu1.Name.ToString();
+            }
+        }
+
+
+        public virtual CategoryMenu CategoryMenu1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MenuIngredient> MenuIngredient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

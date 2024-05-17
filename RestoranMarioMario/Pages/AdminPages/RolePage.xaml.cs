@@ -46,7 +46,7 @@ namespace RestoranMarioMario.Pages.AdminPages
         private void BtDelete_Click(object sender, RoutedEventArgs e)
         {
             var deleteItem = (sender as Button).DataContext as Roles;
-            if (MessageBox.Show("Вы действительно хотите удалить этого пользователя?", "Внимание!",
+            if (MessageBox.Show("Вы действительно хотите удалить эту роль?", "Внимание!",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 App.db.Roles.Remove(deleteItem);

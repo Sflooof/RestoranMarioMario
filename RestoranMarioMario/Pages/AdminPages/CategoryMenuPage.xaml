@@ -11,7 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="85"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
@@ -46,7 +46,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <TextBlock Grid.Row="0" Text="Категории меню" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
-        <Button x:Name="BtAdd" Content="Добавить категорию" Grid.Row="3" Click="BtAdd_Click" Width="150" HorizontalAlignment="Right"></Button>
+        <Button x:Name="BtAdd" Content="Добавить категорию" Grid.Row="3" Click="BtAdd_Click" Width="180" HorizontalAlignment="Right"></Button>
         <Button x:Name="BtBack" Click="BtBack_Click" Height="20" Width="20" HorizontalAlignment="Left">
             <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
         </Button>

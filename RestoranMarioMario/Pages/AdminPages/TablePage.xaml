@@ -11,7 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="65"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
@@ -39,7 +39,7 @@
                             <StackPanel>
                                 <TextBlock Text="{Binding TableNumber}"></TextBlock>
                                 <TextBlock Text="{Binding TablePassword}"></TextBlock>
-                                <TextBlock Text="{Binding TableWaiter}"></TextBlock>
+                                <TextBlock Text="{Binding CorrectWaiter}"></TextBlock>
                             </StackPanel>
                         </StackPanel>
                         <Button x:Name="BtDelete" Content="Удалить" Grid.Column="1" VerticalAlignment="Top" Click="BtDelete_Click"></Button>

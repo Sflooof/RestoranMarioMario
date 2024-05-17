@@ -11,15 +11,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="65"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBox x:Name="TbFind" TextChanged="TbFind_TextChanged"></TextBox>
-            <ComboBox x:Name="CbFilter" SelectionChanged="CbFilter_SelectionChanged">
-                <ComboBoxItem Content="Показать все"></ComboBoxItem>
-            </ComboBox>
             <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged">
                 <ComboBoxItem Content="Сначала новые заказы"></ComboBoxItem>
                 <ComboBoxItem Content="Сначала старые заказы"></ComboBoxItem>
@@ -43,9 +40,9 @@
                             </StackPanel>
                             <StackPanel>
                                 <TextBlock Text="{Binding NumberOrder}"></TextBlock>
-                                <TextBlock Text="{Binding correctTableNumber}"></TextBlock>
+                                <TextBlock Text="{Binding CorrectTableNumber}"></TextBlock>
                                 <TextBlock Text="{Binding OrderSum}"></TextBlock>
-                                <TextBlock Text="{Binding correctDate}"></TextBlock>
+                                <TextBlock Text="{Binding CorrectDate}"></TextBlock>
                             </StackPanel>
                         </StackPanel>
                         <Button x:Name="BtDelete" Content="Удалить" VerticalAlignment="Top" Grid.Column="1" Click="BtDelete_Click"></Button>

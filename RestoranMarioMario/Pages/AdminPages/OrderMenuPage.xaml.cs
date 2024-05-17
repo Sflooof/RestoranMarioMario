@@ -78,7 +78,7 @@ namespace RestoranMarioMario.Pages.AdminPages
         private void UpdateData()
         {
             var updateItem = App.db.OrderMenu.ToList();
-            updateItem = updateItem.Where(item => item.MenuBarCard.ToString().ToLower().Contains(TbFind.Text.ToLower())).ToList();
+            updateItem = updateItem.Where(item => item.Menu1.Name.ToLower().Contains(TbFind.Text.ToLower())).ToList();
             if (CbSort.SelectedIndex == 0)
             {
                 updateItem = updateItem.OrderBy(item => item.MenuBarCard).ToList();
@@ -87,11 +87,11 @@ namespace RestoranMarioMario.Pages.AdminPages
             {
                 updateItem = updateItem.OrderByDescending(item => item.MenuBarCard).ToList();
             }
-            if (CbFilter.SelectedIndex > 0)
-            {
-                var selectedCategory = CbFilter.SelectedIndex;
-                updateItem = updateItem.Where(item => item.MenuBarCard == selectedCategory).ToList();
-            }
+            //if (CbFilter.SelectedIndex > 0)
+            //{
+            //    var selectedCategory = CbFilter.SelectedIndex;
+            //    updateItem = updateItem.Where(item => item.MenuBarCard == selectedCategory).ToList();
+            //}
             ListViewCatalog.ItemsSource = updateItem;
             int countFind = ListViewCatalog.Items.Count;
             TbCountFind.Text = countFind.ToString() + " из " + App.db.OrderMenu.Count().ToString();
@@ -104,11 +104,11 @@ namespace RestoranMarioMario.Pages.AdminPages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateData();
-            var type = App.db.Menu.OrderBy(x => x.IdMenu).Select(x => x.Name).ToArray();
-            for (int i = 0; i < type.Length; i++)
-            {
-                CbFilter.Items.Add(type[i]);
-            }
+            //var type = App.db.Menu.OrderBy(x => x.IdMenu).Select(x => x.Name).ToArray();
+            //for (int i = 0; i < type.Length; i++)
+            //{
+            //    CbFilter.Items.Add(type[i]);
+            //}
         }
     }
 }

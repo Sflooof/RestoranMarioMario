@@ -58,7 +58,7 @@ namespace RestoranMarioMario.Pages.AdminPages
         private void UpdateData()
         {
             var updateItem = App.db.MenuIngredient.ToList();
-            updateItem = updateItem.Where(item => item.IdMenu.ToString().ToLower().Contains(TbFind.Text.ToLower())).ToList();
+            updateItem = updateItem.Where(item => item.Menu1.Name.ToLower().Contains(TbFind.Text.ToLower())).ToList();
             if (CbSort.SelectedIndex == 0)
             {
                 updateItem = updateItem.OrderBy(item => item.IdMenu).ToList();
@@ -66,11 +66,6 @@ namespace RestoranMarioMario.Pages.AdminPages
             else if (CbSort.SelectedIndex == 1)
             {
                 updateItem = updateItem.OrderByDescending(item => item.IdMenu).ToList();
-            }
-            if (CbFilter.SelectedIndex > 0)
-            {
-                var selectedCategory = CbFilter.SelectedIndex;
-                updateItem = updateItem.Where(item => item.IdIngredient == selectedCategory).ToList();
             }
             ListViewCatalog.ItemsSource = updateItem;
             int countFind = ListViewCatalog.Items.Count;
@@ -103,11 +98,6 @@ namespace RestoranMarioMario.Pages.AdminPages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateData();
-            var type = App.db.Ingredient.OrderBy(x => x.IdIngredient).Select(x => x.Name).ToArray();
-            for (int i = 0; i < type.Length; i++)
-            {
-                CbFilter.Items.Add(type[i]);
-            }
         }
     }
 }

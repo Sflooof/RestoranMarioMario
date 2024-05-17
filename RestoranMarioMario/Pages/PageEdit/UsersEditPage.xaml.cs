@@ -42,7 +42,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                 TbPatronymic.Text = corUsers.Patronymic.ToString();
                 CbRole.SelectedIndex = corUsers.Role - 1;
                 TbLogin.Text = corUsers.Login.ToString();
-                TbPassword.Password = corUsers.Passrowd.ToString();
+                TbPassword.Password = corUsers.Password.ToString();
             }
         }
 
@@ -73,7 +73,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                             Patronymic = "NULL",
                             Role = roles.IdRole,
                             Login = TbLogin.Text,
-                            Passrowd = TbPassword.Password,
+                            Password = TbPassword.Password,
                         };
                     }
                     else
@@ -85,7 +85,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                             Patronymic = TbPatronymic.Text,
                             Role = roles.IdRole,
                             Login = TbLogin.Text,
-                            Passrowd = TbPassword.Password,
+                            Password = TbPassword.Password,
                         };
                     }
                     App.db.Users.Add(correstUsers);
@@ -100,7 +100,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     users.Patronymic = TbPatronymic.Text;
                     users.Role = roles.IdRole;
                     users.Login = TbLogin.Text;
-                    users.Passrowd = TbPassword.Password;
+                    users.Password = TbPassword.Password;
                     App.db.SaveChanges();
                     MessageBox.Show("Пользователь успешно добавлен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();

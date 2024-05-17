@@ -14,25 +14,25 @@
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="Авторизация персонала" HorizontalAlignment="Center" FontSize="26"></TextBlock>
                     <StackPanel>
-                        <TextBlock Text="Логин" Width="350"></TextBlock>
+                        <TextBlock Text="Логин" Width="350" Margin="80 30 0 0"></TextBlock>
                         <TextBox x:Name="TbLogin"></TextBox>
-                        <TextBlock Text="Пароль" Width="350"></TextBlock>
+                        <TextBlock Text="Пароль" Width="350" Margin="80 0 0 0"></TextBlock>
                         <PasswordBox x:Name="PbLogin"></PasswordBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button x:Name="BtLogin" Content="Войти" Height="45" Width="200" Click="BtLogin_Click"></Button>
+                        <Button x:Name="BtLogin" Content="Войти" Height="45" Width="280" Click="BtLogin_Click"></Button>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Авторизация гостей" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+                    <TextBlock Text="Авторизация стола" HorizontalAlignment="Center" FontSize="26"></TextBlock>
                     <StackPanel>
-                        <TextBlock Text="Номер стола" Width="350"></TextBlock>
+                        <TextBlock Text="Номер стола" Width="350" Margin="80 30 0 0"></TextBlock>
                         <TextBox x:Name="TbLoginTable"></TextBox>
-                        <TextBlock Text="Пароль" Width="350"></TextBlock>
-                        <PasswordBox x:Name="PbLoginTable"></PasswordBox>
+                        <TextBlock Text="Пароль" Width="350" Margin="80 0 0 0"></TextBlock>
+                        <PasswordBox x:Name="PbLoginTable" ></PasswordBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button x:Name="BtLoginTable" Content="Войти" Height="45" Width="200" Click="BtLoginTable_Click"></Button>
+                        <Button x:Name="BtLoginTable" Content="Войти" Height="45" Width="280" Click="BtLoginTable_Click"></Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

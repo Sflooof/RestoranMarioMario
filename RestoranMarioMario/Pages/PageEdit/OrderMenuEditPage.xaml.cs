@@ -40,7 +40,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                 TbQuantity.Text = corOrderMenu.Quantity.ToString();
                 TbSum.Text = corOrderMenu.Sum.ToString();
                 TbModification.Text = corOrderMenu.Modification.ToString();
-                CbOrderId.SelectedIndex = corOrderMenu.OrderId - 1;
+                CbOrderId.SelectedIndex = corOrderMenu.OrderId;
                 DpDate.SelectedDate = corOrderMenu.DateAdd;
             }
         }
@@ -49,6 +49,9 @@ namespace RestoranMarioMario.Pages.PageEdit
             var cbMenu = App.db.Menu.OrderBy(p => p.IdMenu).Select(p => p.Name).ToArray();            
             for (int i = 0; i < cbMenu.Length; i++)
                 CbNameMenu.Items.Add(cbMenu[i]);
+            var cbOrder = App.db.Order.OrderBy(p => p.IdOrder).Select(p => p.NumberOrder).ToArray();
+            for (int i = 0; i < cbOrder.Length; i++)
+                CbOrderId.Items.Add(cbOrder[i]);
         }
 
         private void BtBack_Click(object sender, RoutedEventArgs e)

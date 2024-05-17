@@ -65,7 +65,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                         {
                             Surname = TbSurname.Text,
                             Name = TbName.Text,
-                            Patronymic = "NULL",
+                            Patronymic = "",
                         };
                     }
                     else
