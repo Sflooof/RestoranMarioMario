@@ -35,35 +35,6 @@ namespace RestoranMarioMario.Pages
             InitializeComponent();
             orderProductsListView.ItemsSource = App.CurrentOrderMenu;
         }
-        //private void Update()
-        //{
-        //    orderProductsListView.ItemsSource = null;
-        //    if (App.CurrentUser != null)
-        //    {
-        //        var currentOrderProducts = App.db.OrderMenu.Where(op => op.MenuBarCard == currentOrder.IdOrder).ToList();
-        //        orderProductsListView.ItemsSource = currentOrderProducts;
-        //        double sum = 0;
-        //        foreach (var product in currentOrderProducts)
-        //        {
-        //            var currentProduct = App.db.Menu.Where(p => p.IdMenu == product.MenuBarCard).First();
-        //            double productPrice = (double)currentProduct.Sum;
-        //            sum += productPrice * (int)product.Quantity;
-        //        }
-        //        OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
-        //    }
-        //    else
-        //    {
-        //        orderProductsListView.ItemsSource = App.CurrentOrderMenu;
-        //        double sum = 0;
-        //        foreach (var product in App.CurrentOrderMenu)
-        //        {
-        //            var currentProduct = App.db.Menu.Where(p => p.IdMenu == product.MenuBarCard).First();
-        //            double productPrice = (double)currentProduct.Sum;
-        //            sum += productPrice * (int)product.Quantity;
-        //        }
-        //        OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
-        //    }
-        //}
         private void Update()
         {
             orderProductsListView.ItemsSource = null;
@@ -111,6 +82,7 @@ namespace RestoranMarioMario.Pages
             }
             App.db.SaveChanges();
             MessageBox.Show("Заказ создан. Скоро к Вам подойдет менеджер для оплаты.", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+ 
             App.CurrentOrder = new Entities.Order()
             {
                 TableNumber = createdOrder.TableNumber,

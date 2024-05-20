@@ -16,6 +16,13 @@ namespace RestoranMarioMario.Entities
     {
         public int IdOrderMenu { get; set; }
         public int MenuBarCard { get; set; }
+        public string MenuTitle
+        {
+            get
+            {
+                return Menu1.Name;
+            }
+        }
         public int Quantity { get; set; }
         public Nullable<decimal> Sum { get; set; }
         public string Modification { get; set; }

@@ -51,30 +51,6 @@ namespace RestoranMarioMario.Pages
                     NavigationService.Navigate(new PersonalAccountMemegerPage());
                 }
             }
-            //var query = App.db.Order.AsNoTracking();
-
-            //// Подписаться на уведомления об изменениях
-            //query.RegisterNotification(entity =>
-            //{
-            //    // Выполнить код, когда в таблице Order появятся новые данные
-            //    if (entity.EntityState == EntityState.Added)
-            //    {
-            //        // Вывести уведомление менеджеру
-            //        MessageBox.Show("Появился новый заказ!");
-            //    }
-            //});
-
-            //// Запустить асинхронную операцию для отслеживания изменений
-            //Task.Run(() =>
-            //{
-            //    while (true)
-            //    {
-            //        // Бесконечный цикл для ожидания уведомлений об изменениях
-            //        // Время ожидания равно 100 миллисекундам
-            //        query.Load();
-            //        Thread.Sleep(100);
-            //    }
-            //});
         }
 
         private void BtLoginTable_Click(object sender, RoutedEventArgs e)
