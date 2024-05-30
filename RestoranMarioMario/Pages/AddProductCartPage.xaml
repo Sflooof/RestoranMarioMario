@@ -25,7 +25,7 @@
                 <TextBlock x:Name="TbCount" FontSize="20" Text="1" VerticalAlignment="Center"/>
                 <Button Content="+" Name="BtPlus" Width="40" Height="40" Click="BtPlus_Click" />
             </StackPanel>
-            <Button x:Name="BtSave" Content="Сохранить" Click="BtSave_Click"></Button>
+            <Button x:Name="BtSave" Content="Добавить в корзину" Click="BtSave_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>
