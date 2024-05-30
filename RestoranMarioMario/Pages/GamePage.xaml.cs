@@ -76,22 +76,6 @@ namespace RestoranMarioMario.Pages
             Canvas.SetTop(foodImage, foodY * snakeSquareSize);
             CanvasGame.Children.Add(foodImage);
         }
-        //private RotateTransform GetRotationTransform(Dicection direction)
-        //{
-        //    switch (direction)
-        //    {
-        //        case Dicection.Top:
-        //            return new RotateTransform(-180);
-        //        case Dicection.Right:
-        //            return new RotateTransform(-90);
-        //        case Dicection.Bottom:
-        //            return new RotateTransform(180);
-        //        case Dicection.Left:
-        //            return new RotateTransform(90);
-        //        default:
-        //            return new RotateTransform(0);
-        //    }
-        //}
 
         private void GameLoaded(object sender, RoutedEventArgs e)
         {
@@ -234,8 +218,15 @@ namespace RestoranMarioMario.Pages
 
         private void BtStart_Click(object sender, RoutedEventArgs e)
         {
-            InitialGame();
-            BtStart.Visibility = Visibility.Collapsed;
+            if (MessageBox.Show("Змейка – это игра, в которой игрок управляет змеей, которая ползет по экрану и потребляет пищу. " +
+                "\nЗмея двигается в четырех направлениях (вверх, вниз, влево, вправо) по сетке клеток. " +
+                "Когда змея съедает еду, она растет, добавляя новую клетку к своему хвосту. " +
+                "\nЗмея не может пересекать свое собственное тело. Если змея ударяется о границу экрана или о собственное тело, игра заканчивается, счет обнуляется и появляется кнопка «Начать заново!». " +
+                "Еда появляется случайным образом на экране и представляет собой фрукт.", "Правила игры!", MessageBoxButton.OK) == MessageBoxResult.OK)
+            {
+                InitialGame();
+                BtStart.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void BtBack_Click(object sender, RoutedEventArgs e)

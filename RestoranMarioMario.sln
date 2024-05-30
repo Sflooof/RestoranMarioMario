@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestoranMarioMario", "RestoranMarioMario\RestoranMarioMario.csproj", "{0EF258BD-EC07-45AC-A9D7-959AE7BB0408}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{EB505850-486B-4905-AAFF-FB31ED01D725}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0EF258BD-EC07-45AC-A9D7-959AE7BB0408}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EF258BD-EC07-45AC-A9D7-959AE7BB0408}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EF258BD-EC07-45AC-A9D7-959AE7BB0408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB505850-486B-4905-AAFF-FB31ED01D725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB505850-486B-4905-AAFF-FB31ED01D725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB505850-486B-4905-AAFF-FB31ED01D725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB505850-486B-4905-AAFF-FB31ED01D725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

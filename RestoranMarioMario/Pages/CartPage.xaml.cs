@@ -30,10 +30,13 @@ namespace RestoranMarioMario.Pages
     public partial class CartPage : Page
     {
         public Entities.Order currentOrder = null;
+        private DateTime lastVisitTime;
+        public static RoutedCommand GeneratePDFCommand = new RoutedCommand();
         public CartPage()
         {
             InitializeComponent();
             orderProductsListView.ItemsSource = App.CurrentOrderMenu;
+            Loaded += Page_Loaded;
         }
         private void Update()
         {
@@ -102,7 +105,7 @@ namespace RestoranMarioMario.Pages
             {
                 if (App.CurrentUser == null)
                 {
-                    if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuBarCard}", "Внимание",
+                    if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuTitle}", "Внимание",
                         MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                     {
                         App.CurrentOrderMenu.Remove(currentOrderProduct);
@@ -117,8 +120,7 @@ namespace RestoranMarioMario.Pages
                 }
                 else
                 {
-                    if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuBarCard}" +
-                        $"{currentOrderProduct.MenuBarCard}", "Внимание",
+                    if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuTitle}", "Внимание",
                         MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                     {
                         App.db.OrderMenu.Remove(currentOrderProduct);
@@ -157,7 +159,7 @@ namespace RestoranMarioMario.Pages
         {
             var button = (Button)sender;
             var currentOrderProduct = button.DataContext as OrderMenu;
-            if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuBarCard}", "Внимание",
+            if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuTitle}", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 App.CurrentOrderMenu.Remove(currentOrderProduct);
@@ -172,18 +174,17 @@ namespace RestoranMarioMario.Pages
             Update();
         }
 
+         private int numberCheque = 1;
         private void BtPDF_Click(object sender, RoutedEventArgs e)
         {
             Document doc = new Document();
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
             string time = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
-            int numberCheque = 1;
             int numverTable = App.CurrentTable.TableNumber;
+            numberCheque++;
             var waiterOrder = App.db.Table.Where(x => x.TableWaiter == numverTable).First();
             var waiterInfo = App.db.Waiter.Where(w => w.IdWaiter == waiterOrder.TableWaiter).Select(w => new { w.Surname, w.Name, w.Patronymic }).First();
             string fullName = $"{waiterInfo.Surname} {waiterInfo.Name} {waiterInfo.Patronymic}";
-            var orderMenu = App.db.OrderMenu.GroupBy(x => x.DateAdd).OrderBy(x => x.Min(y => y.DateAdd)).Select(x => x.Key).First();
-            //var firstDateAdded = App.db.OrderMenu.Where(om => om.Order.Table.TableNumber ==IdTable).Min(om => om.DateAdd);
             try
             {
                 PdfWriter.GetInstance(doc, new FileStream($"..\\..\\Сheque\\cheque_{timestamp}.pdf", FileMode.Create));
@@ -191,20 +192,19 @@ namespace RestoranMarioMario.Pages
                 BaseFont baseFont = BaseFont.CreateFont("C:\\Windows\\Fonts\\times.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
                 Font font = new Font(baseFont, 14);
                 Font font1 = new Font(baseFont, 24, 1, BaseColor.BLACK);
-                Paragraph prechek = new Paragraph($"Пречек №        {numberCheque++}  {time}", font);
+                Paragraph prechek = new Paragraph($"Пречек №        {numberCheque}  {time}", font);
                 prechek.Alignment = Element.ALIGN_LEFT;
                 doc.Add(prechek);
-                Paragraph bill = new Paragraph($"Счет №            {numberCheque++}", font);
+                Paragraph bill = new Paragraph($"Счет №            {numberCheque}", font);
                 bill.Alignment = Element.ALIGN_LEFT;
                 doc.Add(bill);
-                numberCheque++;
                 Paragraph table = new Paragraph($"Стол №            {numverTable}", font);
                 table.Alignment = Element.ALIGN_LEFT;
                 doc.Add(table);
                 Paragraph waiter = new Paragraph($"Официант       {fullName}", font);
                 waiter.Alignment = Element.ALIGN_LEFT;
                 doc.Add(waiter);
-                Paragraph openDate = new Paragraph($"Счет открыт    {orderMenu}", font);
+                Paragraph openDate = new Paragraph($"Счет открыт    {lastVisitTime}", font);
                 openDate.Alignment = Element.ALIGN_LEFT;
                 doc.Add(openDate);
                 Paragraph closeDate = new Paragraph($"Счет закрыт    {time}", font);
@@ -224,15 +224,13 @@ namespace RestoranMarioMario.Pages
                 float[] columnWidths = new float[] { 30f, 20f, 20f, 30f };
                 tableOrder.SetWidths(columnWidths);
                 tableOrder.DefaultCell.Border = Rectangle.NO_BORDER;
-                //tableOrder.DefaultCell.BorderColor = BaseColor.WHITE;
-                //tableOrder.DefaultCell.BorderWidth = 0;
                 foreach (var item in App.CurrentOrderMenu)
                 {
                     OrderMenu data = (OrderMenu)item;
                     if (data.Modification != null)
-                        tableOrder.AddCell(new PdfPCell(new Phrase(data.MenuBarCard.ToString() + $"({data.Modification})", font)));
+                        tableOrder.AddCell(new PdfPCell(new Phrase(data.MenuTitle.ToString() + $"({data.Modification})", font)));
                     else
-                        tableOrder.AddCell(new PdfPCell(new Phrase(data.MenuBarCard.ToString(), font)));
+                        tableOrder.AddCell(new PdfPCell(new Phrase(data.MenuTitle.ToString(), font)));
                     tableOrder.AddCell(new PdfPCell(new Phrase(data.Sum.ToString())));
                     tableOrder.AddCell(new PdfPCell(new Phrase(data.Quantity.ToString())));
                     decimal? totalSum = data.Sum * data.Quantity;
@@ -259,6 +257,8 @@ namespace RestoranMarioMario.Pages
                 Paragraph final = new Paragraph($"Благодарим за визит!", font);
                 final.Alignment = Element.ALIGN_CENTER;
                 doc.Add(final);
+                MessageBox.Show("Ваш пречек сформирован!\n Менеджер принесет Вам его при оплате.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
+                BtCreateOrder.Visibility = Visibility.Visible;
             }
             catch (DocumentException de)
             {
@@ -272,17 +272,6 @@ namespace RestoranMarioMario.Pages
             {
                 doc.Close();
             }
-            //string pdfFilePath = GetLastCreatedPdfFilePath();
-            //if (!string.IsNullOrEmpty(pdfFilePath))
-            //{
-            //    ProcessStartInfo startInfo = new ProcessStartInfo();
-            //    startInfo.FileName = pdfFilePath;
-            //    Process.Start(startInfo);
-            //}
-            //else
-            //{
-            //    Console.WriteLine("PDF-файл не найден.");
-            //}
         }
         private void BtBack_Click(object sender, RoutedEventArgs e)
         {
@@ -292,6 +281,12 @@ namespace RestoranMarioMario.Pages
         private void orderProductsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            lastVisitTime = DateTime.Now;
+            Update();
         }
     }
 }

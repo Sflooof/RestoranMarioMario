@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RestoranMarioMario.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="1000"
+      d:DesignHeight="600" d:DesignWidth="1000" Loaded="Page_Loaded"
       Title="CartPage">
 
     <Grid>
@@ -24,8 +24,8 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="350"/>
-                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0" Source="{Binding correctPhoto}"/>
                         <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
@@ -55,9 +55,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Grid.Row="2" Name="OrderPriceBox" FontSize="35" Text="Итого: 0 руб."/>
+        <TextBlock Grid.Row="2" Name="OrderPriceBox" FontSize="35" Text=" "/>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 135 0">
-            <Button Grid.Row="2" Name="BtCreateOrder" Width="130" Height="40" Click="BtCreateOrder_Click" Content="Заказать"/>
+            <Button Grid.Row="2" Name="BtCreateOrder" Visibility="Hidden" Width="130" Height="40" Click="BtCreateOrder_Click" Content="Заказать"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Grid.Row="2" x:Name="BtPDF" Content="Пречек" Width="130" Height="40" HorizontalAlignment="Right" Click="BtPDF_Click"></Button>

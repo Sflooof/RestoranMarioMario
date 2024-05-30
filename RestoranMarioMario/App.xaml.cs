@@ -19,6 +19,7 @@ namespace RestoranMarioMario
         public static Users CurrentUser = null;
         public static Table CurrentTable = null;
         public static Order CurrentOrder = null;
+        public static OrderMenu CurrentOrderMenuDate = null;
         public static List<OrderMenu> CurrentOrderMenu = null;
     }
 }
