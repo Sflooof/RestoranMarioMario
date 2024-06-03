@@ -51,7 +51,6 @@ namespace RestoranMarioMario.Pages
                 Fill = new ImageBrush
                 {
                     ImageSource = new BitmapImage(new Uri("D:\\приложения\\SnakeGame\\SnakeGame\\Photo\\head.png"))
-                    //Transform = GetRotationTransform(direction)
                 }
             };
             Canvas.SetLeft(rectangle, position.X * snakeSquareSize);
@@ -106,7 +105,7 @@ namespace RestoranMarioMario.Pages
             {
                 timer.Stop();
                 BtRestart.Visibility = Visibility.Visible;
-                MessageBox.Show("Вы проиграли! Конец игры!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Конец игры!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (snake.Count >= 4)
@@ -121,7 +120,7 @@ namespace RestoranMarioMario.Pages
                         {
                             timer.Stop();
                             BtRestart.Visibility = Visibility.Visible;
-                            MessageBox.Show("Вы проиграли! Конец игры!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Конец игры!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
                             return;
                         }
                     }
@@ -219,7 +218,7 @@ namespace RestoranMarioMario.Pages
         private void BtStart_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Змейка – это игра, в которой игрок управляет змеей, которая ползет по экрану и потребляет пищу. " +
-                "\nЗмея двигается в четырех направлениях (вверх, вниз, влево, вправо) по сетке клеток. " +
+                "\nЗмея двигается в четырех направлениях (вверх, вниз, влево, вправо) по сетке клеток с помощью двойного нажатия. " +
                 "Когда змея съедает еду, она растет, добавляя новую клетку к своему хвосту. " +
                 "\nЗмея не может пересекать свое собственное тело. Если змея ударяется о границу экрана или о собственное тело, игра заканчивается, счет обнуляется и появляется кнопка «Начать заново!». " +
                 "Еда появляется случайным образом на экране и представляет собой фрукт.", "Правила игры!", MessageBoxButton.OK) == MessageBoxResult.OK)

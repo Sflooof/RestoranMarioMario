@@ -30,14 +30,14 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="280"></ColumnDefinition>
-                            <ColumnDefinition Width="280"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                            <Image Width="100" Height="100" HorizontalAlignment="Center" Source="{Binding correctPhoto}"></Image>
+                            <Image Width="200" Height="200" HorizontalAlignment="Center" Source="{Binding CorrectPhoto}"></Image>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"  Grid.Column="1">
                             <StackPanel>

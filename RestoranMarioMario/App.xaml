@@ -4,36 +4,62 @@
              xmlns:local="clr-namespace:RestoranMarioMario"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="Button" x:Key="mouseButton">
             <Setter Property="Margin" Value="10"></Setter>
-            <Setter Property="Background" Value="#dea17c "></Setter>
-            <Setter Property="BorderBrush" Value="#9a4e30"></Setter>
+            <Setter Property="Background" Value="#96c12a"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#b6d762"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="ListView">
-            <Setter Property="Background" Value="#ddebd4 "></Setter>
+            <Setter Property="Background" Value="#2e2e2e "></Setter>
         </Style>
         <Style TargetType="Border">
-            <Setter Property="Background" Value="#ddebd4"></Setter>
+            <Setter Property="Background" Value="#2e2e2e"></Setter>
             <Setter Property="CornerRadius" Value="20"></Setter>
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="10"></Setter>
-            <Setter Property="FontFamily" Value="Times New Roman"></Setter>
-            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontFamily" Value="Roboto"></Setter>
+            <Setter Property="FontSize" Value="22"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="IsHitTestVisible" Value="False"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TextBlockGreen">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="FontFamily" Value="Roboto"></Setter>
+            <Setter Property="FontSize" Value="24"></Setter>
+            <Setter Property="Foreground" Value="#96c12a"></Setter>
+            <Setter Property="IsHitTestVisible" Value="False"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TextBlockRed">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="FontFamily" Value="Roboto"></Setter>
+            <Setter Property="FontSize" Value="24"></Setter>
+            <Setter Property="Foreground" Value="#e31d24"></Setter>
             <Setter Property="IsHitTestVisible" Value="False"></Setter>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="BorderBrush" Value="LightGray"></Setter>
             <Setter Property="Width" Value="280"></Setter>
             <Setter Property="Height" Value="45"></Setter>
             <Setter Property="Padding" Value="10,5,10,5"></Setter>
         </Style>
         <Style TargetType="ComboBox">
-            <Setter Property="Margin" Value="10"></Setter>
-            <Setter Property="Width" Value="280"></Setter>
-            <Setter Property="Height" Value="45"></Setter>
-        </Style>
-        <Style TargetType="PasswordBox">
             <Setter Property="Margin" Value="10"></Setter>
             <Setter Property="Width" Value="280"></Setter>
             <Setter Property="Height" Value="45"></Setter>

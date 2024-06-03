@@ -10,17 +10,40 @@
 
     <Border>
         <Grid>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="итальянский" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="16" Style="{DynamicResource TextBlockGreen}"></TextBlock>
+                <TextBlock Text="Mario - Mario" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+                <TextBlock Text="ресторан" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="16" Style="{DynamicResource TextBlockRed}"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="Авторизация персонала" HorizontalAlignment="Center" FontSize="26"></TextBlock>
                     <StackPanel>
                         <TextBlock Text="Логин" Width="350" Margin="80 30 0 0"></TextBlock>
                         <TextBox x:Name="TbLogin"></TextBox>
                         <TextBlock Text="Пароль" Width="350" Margin="80 0 0 0"></TextBlock>
-                        <PasswordBox x:Name="PbLogin"></PasswordBox>
+                        <PasswordBox x:Name="PbLogin" Width="280" Height="45" Margin="10">
+                            <PasswordBox.Resources>
+                                <Style TargetType="{x:Type PasswordBox}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type PasswordBox}">
+                                                <Border CornerRadius="20" BorderBrush="White" Background="White">
+                                                    <ScrollViewer x:Name="PART_ContentHost" VerticalContentAlignment="Center" Margin="10"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </PasswordBox.Resources>
+                        </PasswordBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button x:Name="BtLogin" Content="Войти" Height="45" Width="280" Click="BtLogin_Click"></Button>
+                        <Button x:Name="BtLogin" Content="Войти" Height="45" Width="280" Click="BtLogin_Click" Style="{StaticResource mouseButton}"></Button>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -29,10 +52,24 @@
                         <TextBlock Text="Номер стола" Width="350" Margin="80 30 0 0"></TextBlock>
                         <TextBox x:Name="TbLoginTable"></TextBox>
                         <TextBlock Text="Пароль" Width="350" Margin="80 0 0 0"></TextBlock>
-                        <PasswordBox x:Name="PbLoginTable" ></PasswordBox>
+                        <PasswordBox x:Name="PbLoginTable" Width="280" Height="45" Margin="10">
+                            <PasswordBox.Resources>
+                                <Style TargetType="{x:Type PasswordBox}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type PasswordBox}">
+                                                <Border CornerRadius="20" BorderBrush="White" Background="White">
+                                                    <ScrollViewer x:Name="PART_ContentHost" VerticalContentAlignment="Center" Margin="10"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </PasswordBox.Resources>
+                        </PasswordBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button x:Name="BtLoginTable" Content="Войти" Height="45" Width="280" Click="BtLoginTable_Click"></Button>
+                        <Button x:Name="BtLoginTable" Content="Войти" Height="45" Width="280" Click="BtLoginTable_Click" Style="{StaticResource mouseButton}"></Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

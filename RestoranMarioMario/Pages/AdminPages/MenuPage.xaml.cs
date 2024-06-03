@@ -25,6 +25,7 @@ namespace RestoranMarioMario.Pages.AdminPages
         {
             InitializeComponent();
             ListViewCatalog.ItemsSource = App.db.Menu.ToString();
+            UpdateData();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -64,37 +65,10 @@ namespace RestoranMarioMario.Pages.AdminPages
             {
                 updateItem = updateItem.OrderByDescending(x => x.Name).ToList();
             }
-            if (CbFilter.SelectedIndex == 1)
+            if (CbFilter.SelectedIndex > 0)
             {
-                updateItem = updateItem.Where(item => item.Category == 1).ToList();
-            }
-            if (CbFilter.SelectedIndex == 2)
-            {
-                updateItem = updateItem.Where(item => item.Category == 2).ToList();
-            }
-            if (CbFilter.SelectedIndex == 3)
-            {
-                updateItem = updateItem.Where(item => item.Category == 3).ToList();
-            }
-            if (CbFilter.SelectedIndex == 4)
-            {
-                updateItem = updateItem.Where(item => item.Category == 4).ToList();
-            }
-            if (CbFilter.SelectedIndex == 5)
-            {
-                updateItem = updateItem.Where(item => item.Category == 5).ToList();
-            }
-            if (CbFilter.SelectedIndex == 6)
-            {
-                updateItem = updateItem.Where(item => item.Category == 6).ToList();
-            }
-            if (CbFilter.SelectedIndex == 7)
-            {
-                updateItem = updateItem.Where(item => item.Category == 7).ToList();
-            }
-            if (CbFilter.SelectedIndex == 8)
-            {
-                updateItem = updateItem.Where(item => item.Category == 8).ToList();
+                var selectedCategory = CbFilter.SelectedIndex;
+                updateItem = updateItem.Where(item => item.Category == selectedCategory).ToList();
             }
             ListViewCatalog.ItemsSource = updateItem;
             int countFind = ListViewCatalog.Items.Count;

@@ -11,7 +11,8 @@ namespace RestoranMarioMario.Entities
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.IO;
+
     public partial class Menu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -33,6 +34,15 @@ namespace RestoranMarioMario.Entities
             get
             {
                 return CategoryMenu1.Name.ToString();
+            }
+        }
+        public byte[] CorrectPhoto
+        {
+            get
+            {
+                if (PhotoMenu == null)
+                    return File.ReadAllBytes("../../Resources/no.png");
+                else return PhotoMenu;
             }
         }
 

@@ -10,21 +10,22 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="5*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition  Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="9*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
             <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
+        <TextBlock Text="Игра Змейка" HorizontalAlignment="Center" FontSize="26"></TextBlock>
         <Canvas x:Name="CanvasGame" Grid.Row="1" Background="White" Focusable="True"></Canvas>
-        <Button x:Name="BtStart"  Grid.Row="1" Content="Начать игру!" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtStart_Click"></Button>
+        <Button x:Name="BtStart"  Grid.Row="1" Content="Начать игру!" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtStart_Click" Margin="10" Style="{StaticResource mouseButton}"></Button>
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
             <TextBlock x:Name="TbScore" Text="Счет: 0" HorizontalAlignment="Center"></TextBlock>
-            <Button x:Name="BtRestart" Content="Начать заново!"  Visibility="Collapsed" Click="BtRestart_Click"></Button>
+            <Button x:Name="BtRestart" Content="Начать заново!"  Visibility="Collapsed" Click="BtRestart_Click" Margin="5" Style="{StaticResource mouseButton}"></Button>
         </StackPanel>
     </Grid>
 </Page>

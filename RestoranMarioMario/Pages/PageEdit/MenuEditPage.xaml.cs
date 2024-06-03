@@ -26,8 +26,8 @@ namespace RestoranMarioMario.Pages.PageEdit
     {
         private Entities.Menu menu = null;
         private byte[] img = null;
-        Regex regexName = new Regex(@"^[А-ЯЁа-яё\s]+$");
-        Regex regexSum = new Regex(@"^\w{2,4}$");
+        Regex regexName = new Regex(@"^[А-ЯЁа-яё,\s0-9]+$");
+        Regex regexSum = new Regex(@"^[0-9]{1,6}(\,[0-9]{2})?$");
         MatchCollection match;
         public MenuEditPage()
         {
@@ -75,7 +75,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                         {
                             Name = TbName.Text,
                             Category = int.Parse("NULL"),
-                            Sum = int.Parse(TbSum.Text),
+                            Sum = decimal.Parse(TbSum.Text),
                             PhotoMenu = img,
                             Volume = int.Parse(TbWeight.Text),
                         };
@@ -86,7 +86,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                         {
                             Name = TbName.Text,
                             Category = category.IdCategoryMenu,
-                            Sum = int.Parse(TbSum.Text),
+                            Sum = decimal.Parse(TbSum.Text),
                             PhotoMenu = img,
                             Volume = int.Parse(TbWeight.Text),
                         };
@@ -100,7 +100,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                 {
                     menu.Name = TbName.Text;
                     menu.Category = category.IdCategoryMenu;
-                    menu.Sum = int.Parse(TbSum.Text);
+                    menu.Sum = decimal.Parse(TbSum.Text);
                     if (img != null)
                         menu.PhotoMenu = img;
                     menu.Volume = int.Parse(TbWeight.Text);
@@ -128,7 +128,7 @@ namespace RestoranMarioMario.Pages.PageEdit
         private string CheckErrors()
         {
             var errorBuilder = new StringBuilder();
-            int sum = 0;
+            decimal sum;
             if (string.IsNullOrWhiteSpace(TbName.Text))
                 errorBuilder.AppendLine("Поле Название обязательно для заполнения.");
             match = regexName.Matches(TbName.Text);
@@ -141,7 +141,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             match = regexSum.Matches(TbSum.Text);
             if (match.Count == 0)
                 errorBuilder.AppendLine("Некорректно введена цена.");
-            if (int.TryParse(TbSum.Text, out sum) == false || sum <= 0)
+            if (decimal.TryParse(TbSum.Text, out sum) == false || sum <= 0)
                 errorBuilder.AppendLine("Цена товара должна быть положительным числом.");
             if (string.IsNullOrWhiteSpace(TbWeight.Text))
                 errorBuilder.AppendLine("Поле Вес обязательно для заполнения.");
@@ -161,7 +161,6 @@ namespace RestoranMarioMario.Pages.PageEdit
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             var cbCategory = App.db.CategoryMenu.OrderBy(p => p.IdCategoryMenu).Select(p => p.Name).ToArray();
-
             for (int i = 0; i < cbCategory.Length; i++)
                 CbCategory.Items.Add(cbCategory[i]);
         }

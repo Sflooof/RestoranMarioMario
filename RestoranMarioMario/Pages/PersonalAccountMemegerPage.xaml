@@ -15,10 +15,11 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Background="#e31d24" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
             <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
-        <TextBlock x:Name="TbFullName" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="Аккаунт менеджера" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+        <TextBlock x:Name="TbFullName" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource mouseButton}"></TextBlock>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="BtTable" Content="Столы" Width="150" Height="150" Click="BtTable_Click"></Button>
             
