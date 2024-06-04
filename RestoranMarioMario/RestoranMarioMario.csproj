@@ -402,6 +402,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\biggarbagebin_121980.png" />
+    <Resource Include="Resources\body.png" />
+    <Resource Include="Resources\head.png" />
     <Resource Include="Resources\Снимок экрана 2024-06-01 175121.png" />
     <Resource Include="Resources\no.png" />
   </ItemGroup>

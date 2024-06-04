@@ -112,7 +112,7 @@ namespace RestoranMarioMario.Pages
                     Quantity = 1,
                     Sum = currentMenu.Sum,
                     Modification = modificationText,
-                    DateAdd = DateTime.Now
+                    DateAdd = DateTime.Now,
                 };
                 App.CurrentOrderMenu.Add(currentOrderMenu);
             }

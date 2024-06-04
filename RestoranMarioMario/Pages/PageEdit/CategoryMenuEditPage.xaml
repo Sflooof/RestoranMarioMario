@@ -10,13 +10,13 @@
 
     <Grid>
         <TextBlock Margin="20" FontSize="28" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование категории меню</TextBlock>
-        <Button x:Name="BtBack" Click="BtBack_Click" Height="20" Width="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,970,0">
-            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
+            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock>Название категории*</TextBlock>
             <TextBox x:Name="TbCategory"></TextBox>
-            <Button Width="280" Height="45" Content="Сохранить" Click="Button_Click"></Button>
+            <Button Width="280" Height="45" Content="Сохранить" Click="Button_Click" Style="{StaticResource mouseButton}"></Button>
         </StackPanel>
     </Grid>
 </Page>

@@ -10,8 +10,8 @@
 
     <Grid>
         <TextBlock Margin="20" FontSize="28" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование заказа</TextBlock>
-        <Button x:Name="BtBack" Click="BtBack_Click" Height="20" Width="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
-            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
+            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
@@ -25,7 +25,7 @@
                 <DatePicker x:Name="DpDate" Background="White"></DatePicker>
                 <TextBlock>Сумма (руб)*</TextBlock>
                 <TextBox x:Name="TbSum"></TextBox>
-                <Button Name="BtSave" Width="280" Height="45" Content="Сохранить" Click="BtSave_Click"></Button>
+                <Button Name="BtSave" Width="280" Height="45" Content="Сохранить" Click="BtSave_Click" Style="{StaticResource mouseButton}"></Button>
             </StackPanel>
         </StackPanel>
     </Grid>

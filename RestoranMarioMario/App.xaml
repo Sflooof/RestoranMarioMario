@@ -24,6 +24,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+       
         <Style TargetType="ListView">
             <Setter Property="Background" Value="#2e2e2e "></Setter>
         </Style>

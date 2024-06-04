@@ -126,7 +126,7 @@
             </FlowDocument>
         </FlowDocumentScrollViewer>
         <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" Background="#e31d24" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.RowSpan="2">
-            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
         <TextBlock Grid.Column="1" Text="Меню" HorizontalAlignment="Center" FontSize="26"></TextBlock>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" IsHitTestVisible="True" >

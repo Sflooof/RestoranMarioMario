@@ -13,7 +13,7 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="85"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBox x:Name="TbFind" TextChanged="TbFind_TextChanged"></TextBox>
@@ -29,8 +29,8 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="100"></ColumnDefinition>
-                            <ColumnDefinition Width="280"></ColumnDefinition>
-                            <ColumnDefinition Width="280"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel>
@@ -42,16 +42,16 @@
                                 <TextBlock Text="{Binding correctIngredien}"></TextBlock>
                             </StackPanel>
                         </StackPanel>
-                        <Button x:Name="BtDelete" Content="Удалить" VerticalAlignment="Top" Grid.Column="2" Click="BtDelete_Click"></Button>
-                        <Button x:Name="BtEdit" Content="Редактировать" VerticalAlignment="Top" Grid.Column="3" Click="BtEdit_Click"></Button>
+                        <Button x:Name="BtDelete" Content="Удалить" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="2" Click="BtDelete_Click"></Button>
+                        <Button x:Name="BtEdit" Content="Редактировать" VerticalAlignment="Top" Style="{StaticResource mouseButton}" Grid.Column="3" Click="BtEdit_Click"></Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <TextBlock Grid.Row="0" Text="Меню - Игнредиент" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
-        <Button x:Name="BtAdd" Content="Добавить строчку" Grid.Row="3" Click="BtAdd_Click" Width="200" HorizontalAlignment="Right"></Button>
-        <Button x:Name="BtBack" Click="BtBack_Click" Height="20" Width="20" HorizontalAlignment="Left">
-            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+        <Button x:Name="BtAdd" Content="Добавить строчку" Grid.Row="3" Click="BtAdd_Click" Style="{StaticResource mouseButton}" HorizontalAlignment="Right"></Button>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
+            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
         <TextBlock Name="TbCountFind" HorizontalAlignment="Center" Grid.Row="3"/>
     </Grid>

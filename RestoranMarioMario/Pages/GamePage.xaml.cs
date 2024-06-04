@@ -50,7 +50,7 @@ namespace RestoranMarioMario.Pages
                 Height = snakeSquareSize,
                 Fill = new ImageBrush
                 {
-                    ImageSource = new BitmapImage(new Uri("D:\\приложения\\SnakeGame\\SnakeGame\\Photo\\head.png"))
+                    ImageSource = new BitmapImage(new Uri("..\\Resources\\head.png"))
                 }
             };
             Canvas.SetLeft(rectangle, position.X * snakeSquareSize);
@@ -69,7 +69,7 @@ namespace RestoranMarioMario.Pages
             {
                 Width = snakeSquareSize,
                 Height = snakeSquareSize,
-                Source = new BitmapImage(new Uri("D:\\приложения\\SnakeGame\\SnakeGame\\Photo\\orange.png"))
+                Source = new BitmapImage(new Uri("..\\Resources\\orange.png"))
             };
             Canvas.SetLeft(foodImage, foodX * snakeSquareSize);
             Canvas.SetTop(foodImage, foodY * snakeSquareSize);
@@ -197,7 +197,7 @@ namespace RestoranMarioMario.Pages
                 Height = snakeSquareSize,
                 Fill = new ImageBrush
                 {
-                    ImageSource = new BitmapImage(new Uri("D:\\приложения\\SnakeGame\\SnakeGame\\Photo\\body.png"))
+                    ImageSource = new BitmapImage(new Uri("..\\Resources\\body.png"))
                 }
             };
 

@@ -16,28 +16,42 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
-            <Image Source="D:\приложения\RestoranMarioMario\RestoranMarioMario\Resources\back.png" Width="20" Height="20"></Image>
+            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
         </Button>
         <TextBlock Text="Аккаунт администратора" HorizontalAlignment="Center" FontSize="26"></TextBlock>
         <TextBlock x:Name="TbFullName" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="BtTable" Content="Столы" Width="150" Height="150" Click="BtTable_Click" Style="{StaticResource mouseButton}" Margin="10"></Button>
-            <Button x:Name="BtUser" Content="Пользователи" Width="150" Height="150" Click="BtUser_Click" Visibility="{Binding AdminVisibiliti}" Margin="10" Style="{StaticResource mouseButton}"></Button>
-            <Button x:Name="BtRole" Width="150" Height="150" Click="BtRole_Click" Style="{StaticResource mouseButton}" Margin="10">
-                <TextBlock TextAlignment="Center">Роли <LineBreak/> пользователей</TextBlock>
+            <Button x:Name="BtTable"  Width="160" Height="160" Click="BtTable_Click" Style="{StaticResource mouseButton}" Margin="10">
+                <TextBlock TextAlignment="Center" FontSize="20" TextWrapping="Wrap">Столы</TextBlock>
             </Button>
-            <Button x:Name="BtMenu" Content="Меню" Width="150" Height="150" Click="BtMenu_Click" Style="{StaticResource mouseButton}" Margin="10"></Button>
-            <Button x:Name="BtMenuInrgedient" Width="150" Height="150" Click="BtMenuIngredient_Click" Style="{StaticResource mouseButton}" Margin="10">
-                <TextBlock TextAlignment="Center">Меню <LineBreak/> - <LineBreak/> Ингредиенты</TextBlock>
+            <Button x:Name="BtUser" Width="160" Height="160" Click="BtUser_Click" Visibility="{Binding AdminVisibiliti}" Margin="10" Style="{StaticResource mouseButton}">
+                <TextBlock TextAlignment="Center" FontSize="20">Пользователи</TextBlock>
+            </Button>
+            <Button x:Name="BtRole" Width="160" Height="160" Click="BtRole_Click" Style="{StaticResource mouseButton}" Margin="10">
+                <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="20">Роли <LineBreak></LineBreak>пользователей</TextBlock>
+            </Button>
+            <Button x:Name="BtMenu" Width="160" Height="160" Click="BtMenu_Click" Style="{StaticResource mouseButton}" Margin="10">
+                <TextBlock TextAlignment="Center" TextWrapping="Wrap">Меню</TextBlock>
+            </Button>
+            <Button x:Name="BtMenuInrgedient" Width="160" Height="160" Click="BtMenuIngredient_Click" Style="{StaticResource mouseButton}" Margin="10">
+                <TextBlock TextAlignment="Center" FontSize="20">Меню <LineBreak></LineBreak> -  <LineBreak></LineBreak> Ингредиенты</TextBlock>
             </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
-            <Button x:Name="BtCategoryMenu" Content="Категории меню" Width="150" Height="150" Click="BtCategoryMenu_Click" Margin="10" Style="{StaticResource mouseButton}"></Button>
-            <Button x:Name="BtIngredient" Content="Ингредиенты" Width="150" Height="150" Click="BtIngredient_Click" Margin="10" Style="{StaticResource mouseButton}"></Button>
-            <Button x:Name="BtOrder" Content="Заказы" Width="150" Height="150" Click="BtOrder_Click" Style="{StaticResource mouseButton}" Margin="10"></Button>
-            <Button x:Name="BtWaiter" Content="Официанты" Width="150" Height="150" Click="BtWaiter_Click" Style="{StaticResource mouseButton}" Margin="10"></Button>
-            <Button x:Name="BtOrderMenu" Width="150" Height="150" Click="BtOrderMenu_Click" Style="{StaticResource mouseButton}" Margin="10">
-                <TextBlock TextAlignment="Center">Заказ <LineBreak/> - <LineBreak/> Меню</TextBlock>
+            <Button x:Name="BtCategoryMenu" Width="160" Height="160" Click="BtCategoryMenu_Click" Margin="10" Style="{StaticResource mouseButton}">
+                <TextBlock TextAlignment="Center" FontSize="20">Категории <LineBreak></LineBreak> меню</TextBlock>
+            </Button>
+            <Button x:Name="BtIngredient" Width="160" Height="160" Click="BtIngredient_Click" Margin="10" Style="{StaticResource mouseButton}">
+                <TextBlock TextAlignment="Center" FontSize="20">Ингредиенты</TextBlock>
+            </Button>
+            <Button x:Name="BtOrder" Width="160" Height="160" Click="BtOrder_Click" Style="{StaticResource mouseButton}" Margin="10">
+                <TextBlock TextAlignment="Center" FontSize="20">Заказы</TextBlock>
+            </Button>
+            <Button x:Name="BtWaiter" Width="160" Height="160" Click="BtWaiter_Click" Style="{StaticResource mouseButton}" Margin="10">
+                <TextBlock TextAlignment="Center" FontSize="20">Официанты</TextBlock>
+            </Button>
+            <Button x:Name="BtOrderMenu" Width="160" Height="160" Click="BtOrderMenu_Click" Style="{StaticResource mouseButton}" Margin="10">
+                <TextBlock TextAlignment="Center" FontSize="20">Заказ <LineBreak/> - <LineBreak/> Меню</TextBlock>
             </Button>
         </StackPanel>
     </Grid>

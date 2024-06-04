@@ -257,7 +257,7 @@ namespace RestoranMarioMario.Pages
                 Paragraph final = new Paragraph($"Благодарим за визит!", font);
                 final.Alignment = Element.ALIGN_CENTER;
                 doc.Add(final);
-                MessageBox.Show("Ваш пречек сформирован!\n Менеджер принесет Вам его при оплате.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Ваш пречек сформирован!\nМенеджер принесет Вам его при оплате.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
                 BtCreateOrder.Visibility = Visibility.Visible;
             }
             catch (DocumentException de)

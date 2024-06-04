@@ -42,7 +42,7 @@
                             </PasswordBox.Resources>
                         </PasswordBox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0,20,0,0">
                         <Button x:Name="BtLogin" Content="Войти" Height="45" Width="280" Click="BtLogin_Click" Style="{StaticResource mouseButton}"></Button>
                     </StackPanel>
                 </StackPanel>
@@ -68,7 +68,7 @@
                             </PasswordBox.Resources>
                         </PasswordBox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0,20,0,0">
                         <Button x:Name="BtLoginTable" Content="Войти" Height="45" Width="280" Click="BtLoginTable_Click" Style="{StaticResource mouseButton}"></Button>
                     </StackPanel>
                 </StackPanel>
