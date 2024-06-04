@@ -14,10 +14,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
-            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
         </Button>
-        <TextBlock Text="Корзина" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+        <TextBlock Text="Корзина" Foreground="White" HorizontalAlignment="Center" FontSize="26"></TextBlock>
         <ListView Grid.Row="1" Name="orderProductsListView" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="orderProductsListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -26,41 +26,47 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="820"/>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Width="150" Height="150" Source="{Binding CorrectPhotoСart}"/>
+                        <!--<Image Grid.Column="0" Width="150" Height="150" Source="{Binding CorrectPhoto}"/>-->
                         <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                <TextBlock Text="{Binding MenuTitle}" TextWrapping="Wrap" FontSize="25"/>
+                                <TextBlock Foreground="White" Text="{Binding MenuTitle}" TextWrapping="Wrap" FontSize="25"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Modification}" TextWrapping="Wrap"/>
+                                <TextBlock Foreground="White" Text="{Binding Modification}" TextWrapping="Wrap"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="-" Name="BtMinus" Width="70" Height="70" Background="#e31d24" Click="BtMinus_Click" Style="{StaticResource mouseButton}"/>
-                                <TextBlock Text="{Binding Quantity}" FontSize="20" VerticalAlignment="Center"/>
-                                <Button Content="+" Name="BtPlus" Width="70" Height="70" Background="#e31d24" Click="BtPlus_Click" Style="{StaticResource mouseButton}"/>
+                                <Button Foreground="White" Name="BtMinus" Width="70" Height="70" Background="#e31d24" Click="BtMinus_Click" Style="{StaticResource mouseButton}">
+                                    <TextBlock Foreground="White">-</TextBlock>
+                                </Button>
+                                <TextBlock Foreground="White" Text="{Binding Quantity}" FontSize="20" VerticalAlignment="Center"/>
+                                <Button Name="BtPlus" Width="70" Height="70" Background="#e31d24" Click="BtPlus_Click" Style="{StaticResource mouseButton}">
+                                    <TextBlock Foreground="White">+</TextBlock>
+                                </Button>
                                 <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Right">
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <TextBlock Text="{Binding Sum}" FontSize="25"/>
-                                        <TextBlock Text="руб." FontSize="25"/>
+                                        <TextBlock Text="{Binding Sum}" Foreground="White" FontSize="25"/>
+                                        <TextBlock Text="руб. (шт.)" Foreground="White" FontSize="25"/>
                                     </StackPanel>
                                 </StackPanel>
                                 <Button Grid.Column="3" Name="BtDelete" Click="BtDelete_Click" Width="70" Height="70" Margin="10" Style="{StaticResource mouseButton}">
                                     <Image Source="..\Resources\biggarbagebin_121980.png" Width="50" Height="50"></Image>
                                 </Button>
-                            </StackPanel>
-                            
-                        </StackPanel>
-                        
+                            </StackPanel>                            
+                        </StackPanel>                        
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <TextBlock Grid.Row="2" Name="OrderPriceBox" FontSize="35" Text=" "/>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 135 0">
-            <Button Grid.Row="2" Name="BtCreateOrder" Visibility="Hidden" Width="130" Height="50" Click="BtCreateOrder_Click" Content="Заказать" Margin="10" Style="{StaticResource mouseButton}"/>
+            <Button Grid.Row="2" Name="BtCreateOrder" Visibility="Hidden" Width="130" Height="50" Click="BtCreateOrder_Click" Margin="10" Style="{StaticResource mouseButton}">
+                <TextBlock Foreground="White">Заказать</TextBlock>
+            </Button>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Grid.Row="2" x:Name="BtPDF" Content="Пречек" Width="130" Height="50" HorizontalAlignment="Right" Click="BtPDF_Click" Margin="10" Style="{StaticResource mouseButton}"></Button>
+            <Button Grid.Row="2" x:Name="BtPDF" Width="130" Height="50" HorizontalAlignment="Right" Click="BtPDF_Click" Margin="10" Style="{StaticResource mouseButton}">
+                <TextBlock Foreground="White">Пречек</TextBlock>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

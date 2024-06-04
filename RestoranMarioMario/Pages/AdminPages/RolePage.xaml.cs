@@ -26,6 +26,7 @@ namespace RestoranMarioMario.Pages.AdminPages
         {
             InitializeComponent();
             ListViewCatalog.ItemsSource = App.db.Roles.ToList();
+            UpdateData();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

@@ -46,21 +46,21 @@ namespace RestoranMarioMario.Entities
                 else return PhotoMenu;
             }
         }
-        public byte[] CorrectPhotoСart
-        {
-            get
-            {
-                var menu = this.OrderMenu.FirstOrDefault()?.Menu1;
-                if (menu != null)
-                {
-                    return menu.PhotoMenu;
-                }
-                else
-                {
-                    return File.ReadAllBytes("../../Resources/no.png");
-                }
-            }
-        }
+        //public byte[] CorrectPhotoСart
+        //{
+        //    get
+        //    {
+        //        var menu = this.OrderMenu.FirstOrDefault()?.Menu1;
+        //        if (menu != null)
+        //        {
+        //            return menu.PhotoMenu;
+        //        }
+        //        else
+        //        {
+        //            return File.ReadAllBytes("../../Resources/no.png");
+        //        }
+        //    }
+        //}
 
         public virtual CategoryMenu CategoryMenu1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

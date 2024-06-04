@@ -9,14 +9,16 @@
       Title="RoleEditPage">
 
     <Grid>
-        <TextBlock Margin="20" FontSize="28" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование роли пользователя</TextBlock>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
-            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
+        <TextBlock Margin="20" Foreground="White" FontSize="28" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование роли пользователя</TextBlock>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
         </Button>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock>Название роли*</TextBlock>
+            <TextBlock Foreground="White">Название роли*</TextBlock>
             <TextBox x:Name="TbRole"></TextBox>
-            <Button x:Name="BtSave" Width="280" Height="45" Content="Сохранить" Click="BtSave_Click" Style="{StaticResource mouseButton}"></Button>
+            <Button x:Name="BtSave" Width="280" Height="45" Click="BtSave_Click" Style="{StaticResource mouseButton}">
+                <TextBlock Foreground="White">Сохранить</TextBlock>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

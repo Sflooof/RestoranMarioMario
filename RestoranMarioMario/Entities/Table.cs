@@ -24,7 +24,14 @@ namespace RestoranMarioMario.Entities
         public int TableNumber { get; set; }
         public string TablePassword { get; set; }
         public Nullable<int> TableWaiter { get; set; }
-    
+        public string CorrectWaiter
+        {
+            get
+            {
+                return Waiter.Surname.ToString();
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
         public virtual Waiter Waiter { get; set; }

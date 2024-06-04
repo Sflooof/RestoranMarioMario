@@ -9,23 +9,25 @@
       Title="OrderEditPage">
 
     <Grid>
-        <TextBlock Margin="20" FontSize="28" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование заказа</TextBlock>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
-            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
+        <TextBlock Margin="20" FontSize="28" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование заказа</TextBlock>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
         </Button>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-                <TextBlock>Номер заказа*</TextBlock>
+                <TextBlock Foreground="White">Номер заказа*</TextBlock>
                 <TextBox x:Name="TbNumberOrder"></TextBox>
-                <TextBlock>Номер стола*</TextBlock>
+                <TextBlock Foreground="White">Номер стола*</TextBlock>
                 <ComboBox x:Name="CbNumberTable"></ComboBox>
             </StackPanel>
             <StackPanel>
-                <TextBlock>Дата заказа*</TextBlock>
+                <TextBlock Foreground="White">Дата заказа*</TextBlock>
                 <DatePicker x:Name="DpDate" Background="White"></DatePicker>
-                <TextBlock>Сумма (руб)*</TextBlock>
+                <TextBlock Foreground="White">Сумма (руб)*</TextBlock>
                 <TextBox x:Name="TbSum"></TextBox>
-                <Button Name="BtSave" Width="280" Height="45" Content="Сохранить" Click="BtSave_Click" Style="{StaticResource mouseButton}"></Button>
+                <Button Name="BtSave" Width="280" Height="45" Click="BtSave_Click" Style="{StaticResource mouseButton}">
+                    <TextBlock Foreground="White">Сохранить</TextBlock>
+                </Button>
             </StackPanel>
         </StackPanel>
     </Grid>

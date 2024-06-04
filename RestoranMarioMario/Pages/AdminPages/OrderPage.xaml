@@ -16,7 +16,7 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox x:Name="TbFind" TextChanged="TbFind_TextChanged"></TextBox>
+            <TextBox x:Name="TbFind" Foreground="White" TextChanged="TbFind_TextChanged"></TextBox>
             <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged">
                 <ComboBoxItem Content="Сначала новые заказы"></ComboBoxItem>
                 <ComboBoxItem Content="Сначала старые заказы"></ComboBoxItem>
@@ -33,29 +33,35 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel>
-                                <TextBlock Text="Номер заказа:"></TextBlock>
-                                <TextBlock Text="Номер стола:"></TextBlock>
-                                <TextBlock Text="Сумма заказа:"></TextBlock>
-                                <TextBlock Text="Дата заказа:"></TextBlock>
+                                <TextBlock Foreground="White" Text="Номер заказа:"></TextBlock>
+                                <TextBlock Foreground="White" Text="Номер стола:"></TextBlock>
+                                <TextBlock Foreground="White" Text="Сумма заказа:"></TextBlock>
+                                <TextBlock Foreground="White" Text="Дата заказа:"></TextBlock>
                             </StackPanel>
                             <StackPanel>
-                                <TextBlock Text="{Binding NumberOrder}"></TextBlock>
-                                <TextBlock Text="{Binding CorrectTableNumber}"></TextBlock>
-                                <TextBlock Text="{Binding OrderSum}"></TextBlock>
-                                <TextBlock Text="{Binding CorrectDate}"></TextBlock>
+                                <TextBlock Foreground="White" Text="{Binding NumberOrder}"></TextBlock>
+                                <TextBlock Foreground="White" Text="{Binding CorrectTableNumber}"></TextBlock>
+                                <TextBlock Foreground="White" Text="{Binding OrderSum}"></TextBlock>
+                                <TextBlock Foreground="White" Text="{Binding CorrectDate}"></TextBlock>
                             </StackPanel>
                         </StackPanel>
-                        <Button x:Name="BtDelete" Content="Удалить" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="1" Click="BtDelete_Click"></Button>
-                        <Button x:Name="BtEdit" Content="Редактировать" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="2" Click="BtEdit_Click"></Button>
+                        <Button x:Name="BtDelete" Style="{StaticResource mouseButton}" Grid.Column="1" VerticalAlignment="Top" Click="BtDelete_Click">
+                            <TextBlock Foreground="White">Удалить</TextBlock>
+                        </Button>
+                        <Button x:Name="BtEdit" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="2" Click="BtEdit_Click">
+                            <TextBlock Foreground="White">Редактировать</TextBlock>
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Grid.Row="0" Text="Заказ" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
-        <Button x:Name="BtAdd" Content="Добавить заказ" Grid.Row="3" Click="BtAdd_Click" Style="{StaticResource mouseButton}" HorizontalAlignment="Right"></Button>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
-            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
+        <TextBlock Grid.Row="0" Text="Заказ" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <Button x:Name="BtAdd" Grid.Row="3" Click="BtAdd_Click" Style="{StaticResource mouseButton}" HorizontalAlignment="Right">
+            <TextBlock Foreground="White">Добавить заказ</TextBlock>
         </Button>
-        <TextBlock Name="TbCountFind" HorizontalAlignment="Center" Grid.Row="3"/>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
+        </Button>
+        <TextBlock Name="TbCountFind" Foreground="White" HorizontalAlignment="Center" Grid.Row="3"/>
     </Grid>
 </Page>

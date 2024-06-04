@@ -11,7 +11,8 @@ namespace RestoranMarioMario.Entities
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.IO;
+
     public partial class OrderMenu
     {
         public int IdOrderMenu { get; set; }
@@ -22,7 +23,22 @@ namespace RestoranMarioMario.Entities
         public string Modification { get; set; }
         public int OrderId { get; set; }
         public System.DateTime DateAdd { get; set; }
-    
+        public string correctMenu
+        {
+            get
+            {
+                return Menu1.Name.ToString();
+            }
+        }
+        public string correctOrder
+        {
+            get
+            {
+                return Order1.NumberOrder.ToString();
+            }
+        }
+
+
         public virtual Menu Menu1 { get; set; }
         public virtual Order Order1 { get; set; }
     }

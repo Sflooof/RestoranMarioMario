@@ -16,8 +16,8 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox x:Name="TbFind" TextChanged="TbFind_TextChanged"></TextBox>
-            <ComboBox x:Name="CbFilter" SelectionChanged="CbFilter_SelectionChanged">
+            <TextBox x:Name="TbFind" TextChanged="TbFind_TextChanged" Foreground="White"></TextBox>
+            <ComboBox x:Name="CbFilter" SelectionChanged="CbFilter_SelectionChanged" >
                 <ComboBoxItem Content="Показать все"></ComboBoxItem>
             </ComboBox>
             <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged">
@@ -30,9 +30,9 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="400"></ColumnDefinition>
+                            <ColumnDefinition Width="1"></ColumnDefinition>
                             <ColumnDefinition Width="200"></ColumnDefinition>
                             <ColumnDefinition Width="200"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
@@ -41,29 +41,35 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"  Grid.Column="1">
                             <StackPanel>
-                                <TextBlock Text="Название:"></TextBlock>
-                                <TextBlock Text="Категория:"></TextBlock>
-                                <TextBlock Text="Сумма:"></TextBlock>
-                                <TextBlock Text="Вес (г):"></TextBlock>
+                                <TextBlock Text="Название:" Foreground="White"></TextBlock>
+                                <TextBlock Text="Категория:" Foreground="White"></TextBlock>
+                                <TextBlock Text="Сумма:" Foreground="White"></TextBlock>
+                                <TextBlock Text="Вес (г):" Foreground="White"></TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="2">
-                                <TextBlock Text="{Binding Name}"></TextBlock>
-                                <TextBlock Text="{Binding correctCategoryMenu}"></TextBlock>
-                                <TextBlock Text="{Binding Sum}"></TextBlock>
-                                <TextBlock Text="{Binding Volume}"></TextBlock>
+                                <TextBlock Text="{Binding Name}" Foreground="White"></TextBlock>
+                                <TextBlock Text="{Binding correctCategoryMenu}" Foreground="White"></TextBlock>
+                                <TextBlock Text="{Binding Sum}" Foreground="White"></TextBlock>
+                                <TextBlock Text="{Binding Volume}" Foreground="White"></TextBlock>
                             </StackPanel>
                         </StackPanel>
-                        <Button x:Name="BtDelete" Content="Удалить" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="3" Click="BtDelete_Click"></Button>
-                        <Button x:Name="BtEdit" Content="Редактировать" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="4" Click="BtEdit_Click"></Button>
+                        <Button x:Name="BtDelete" Style="{StaticResource mouseButton}" Grid.Column="3" VerticalAlignment="Top" Click="BtDelete_Click">
+                            <TextBlock Foreground="White">Удалить</TextBlock>
+                        </Button>
+                        <Button x:Name="BtEdit" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="4" Click="BtEdit_Click">
+                            <TextBlock Foreground="White">Редактировать</TextBlock>
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Grid.Row="0" Text="Меню" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
-        <Button x:Name="BtAdd" Content="Добавить блюдо" Grid.Row="3" Click="BtAdd_Click" Style="{StaticResource mouseButton}" HorizontalAlignment="Right"></Button>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
-            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
+        <TextBlock Grid.Row="0" Text="Меню" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"></TextBlock>
+        <Button x:Name="BtAdd" Grid.Row="3" Click="BtAdd_Click" Style="{StaticResource mouseButton}" HorizontalAlignment="Right">
+            <TextBlock Foreground="White">Добавить блюдо</TextBlock>
         </Button>
-        <TextBlock Name="TbCountFind" HorizontalAlignment="Center" Grid.Row="3"/>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
+        </Button>
+        <TextBlock Name="TbCountFind" HorizontalAlignment="Center" Grid.Row="3" Foreground="White"/>
     </Grid>
 </Page>

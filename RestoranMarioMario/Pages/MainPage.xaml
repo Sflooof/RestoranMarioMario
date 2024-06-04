@@ -14,13 +14,21 @@
             <TextBlock Text="Mario - Mario" HorizontalAlignment="Center" FontSize="26"></TextBlock>
             <TextBlock Text="ресторан" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Style="{DynamicResource TextBlockRed}"></TextBlock>
         </StackPanel>
-        <Button x:Name="BtWaiter" Height="50" Width="220" Content="Вызов официанта" Background="#e31d24" VerticalAlignment="Top" HorizontalAlignment="Right" Click="BtWaiter_Click" Margin="10" Style="{StaticResource mouseButton}"></Button>
-        <TextBlock Text="Стол номер "></TextBlock>
-        <TextBlock x:Name="TbTableNumber" Margin="140 10 0 0"></TextBlock>
+        <Button x:Name="BtWaiter" Height="50" Width="220" Background="#e31d24" VerticalAlignment="Top" HorizontalAlignment="Right" Click="BtWaiter_Click" Margin="10" Style="{StaticResource mouseButton}">
+            <TextBlock Foreground="White">Вызов официанта</TextBlock>
+        </Button>
+        <TextBlock Text="Стол номер " Foreground="White"></TextBlock>
+        <TextBlock x:Name="TbTableNumber" Foreground="White" Margin="140 10 0 0"></TextBlock>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="BtMenu" Content="Меню" Width="300" Height="450" Click="BtMenu_Click" Margin="10" Style="{StaticResource mouseButton}"></Button>
-            <Button x:Name="BtPlay" Content="Игра" Width="300" Height="450" Click="BtPlay_Click" Margin="10" Style="{StaticResource mouseButton}"></Button>
-            <Button x:Name="BtBasket" Content="Корзина" Width="300" Height="450" Click="BtBasket_Click" Margin="10" Style="{StaticResource mouseButton}"></Button>
+            <Button x:Name="BtMenu" Width="300" Height="450" Click="BtMenu_Click" Margin="10" Style="{StaticResource mouseButton}">
+                <TextBlock Foreground="White">Меню</TextBlock>
+            </Button>
+            <Button x:Name="BtPlay" Width="300" Height="450" Click="BtPlay_Click" Margin="10" Style="{StaticResource mouseButton}">
+                <TextBlock Foreground="White">Игра</TextBlock>
+            </Button>
+            <Button x:Name="BtBasket" Width="300" Height="450" Click="BtBasket_Click" Margin="10" Style="{StaticResource mouseButton}">
+                <TextBlock Foreground="White">Корзина</TextBlock>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

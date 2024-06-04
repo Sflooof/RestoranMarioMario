@@ -21,114 +21,114 @@
             <FlowDocument>
                 <Paragraph>
                     <Button x:Name="BtCtrtificate" Width="190" Height="65" Click="BtCtrtificate_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextWrapping="Wrap" Text="Сертификат" FontSize="19"></TextBlock>
+                        <TextBlock TextWrapping="Wrap" Foreground="White" Text="Сертификат" FontSize="19"></TextBlock>
                     </Button>
                     <Button x:Name="BtPizza" Width="190" Height="65" Click="BtPizza_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextWrapping="Wrap" Text="Пицца" FontSize="19"></TextBlock>
+                        <TextBlock TextWrapping="Wrap" Text="Пицца" Foreground="White" FontSize="19"></TextBlock>
                     </Button>
                     <Button x:Name="BtFocaccia" Width="190" Height="65" Click="BtFocaccia_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextWrapping="Wrap" Text="Фокачча" FontSize="19"></TextBlock>
+                        <TextBlock TextWrapping="Wrap" Foreground="White" Text="Фокачча" FontSize="19"></TextBlock>
                     </Button>
                     <Button x:Name="BtPizzaSauce" Width="190" Height="65" Click="BtPizzaSauce_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Соусы к пицце</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Соусы к пицце</TextBlock>
                     </Button>
-                    <Button x:Name="BtPastaAndRisotto" Width="190" Height="65" Click="BtPastaAndRisotto_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19">Паста и Ризотто</TextBlock>
+                    <Button x:Name="BtPastaAndRisotto" Width="190"  Height="65" Click="BtPastaAndRisotto_Click" Margin="10" Style="{StaticResource mouseButton}">
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White">Паста и Ризотто</TextBlock>
                     </Button>
                     <Button x:Name="BtSoup" Width="190" Height="65" Click="BtSoup_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19">Суп</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White">Суп</TextBlock>
                     </Button>
                     <Button x:Name="BtHotFishDishes" Width="190" Height="65" Click="BtHotFishDishes_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Горячие блюда из рыбы</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Горячие блюда из рыбы</TextBlock>
                     </Button>
                     <Button x:Name="BtotMeatDishes" Width="190" Height="65" Click="BtotMeatDishes_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Горячие блюда из мяса</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Горячие блюда из мяса</TextBlock>
                     </Button>
                     <Button x:Name="BtSideDish" Width="190" Height="65" Click="BtSideDish_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Гарнир</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Гарнир</TextBlock>
                     </Button>
                     <Button x:Name="BtHomemadeTinctures" Width="190" Height="65" Click="BtHomemadeTinctures_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Домашние настойки</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Домашние настойки</TextBlock>
                     </Button>
                     <Button x:Name="BtBeerOnTap" Width="190" Height="65" Click="BtBeerOnTap_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Пиво на кране</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Пиво на кране</TextBlock>
                     </Button>
                     <Button x:Name="BtBottledBeer" Width="190" Height="65" Click="BtBottledBeer_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center"  FontSize="19" TextWrapping="Wrap">Пиво бутылочное</TextBlock>
+                        <TextBlock TextAlignment="Center"  FontSize="19" Foreground="White" TextWrapping="Wrap">Пиво бутылочное</TextBlock>
                     </Button>
                     <Button x:Name="BtVodka" Width="190" Height="65" Click="BtVodka_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center"  FontSize="19" TextWrapping="Wrap">Водка</TextBlock>
+                        <TextBlock TextAlignment="Center"  FontSize="19" Foreground="White" TextWrapping="Wrap">Водка</TextBlock>
                     </Button>
                     <Button x:Name="BtTequila" Width="190" Height="65" Click="BtTequila_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center"  FontSize="19" TextWrapping="Wrap">Текила</TextBlock>
+                        <TextBlock TextAlignment="Center"  FontSize="19" Foreground="White" TextWrapping="Wrap">Текила</TextBlock>
                     </Button>
                     <Button x:Name="BtIceShot" Width="190" Height="65" Click="BtIceShot_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center"  FontSize="19" TextWrapping="Wrap">Ледяной шот</TextBlock>
+                        <TextBlock TextAlignment="Center"  FontSize="19" Foreground="White" TextWrapping="Wrap">Ледяной шот</TextBlock>
                     </Button>
                     <Button x:Name="BtWhiskey" Width="190" Height="65" Click="BtWhiskey_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center"  FontSize="19" TextWrapping="Wrap">Виски</TextBlock>
+                        <TextBlock TextAlignment="Center"  FontSize="19" Foreground="White" TextWrapping="Wrap">Виски</TextBlock>
                     </Button>
                     <Button x:Name="BtCognacBrandy" Width="190" Height="65" Click="BtCognacBrandy_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Коньяк, бренди</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Коньяк, бренди</TextBlock>
                     </Button>
                     <Button x:Name="BtRum" Width="190" Height="65" Click="BtRum_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Ром</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Ром</TextBlock>
                     </Button>
                     <Button x:Name="BtGin" Width="190" Height="65" Click="BtGin_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Джин</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Джин</TextBlock>
                     </Button>
                     <Button x:Name="BtVermouth" Width="190" Height="65" Click="BtVermouth_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Вермут</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Вермут</TextBlock>
                     </Button>
                     <Button x:Name="BtAlcoholicCocktails" Width="190" Height="65" Click="BtAlcoholicCocktails_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Алкогольные коктейли</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Алкогольные коктейли</TextBlock>
                     </Button>
                     <Button x:Name="BtTinctureCocktails" Width="190" Height="65" Click="BtTinctureCocktails_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Коктейли на настойках</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Коктейли на настойках</TextBlock>
                     </Button>
                     <Button x:Name="BtNonAlcoholicCocktails" Width="190" Height="65" Click="BtNonAlcoholicCocktails_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Безалкогольные коктейли</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Безалкогольные коктейли</TextBlock>
                     </Button>
                     <Button x:Name="BtMilkShakes" Width="190" Height="65" Click="BtMilkShakes_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Милк-шейки</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Милк-шейки</TextBlock>
                     </Button>
                     <Button x:Name="BtSmoothies" Width="190" Height="65" Click="BtSmoothies_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Смузи</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Смузи</TextBlock>
                     </Button>
                     <Button x:Name="BtCocktailsWithJuice" Width="190" Height="65" Click="BtCocktailsWithJuice_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Коктейли с соком</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Коктейли с соком</TextBlock>
                     </Button>
                     <Button x:Name="BtFresh" Width="190" Height="65" Click="BtFresh_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Фреш</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Фреш</TextBlock>
                     </Button>
                     <Button x:Name="BtLemonade" Width="190" Height="65" Click="BtLemonade_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Лимонад</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Лимонад</TextBlock>
                     </Button>
                     <Button x:Name="BtMojito" Width="190" Height="65" Click="BtMojito_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Мохито</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Мохито</TextBlock>
                     </Button>
                     <Button x:Name="BtJuice" Width="190" Height="65" Click="BtJuice_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Сок</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Сок</TextBlock>
                     </Button>
                     <Button x:Name="BtClassicTea" Width="190" Height="65" Click="BtClassicTea_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Чай классический</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Чай классический</TextBlock>
                     </Button>
                     <Button x:Name="BtHomemadeTea" Width="190" Height="65" Click="BtHomemadeTea_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Чай домашний</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Чай домашний</TextBlock>
                     </Button>
                     <Button x:Name="BtCoffee" Width="190" Height="65" Click="BtCoffee_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Кофе</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Кофе</TextBlock>
                     </Button>
                     <Button x:Name="BtDrink" Width="190" Height="65" Click="BtDrink_Click" Margin="10" Style="{StaticResource mouseButton}">
-                        <TextBlock TextAlignment="Center" FontSize="19" TextWrapping="Wrap">Напиток</TextBlock>
+                        <TextBlock TextAlignment="Center" FontSize="19" Foreground="White" TextWrapping="Wrap">Напиток</TextBlock>
                     </Button>
                 </Paragraph>
             </FlowDocument>
         </FlowDocumentScrollViewer>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" Background="#e31d24" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.RowSpan="2">
-            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
         </Button>
-        <TextBlock Grid.Column="1" Text="Меню" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+        <TextBlock Grid.Column="1" Text="Меню" HorizontalAlignment="Center" Foreground="White" FontSize="26"></TextBlock>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" IsHitTestVisible="True" >
             <ListView x:Name="ListViewMenu" d:ItemsSource="{d:SampleData ItemCount=6}" HorizontalAlignment="Center" Height="500" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                 <ListView.ItemsPanel>
@@ -143,7 +143,7 @@
                                 <StackPanel>
                                     <Image Source="{Binding CorrectPhoto}" Width="170" Height="170"/>
                                     <Button x:Name="BtProduct" Margin="10" Style="{StaticResource mouseButton}" Height="100" Width="200" Click="BtProduct_Click">
-                                        <TextBlock Text="{Binding Name}" FontSize="16" TextWrapping="Wrap" TextAlignment="Center"/>
+                                        <TextBlock Foreground="White" Text="{Binding Name}" FontSize="16" TextWrapping="Wrap" TextAlignment="Center"/>
                                     </Button>
                                 </StackPanel>
                             </Border>

@@ -17,7 +17,21 @@ namespace RestoranMarioMario.Entities
         public int IdMenuIngredient { get; set; }
         public int IdMenu { get; set; }
         public int IdIngredient { get; set; }
-    
+
+        public string correctIngredien
+        {
+            get
+            {
+                return Ingredient1.Name.ToString();
+            }
+        }
+        public string correctMenu
+        {
+            get
+            {
+                return Menu1.Name.ToString();
+            }
+        }
         public virtual Ingredient Ingredient1 { get; set; }
         public virtual Menu Menu1 { get; set; }
     }

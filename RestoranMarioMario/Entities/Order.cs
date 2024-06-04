@@ -25,7 +25,21 @@ namespace RestoranMarioMario.Entities
         public Nullable<decimal> OrderSum { get; set; }
         public System.DateTime Date { get; set; }
         public string NumberOrder { get; set; }
-    
+
+        public string CorrectTableNumber
+        {
+            get
+            {
+                return Table.TableNumber.ToString();
+            }
+        }
+        public string CorrectDate
+        {
+            get
+            {
+                return Date.ToString("F");
+            }
+        }
 
         public virtual Table Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

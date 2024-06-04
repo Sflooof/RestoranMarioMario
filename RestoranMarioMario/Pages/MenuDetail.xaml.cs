@@ -36,6 +36,11 @@ namespace RestoranMarioMario.Pages
                     ImgPhoto.Source = new ImageSourceConverter()
                         .ConvertFrom(menuDetail.PhotoMenu) as ImageSource;
                 }
+                else
+                {
+                    ImgPhoto.Source = new BitmapImage(new Uri("file:///D:/приложения/RestoranMarioMario/RestoranMarioMario/Resources/no.png"));
+
+                }
                 TbName.Text = menuDetail.Name;
                 var curCategory = App.db.CategoryMenu.Where(m => m.IdCategoryMenu == menuDetail.Category).FirstOrDefault();
                 TbCategory.Text = curCategory.Name;

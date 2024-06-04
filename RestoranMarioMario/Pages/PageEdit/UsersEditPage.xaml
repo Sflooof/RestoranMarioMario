@@ -9,25 +9,25 @@
       Title="UsersEditPage">
 
     <Grid>
-        <TextBlock Margin="20" FontSize="28" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование пользователя</TextBlock>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
-            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
+        <TextBlock Margin="20" FontSize="28" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold"> Добавление/Редактирование пользователя</TextBlock>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
         </Button>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-                <TextBlock>Фамилия*</TextBlock>
+                <TextBlock Foreground="White">Фамилия*</TextBlock>
                 <TextBox x:Name="TbSurname"></TextBox>
-                <TextBlock>Имя*</TextBlock>
+                <TextBlock Foreground="White">Имя*</TextBlock>
                 <TextBox x:Name="TbName"></TextBox>
-                <TextBlock>Отчество</TextBlock>
+                <TextBlock Foreground="White">Отчество</TextBlock>
                 <TextBox x:Name="TbPatronymic"></TextBox>
-                <TextBlock>Роль*</TextBlock>
+                <TextBlock Foreground="White">Роль*</TextBlock>
                 <ComboBox x:Name="CbRole"></ComboBox>
             </StackPanel>
             <StackPanel>
-                <TextBlock>Логин*</TextBlock>
+                <TextBlock Foreground="White">Логин*</TextBlock>
                 <TextBox x:Name="TbLogin"></TextBox>
-                <TextBlock>Пароль*</TextBlock>
+                <TextBlock Foreground="White">Пароль*</TextBlock>
                 <PasswordBox x:Name="TbPassword" Width="280" Height="45" Margin="10">
                     <PasswordBox.Resources>
                         <Style TargetType="{x:Type PasswordBox}">
@@ -43,7 +43,9 @@
                         </Style>
                     </PasswordBox.Resources>
                 </PasswordBox>
-                <Button Name="BtSave" Width="280" Height="45" Content="Сохранить" Click="BtSave_Click" Style="{StaticResource mouseButton}"></Button>
+                <Button Name="BtSave" Width="280" Height="45"  Click="BtSave_Click" Style="{StaticResource mouseButton}">
+                    <TextBlock Foreground="White">Сохранить</TextBlock>
+                </Button>
             </StackPanel>
         </StackPanel>
     </Grid>

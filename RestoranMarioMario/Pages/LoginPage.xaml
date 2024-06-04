@@ -21,11 +21,11 @@
             </StackPanel>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Авторизация персонала" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+                    <TextBlock Text="Авторизация персонала" HorizontalAlignment="Center" FontSize="26" Foreground="White"></TextBlock>
                     <StackPanel>
-                        <TextBlock Text="Логин" Width="350" Margin="80 30 0 0"></TextBlock>
+                        <TextBlock Text="Логин" Width="350" Margin="80 30 0 0" Foreground="White"></TextBlock>
                         <TextBox x:Name="TbLogin"></TextBox>
-                        <TextBlock Text="Пароль" Width="350" Margin="80 0 0 0"></TextBlock>
+                        <TextBlock Text="Пароль" Width="350" Margin="80 0 0 0" Foreground="White"></TextBlock>
                         <PasswordBox x:Name="PbLogin" Width="280" Height="45" Margin="10">
                             <PasswordBox.Resources>
                                 <Style TargetType="{x:Type PasswordBox}">
@@ -43,15 +43,17 @@
                         </PasswordBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0,20,0,0">
-                        <Button x:Name="BtLogin" Content="Войти" Height="45" Width="280" Click="BtLogin_Click" Style="{StaticResource mouseButton}"></Button>
+                        <Button x:Name="BtLogin" Height="45" Width="280" Click="BtLogin_Click" Style="{StaticResource mouseButton}">
+                            <TextBlock Foreground="White">Войти</TextBlock>
+                        </Button>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Авторизация стола" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+                    <TextBlock Text="Авторизация стола" HorizontalAlignment="Center" FontSize="26" Foreground="White"></TextBlock>
                     <StackPanel>
-                        <TextBlock Text="Номер стола" Width="350" Margin="80 30 0 0"></TextBlock>
+                        <TextBlock Text="Номер стола" Width="350" Margin="80 30 0 0" Foreground="White"></TextBlock>
                         <TextBox x:Name="TbLoginTable"></TextBox>
-                        <TextBlock Text="Пароль" Width="350" Margin="80 0 0 0"></TextBlock>
+                        <TextBlock Text="Пароль" Width="350" Margin="80 0 0 0" Foreground="White"></TextBlock>
                         <PasswordBox x:Name="PbLoginTable" Width="280" Height="45" Margin="10">
                             <PasswordBox.Resources>
                                 <Style TargetType="{x:Type PasswordBox}">
@@ -69,7 +71,9 @@
                         </PasswordBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0,20,0,0">
-                        <Button x:Name="BtLoginTable" Content="Войти" Height="45" Width="280" Click="BtLoginTable_Click" Style="{StaticResource mouseButton}"></Button>
+                        <Button x:Name="BtLoginTable" Height="45" Width="280" Click="BtLoginTable_Click" Style="{StaticResource mouseButton}">
+                            <TextBlock Foreground="White">Войти</TextBlock>
+                        </Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

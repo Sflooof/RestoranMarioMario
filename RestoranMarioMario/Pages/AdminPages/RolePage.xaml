@@ -18,8 +18,12 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBox x:Name="TbFind" TextChanged="TbFind_TextChanged_1"></TextBox>
             <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged_1">
-                <ComboBoxItem Content="От А до Я"></ComboBoxItem>
-                <ComboBoxItem Content="От Я до А"></ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Foreground="Black" Text="От А до Я"></TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Foreground="Black" Text="От Я до А"></TextBlock>
+                </ComboBoxItem>
             </ComboBox>
         </StackPanel>
         <ListView x:Name="ListViewCatalog" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListViewCatalog_SelectionChanged">
@@ -33,23 +37,29 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel>
-                                <TextBlock Text="Название роли:"></TextBlock>
+                                <TextBlock Foreground="White" Text="Название роли:"></TextBlock>
                             </StackPanel>
                             <StackPanel>
-                                <TextBlock Text="{Binding Name}"></TextBlock>
+                                <TextBlock Foreground="White" Text="{Binding Name}"></TextBlock>
                             </StackPanel>
                         </StackPanel>
-                        <Button x:Name="BtDelete" Content="Удалить" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="1" Click="BtDelete_Click"></Button>
-                        <Button x:Name="BtEdit" Content="Редактировать" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="2" Click="BtEdit_Click"></Button>
+                        <Button x:Name="BtDelete" VerticalAlignment="Top" Grid.Column="1" Style="{StaticResource mouseButton}" Click="BtDelete_Click">
+                            <TextBlock Foreground="White">Удалить</TextBlock>
+                        </Button>
+                        <Button x:Name="BtEdit" VerticalAlignment="Top" Grid.Column="2" Style="{StaticResource mouseButton}" Click="BtEdit_Click">
+                            <TextBlock Foreground="White">Редактировать</TextBlock>
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Grid.Row="0" Text="Роли пользователей" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
-        <Button x:Name="BtAdd" Content="Добавить роль пользователя" Grid.Row="3" Style="{StaticResource mouseButton}" Click="BtAdd_Click" HorizontalAlignment="Right"></Button>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
-            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
+        <TextBlock Grid.Row="0" Text="Роли пользователей" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <Button x:Name="BtAdd" Grid.Row="3" Style="{StaticResource mouseButton}" Click="BtAdd_Click" HorizontalAlignment="Right">
+            <TextBlock Foreground="White">Добавить роль пользователя</TextBlock>
         </Button>
-        <TextBlock Name="TbCountFind" HorizontalAlignment="Center" Grid.Row="3"/>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
+        </Button>
+        <TextBlock Name="TbCountFind" HorizontalAlignment="Center" Foreground="White" Grid.Row="3"/>
     </Grid>
 </Page>

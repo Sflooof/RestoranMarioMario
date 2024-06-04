@@ -16,13 +16,19 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox x:Name="TbFind" TextChanged="TbFind_TextChanged"></TextBox>
+            <TextBox x:Name="TbFind" Foreground="White" TextChanged="TbFind_TextChanged"></TextBox>
             <ComboBox x:Name="CbFilter" SelectionChanged="CbFilter_SelectionChanged">
-                <ComboBoxItem Content="Показать все"></ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Text="Показать все"></TextBlock>
+                </ComboBoxItem>
             </ComboBox>
             <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged">
-                <ComboBoxItem Content="От А до Я"></ComboBoxItem>
-                <ComboBoxItem Content="От Я до А"></ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Foreground="Black" Text="От А до Я"></TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Foreground="Black" Text="От Я до А"></TextBlock>
+                </ComboBoxItem>
             </ComboBox>
         </StackPanel>
         <ListView x:Name="ListViewCatalog" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListViewCatalog_SelectionChanged">
@@ -36,33 +42,39 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel>
-                                <TextBlock Text="Фамилия:"></TextBlock>
-                                <TextBlock Text="Имя:"></TextBlock>
-                                <TextBlock Text="Отчество:"></TextBlock>
-                                <TextBlock Text="Роль:"></TextBlock>
-                                <TextBlock Text="Логин:"></TextBlock>
-                                <TextBlock Text="Пароль:"></TextBlock>
+                                <TextBlock Text="Фамилия:" Foreground="White"></TextBlock>
+                                <TextBlock Text="Имя:" Foreground="White"></TextBlock>
+                                <TextBlock Text="Отчество:" Foreground="White"></TextBlock>
+                                <TextBlock Text="Роль:" Foreground="White"></TextBlock>
+                                <TextBlock Text="Логин:" Foreground="White"></TextBlock>
+                                <TextBlock Text="Пароль:" Foreground="White"></TextBlock>
                             </StackPanel>
                             <StackPanel>
-                                <TextBlock Text="{Binding Surname}"></TextBlock>
-                                <TextBlock Text="{Binding Name}"></TextBlock>
-                                <TextBlock Text="{Binding Patronymic}"></TextBlock>
-                                <TextBlock Text="{Binding correctRole}"></TextBlock>
-                                <TextBlock Text="{Binding Login}"></TextBlock>
-                                <TextBlock Text="{Binding Password}"></TextBlock>
+                                <TextBlock Text="{Binding Surname}" Foreground="White"></TextBlock>
+                                <TextBlock Text="{Binding Name}" Foreground="White"></TextBlock>
+                                <TextBlock Text="{Binding Patronymic}" Foreground="White"></TextBlock>
+                                <TextBlock Text="{Binding correctRole}" Foreground="White"></TextBlock>
+                                <TextBlock Text="{Binding Login}" Foreground="White"></TextBlock>
+                                <TextBlock Text="{Binding Password}" Foreground="White"></TextBlock>
                             </StackPanel>
                         </StackPanel>
-                        <Button x:Name="BtDelete" Content="Удалить" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="1" Click="BtDelete_Click"></Button>
-                        <Button x:Name="BtEdit" Content="Редактировать" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="2" Click="BtEdit_Click"></Button>
+                        <Button x:Name="BtDelete" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="1" Click="BtDelete_Click">
+                            <TextBlock Foreground="White">Удалить</TextBlock>
+                        </Button>
+                        <Button x:Name="BtEdit" Style="{StaticResource mouseButton}" VerticalAlignment="Top" Grid.Column="2" Click="BtEdit_Click">
+                            <TextBlock Foreground="White">Редактировать</TextBlock>
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Grid.Row="0" Text="Пользователи" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
-        <Button x:Name="BtAdd" Content="Добавить пользователя" Grid.Row="3" Style="{StaticResource mouseButton}" Click="BtAdd_Click" HorizontalAlignment="Right"></Button>
-        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Background="#e31d24" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButton}">
-            <Image Source="..\Resources\back.png" Width="20" Height="20"></Image>
+        <TextBlock Grid.Row="0" Text="Пользователи" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <Button x:Name="BtAdd" Grid.Row="3" Style="{StaticResource mouseButton}" Click="BtAdd_Click" HorizontalAlignment="Right">
+            <TextBlock Foreground="White">Добавить пользователя</TextBlock>
         </Button>
-        <TextBlock Name="TbCountFind" HorizontalAlignment="Center" Grid.Row="3"/>
+        <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
+        </Button>
+        <TextBlock Name="TbCountFind" HorizontalAlignment="Center" Foreground="White" Grid.Row="3"/>
     </Grid>
 </Page>

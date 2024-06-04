@@ -21,7 +21,14 @@ namespace RestoranMarioMario.Entities
         public int Role { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-    
+        public string correctRole
+        {
+            get
+            {
+                return Roles1.Name.ToString();
+            }
+        }
+
         public virtual Roles Roles1 { get; set; }
     }
 }
