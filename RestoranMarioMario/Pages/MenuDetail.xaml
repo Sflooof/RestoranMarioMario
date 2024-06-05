@@ -24,7 +24,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Ингредиенты:" x:Name="TbIngredients" Foreground="White" FontWeight="Bold" Margin="5"></TextBlock>
-                        <TextBlock Name = "TbIngredient" Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5" ></TextBlock>
+                        <TextBlock Name = "TbIngredient" TextWrapping="Wrap" Width="800" Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Margin="5" ></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Категория:" Foreground="White" FontWeight="Bold" Margin="5"></TextBlock>
