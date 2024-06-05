@@ -1,19 +1,8 @@
 ﻿using RestoranMarioMario.Pages.PageEdit;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations.Model;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RestoranMarioMario.Pages.AdminPages
 {
@@ -46,7 +35,7 @@ namespace RestoranMarioMario.Pages.AdminPages
         private void BtDelete_Click(object sender, RoutedEventArgs e)
         {
             var delete = (sender as Button).DataContext as Entities.Ingredient;
-            if(MessageBox.Show("Вы действительно хотите удалить этот ингредиент?","Внимание!", MessageBoxButton.YesNo,
+            if (MessageBox.Show("Вы действительно хотите удалить этот ингредиент?", "Внимание!", MessageBoxButton.YesNo,
                 MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 App.db.Ingredient.Remove(delete);
@@ -58,7 +47,7 @@ namespace RestoranMarioMario.Pages.AdminPages
         {
             var updateItem = App.db.Ingredient.ToList();
             updateItem = updateItem.Where(item => item.Name.ToLower().Contains(TbFind.Text.ToLower())).ToList();
-            if(CbSort.SelectedIndex == 0)
+            if (CbSort.SelectedIndex == 0)
             {
                 updateItem = updateItem.OrderBy(item => item.Name).ToList();
             }

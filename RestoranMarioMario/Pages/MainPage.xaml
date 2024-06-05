@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
             <TextBlock Text="итальянский" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Style="{DynamicResource TextBlockGreen}"></TextBlock>
-            <TextBlock Text="Mario - Mario" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+            <TextBlock Text="Mario - Mario" HorizontalAlignment="Center" FontSize="26" Foreground="White"></TextBlock>
             <TextBlock Text="ресторан" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Style="{DynamicResource TextBlockRed}"></TextBlock>
         </StackPanel>
         <Button x:Name="BtWaiter" Height="50" Width="220" Background="#e31d24" VerticalAlignment="Top" HorizontalAlignment="Right" Click="BtWaiter_Click" Margin="10" Style="{StaticResource mouseButton}">

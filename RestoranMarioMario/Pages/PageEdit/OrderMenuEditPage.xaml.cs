@@ -1,20 +1,10 @@
-﻿using RestoranMarioMario.Entities;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RestoranMarioMario.Pages.PageEdit
 {
@@ -46,7 +36,7 @@ namespace RestoranMarioMario.Pages.PageEdit
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var cbMenu = App.db.Menu.OrderBy(p => p.IdMenu).Select(p => p.Name).ToArray();            
+            var cbMenu = App.db.Menu.OrderBy(p => p.IdMenu).Select(p => p.Name).ToArray();
             for (int i = 0; i < cbMenu.Length; i++)
                 CbNameMenu.Items.Add(cbMenu[i]);
             var cbOrder = App.db.Order.OrderBy(p => p.IdOrder).Select(p => p.NumberOrder).ToArray();

@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text="итальянский" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="16" Style="{DynamicResource TextBlockGreen}"></TextBlock>
-                <TextBlock Text="Mario - Mario" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+                <TextBlock Text="Mario - Mario" Foreground="White" HorizontalAlignment="Center" FontSize="26"></TextBlock>
                 <TextBlock Text="ресторан" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="16" Style="{DynamicResource TextBlockRed}"></TextBlock>
             </StackPanel>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

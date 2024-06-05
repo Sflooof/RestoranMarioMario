@@ -1,12 +1,6 @@
 ﻿using RestoranMarioMario.Entities;
-using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace RestoranMarioMario
 {
@@ -17,6 +11,7 @@ namespace RestoranMarioMario
     {
         public static restaurantEntities db { get; } = new restaurantEntities();
         public static Users CurrentUser = null;
+        public static Users CurrentUserPassword = null;
         public static Table CurrentTable = null;
         public static Order CurrentOrder = null;
         public static OrderMenu CurrentOrderMenuDate = null;

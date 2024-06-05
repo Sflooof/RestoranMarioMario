@@ -14,7 +14,7 @@
         </Button>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Foreground="White" Text="Введите модификации"></TextBlock>
-            <TextBox x:Name="TbModification" Foreground="White" Text="{Binding Modification}" Height="177"></TextBox>
+            <TextBox x:Name="TbModification" Text="{Binding Modification}" Height="177" Foreground="Black"></TextBox>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Цена:" Foreground="White"></TextBlock>
                 <TextBlock x:Name="TbSum" Foreground="White" Text="{Binding Sum}"></TextBlock>

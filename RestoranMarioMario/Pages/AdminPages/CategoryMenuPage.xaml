@@ -16,7 +16,7 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox x:Name="TbFind" Foreground="White" TextChanged="TbFind_TextChanged"></TextBox>
+            <TextBox x:Name="TbFind" TextChanged="TbFind_TextChanged" Foreground="Black"></TextBox>
             <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged">
                 <ComboBoxItem Content="От А до Я"></ComboBoxItem>
                 <ComboBoxItem Content="От Я до А"></ComboBoxItem>

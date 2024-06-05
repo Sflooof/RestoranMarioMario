@@ -16,7 +16,7 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox x:Name="TbFind" Foreground="White" TextChanged="TbFind_TextChanged"></TextBox>
+            <TextBox Foreground="Black" x:Name="TbFind" TextChanged="TbFind_TextChanged"></TextBox>
         </StackPanel>
         <ListView x:Name="ListViewCatalog" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListViewCatalog_SelectionChanged">
             <ListView.ItemTemplate>

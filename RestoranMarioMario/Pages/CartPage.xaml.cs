@@ -77,7 +77,7 @@ namespace RestoranMarioMario.Pages
         {
             App.db.Order.Add(App.CurrentOrder);
             App.db.SaveChanges();
-            Entities.Order createdOrder = App.db.Order.ToList().Last();
+            Order createdOrder = App.db.Order.ToList().Last();
             foreach (var order in App.CurrentOrderMenu)
             {
                 order.OrderId = createdOrder.IdOrder;
@@ -86,7 +86,7 @@ namespace RestoranMarioMario.Pages
             App.db.SaveChanges();
             MessageBox.Show("Заказ создан. Скоро к Вам подойдет менеджер для оплаты.", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
  
-            App.CurrentOrder = new Entities.Order()
+            App.CurrentOrder = new Order()
             {
                 TableNumber = createdOrder.TableNumber,
                 OrderSum = 0,

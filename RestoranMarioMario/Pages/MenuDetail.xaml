@@ -12,32 +12,59 @@
         <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
             <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
         </Button>
-        <TextBlock Text="Подробная информация" Foreground="White" HorizontalAlignment="Center" FontSize="26"></TextBlock>
+        <TextBlock Text="Подробная информация" Foreground="White" HorizontalAlignment="Center" FontSize="26" Margin="0,10,0,535"></TextBlock>
         <WrapPanel>
             <StackPanel Width="1000">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image Name ="ImgPhoto" Source="{Binding CorrectPhoto}" Height="200" Width="450" Margin="0, 50, 0, 0"></Image>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Foreground="White" Name="TbName" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Width="auto" Margin="5" FontSize="42"></TextBlock>
+                    <StackPanel>
+                        <TextBlock Foreground="White" Name="TbName" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Width="auto" Margin="5" FontSize="42"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Ингредиенты:" x:Name="TbIngredients" Foreground="White" FontWeight="Bold" Margin="5"></TextBlock>
+                        <TextBlock Name = "TbIngredient" Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5" ></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Категория:" Foreground="White" FontWeight="Bold" Margin="5"></TextBlock>
+                        <TextBlock Name = "TbCategory" Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5" ></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Вес (г):" Foreground="White" FontWeight="Bold" Margin="5"></TextBlock>
+                        <TextBlock Name = "TbWeight" Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5" ></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="TbSum" Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5"  FontSize="42"></TextBlock>
+                        <TextBlock Text="р." Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5"  FontSize="42"></TextBlock>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel>
-                    <TextBlock Text="Категория:" Foreground="White" FontWeight="Bold" Margin="5"></TextBlock>
-                    <TextBlock Name = "TbCategory" Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5" ></TextBlock>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock Text="Вес (г):" Foreground="White" FontWeight="Bold" Margin="5"></TextBlock>
-                    <TextBlock Name = "TbWeight" Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5" ></TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Name = "TbSum" Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5"  FontSize="42"></TextBlock>
-                    <TextBlock Text="р." Foreground="White" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5"  FontSize="42"></TextBlock>
+                <StackPanel x:Name="SpPassword" Visibility="Collapsed">
+                    <TextBlock x:Name="TbPass" Text="Пароль для подтверждения возраста" HorizontalAlignment="Center" Foreground="White" ></TextBlock>
+                    <PasswordBox x:Name="PbPasport" Width="280" Height="45" PasswordChanged="PbPasport_PasswordChanged">
+                        <PasswordBox.Resources>
+                            <Style TargetType="{x:Type PasswordBox}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type PasswordBox}">
+                                            <Border CornerRadius="20" BorderBrush="White" Background="White">
+                                                <ScrollViewer x:Name="PART_ContentHost" VerticalContentAlignment="Center" Margin="10"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </PasswordBox.Resources>
+                    </PasswordBox>
                 </StackPanel>
             </StackPanel>
         </WrapPanel>
         <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="BtBasket" Height="45" Click="BtBasket_Click" Style="{StaticResource mouseButton}" Margin="10">
+            <Button x:Name="BtBasket" Height="45" MouseLeave="BtBasket_MouseLeave" Click="BtBasket_Click" Style="{StaticResource mouseButton}" Margin="10">
                 <TextBlock Foreground="White">Добавить в корзину</TextBlock>
+            </Button>
+            <Button x:Name="BtBasketPassword" Height="45" Click="BtBasketPassword_Click" Style="{StaticResource mouseButton}" Margin="10">
+                <TextBlock Foreground="White">Вызвать официанта для подтверждения возраста</TextBlock>
             </Button>
         </StackPanel>
     </Grid>

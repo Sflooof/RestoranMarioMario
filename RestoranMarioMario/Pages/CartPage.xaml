@@ -57,7 +57,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Grid.Row="2" Name="OrderPriceBox" FontSize="35" Text=" "/>
+        <TextBlock Grid.Row="2" Name="OrderPriceBox" FontSize="35" Foreground="White" Text=" "/>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 135 0">
             <Button Grid.Row="2" Name="BtCreateOrder" Visibility="Hidden" Width="130" Height="50" Click="BtCreateOrder_Click" Margin="10" Style="{StaticResource mouseButton}">
                 <TextBlock Foreground="White">Заказать</TextBlock>
