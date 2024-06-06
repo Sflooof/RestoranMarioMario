@@ -61,11 +61,10 @@ namespace RestoranMarioMario.Pages
                     TableNumber = loginTable.IdTable,
                     OrderSum = 0,
                     Date = DateTime.Now,
-                    NumberOrder = "1231"
+                    NumberOrder = loginTable.IdTable.ToString(),
                 };
                 App.CurrentOrderMenu = new List<Entities.OrderMenu>();
                 NavigationService.Navigate(new MainPage());
-
             }
         }
     }
