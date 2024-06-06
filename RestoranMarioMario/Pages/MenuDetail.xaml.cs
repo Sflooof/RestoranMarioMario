@@ -38,7 +38,7 @@ namespace RestoranMarioMario.Pages
                 }
                 else
                 {
-                    ImgPhoto.Source = new BitmapImage(new Uri("file:///D:/приложения/RestoranMarioMario/RestoranMarioMario/Resources/no.png"));
+                    ImgPhoto.Source = new ImageSourceConverter().ConvertFrom("../../Img/no.png") as ImageSource;
 
                 }
                 TbName.Text = menuDetail.Name;
