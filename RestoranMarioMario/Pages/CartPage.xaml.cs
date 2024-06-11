@@ -34,7 +34,7 @@ namespace RestoranMarioMario.Pages
         public static RoutedCommand GeneratePDFCommand = new RoutedCommand();
         public CartPage()
         {
-            InitializeComponent();
+            InitializeComponent(); 
             orderProductsListView.ItemsSource = App.CurrentOrderMenu;
             Loaded += Page_Loaded;
         }
@@ -174,14 +174,14 @@ namespace RestoranMarioMario.Pages
             Update();
         }
 
-         private int numberCheque = 1;
+        private int numberCheque = 0;
         private void BtPDF_Click(object sender, RoutedEventArgs e)
         {
+            numberCheque++;
             Document doc = new Document();
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
             string time = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
             int numverTable = App.CurrentTable.TableNumber;
-            numberCheque++;
             var waiterOrder = App.db.Table.Where(x => x.TableWaiter == numverTable).First();
             var waiterInfo = App.db.Waiter.Where(w => w.IdWaiter == waiterOrder.TableWaiter).Select(w => new { w.Surname, w.Name, w.Patronymic }).First();
             string fullName = $"{waiterInfo.Surname} {waiterInfo.Name} {waiterInfo.Patronymic}";
@@ -190,7 +190,7 @@ namespace RestoranMarioMario.Pages
                 PdfWriter.GetInstance(doc, new FileStream($"..\\..\\Сheque\\cheque_{timestamp}.pdf", FileMode.Create));
                 doc.Open();
                 BaseFont baseFont = BaseFont.CreateFont("C:\\Windows\\Fonts\\times.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-                Font font = new Font(baseFont, 14);
+                Font font = new Font(baseFont, 14);                
                 Font font1 = new Font(baseFont, 24, 1, BaseColor.BLACK);
                 Paragraph prechek = new Paragraph($"Пречек №        {numberCheque}  {time}", font);
                 prechek.Alignment = Element.ALIGN_LEFT;
@@ -259,6 +259,7 @@ namespace RestoranMarioMario.Pages
                 doc.Add(final);
                 MessageBox.Show("Ваш пречек сформирован!\nМенеджер принесет Вам его при оплате.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
                 BtCreateOrder.Visibility = Visibility.Visible;
+                BtPDF.Visibility = Visibility.Collapsed;
             }
             catch (DocumentException de)
             {
@@ -287,6 +288,10 @@ namespace RestoranMarioMario.Pages
         {
             lastVisitTime = DateTime.Now;
             Update();
+            if (orderProductsListView.Items.Count == 0)
+            {
+                BtPDF.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

@@ -23,25 +23,25 @@ namespace RestoranMarioMario.Pages.PageEdit
         public OrderMenuEditPage(Entities.OrderMenu corOrderMenu)
         {
             InitializeComponent();
-            if (corOrderMenu != null)
-            {
-                orderMenu = corOrderMenu;
-                CbNameMenu.SelectedIndex = (int)(corOrderMenu.MenuBarCard - 1);
-                TbQuantity.Text = corOrderMenu.Quantity.ToString();
-                TbSum.Text = corOrderMenu.Sum.ToString();
-                TbModification.Text = corOrderMenu.Modification.ToString();
-                CbOrderId.SelectedIndex = corOrderMenu.OrderId;
-                DpDate.SelectedDate = corOrderMenu.DateAdd;
-            }
+                if (corOrderMenu != null)
+                {
+                    orderMenu = corOrderMenu;
+                    CbNameMenu.SelectedIndex = (int)(corOrderMenu.MenuBarCard - 1);
+                    TbQuantity.Text = corOrderMenu.Quantity.ToString();
+                    TbSum.Text = corOrderMenu.Sum.ToString();
+                    TbModification.Text = corOrderMenu.Modification?.ToString();
+                    ///CbOrderId.SelectedIndex = corOrderMenu.OrderId - 1;
+                    DpDate.SelectedDate = corOrderMenu.DateAdd;
+                }         
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             var cbMenu = App.db.Menu.OrderBy(p => p.IdMenu).Select(p => p.Name).ToArray();
             for (int i = 0; i < cbMenu.Length; i++)
                 CbNameMenu.Items.Add(cbMenu[i]);
-            var cbOrder = App.db.Order.OrderBy(p => p.IdOrder).Select(p => p.NumberOrder).ToArray();
-            for (int i = 0; i < cbOrder.Length; i++)
-                CbOrderId.Items.Add(cbOrder[i]);
+            //var cbOrder = App.db.Order.OrderBy(p => p.IdOrder).Select(p => p.NumberOrder).ToArray();
+            //for (int i = 0; i < cbOrder.Length; i++)
+            //    CbOrderId.Items.Add(cbOrder[i]);
         }
 
         private void BtBack_Click(object sender, RoutedEventArgs e)
@@ -59,7 +59,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             else
             {
                 var menu = App.db.Menu.Where(c => c.Name == CbNameMenu.SelectedItem.ToString()).FirstOrDefault();
-                var order = App.db.Order.Where(c => c.NumberOrder == CbOrderId.SelectedItem.ToString()).FirstOrDefault();
+                //var order = App.db.Order.Where(c => c.NumberOrder == CbOrderId.SelectedItem.ToString()).FirstOrDefault();
                 if (orderMenu == null)
                 {
                     var correctMenu = new Entities.OrderMenu { };
@@ -71,7 +71,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                             Quantity = int.Parse(TbQuantity.Text),
                             Sum = decimal.Parse(TbSum.Text),
                             Modification = "NULL",
-                            OrderId = order.IdOrder,
+                            //OrderId = order.IdOrder,
                             DateAdd = (DateTime)DpDate.SelectedDate,
                         };
                     }
@@ -83,7 +83,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                             Quantity = int.Parse(TbQuantity.Text),
                             Sum = decimal.Parse(TbSum.Text),
                             Modification = TbModification.Text,
-                            OrderId = order.IdOrder,
+                            //OrderId = order.IdOrder,
                             DateAdd = (DateTime)DpDate.SelectedDate,
                         };
                     }
@@ -98,7 +98,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     orderMenu.Quantity = int.Parse(TbQuantity.Text);
                     orderMenu.Sum = decimal.Parse(TbSum.Text);
                     orderMenu.Modification = TbModification.Text;
-                    orderMenu.OrderId = order.IdOrder;
+                    //orderMenu.OrderId = order.IdOrder;
                     orderMenu.DateAdd = (DateTime)DpDate.SelectedDate;
                     App.db.SaveChanges();
                     MessageBox.Show("Данные успешно обновлены", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);

@@ -22,7 +22,8 @@
             </StackPanel>
             <StackPanel>
                 <TextBlock Foreground="White">Дата заказа*</TextBlock>
-                <DatePicker x:Name="DpDate" Background="White"></DatePicker>
+                <DatePicker x:Name="DpDate" Background="White">
+                </DatePicker>
                 <TextBlock Foreground="White">Сумма (руб)*</TextBlock>
                 <TextBox x:Name="TbSum"></TextBox>
                 <Button Name="BtSave" Width="280" Height="45" Click="BtSave_Click" Style="{StaticResource mouseButton}">

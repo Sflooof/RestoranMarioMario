@@ -25,8 +25,8 @@
                 <TextBox x:Name="TbModification"></TextBox>
             </StackPanel>
             <StackPanel>
-                <TextBlock Foreground="White">Номер заказа*</TextBlock>
-                <ComboBox x:Name="CbOrderId"></ComboBox>
+                <!--<TextBlock Foreground="White">Номер заказа*</TextBlock>
+                <ComboBox x:Name="CbOrderId"></ComboBox>-->
                 <TextBlock Foreground="White">Дата заказа*</TextBlock>
                 <DatePicker x:Name="DpDate"></DatePicker>
                 <Button Name="BtSave" Width="280" Height="45" Click="BtSave_Click" Style="{StaticResource mouseButton}">

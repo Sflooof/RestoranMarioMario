@@ -30,7 +30,7 @@
                 </Button>
             </StackPanel>
             <Button x:Name="BtSave" Click="BtSave_Click" Margin="10" Style="{StaticResource mouseButton}">
-                <TextBlock Foreground="White">Добавить в корзин</TextBlock>
+                <TextBlock Foreground="White">Добавить в корзину</TextBlock>
             </Button>
         </StackPanel>
     </Grid>

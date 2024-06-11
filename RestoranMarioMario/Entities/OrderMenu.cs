@@ -34,7 +34,7 @@ namespace RestoranMarioMario.Entities
         {
             get
             {
-                return Order1.NumberOrder.ToString();
+                return Order1.IdOrder.ToString();
             }
         }
 

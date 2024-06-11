@@ -37,7 +37,7 @@ namespace RestoranMarioMario.Entities
         {
             get
             {
-                return Date.ToString("F");
+                return Date.ToString("d");
             }
         }
 

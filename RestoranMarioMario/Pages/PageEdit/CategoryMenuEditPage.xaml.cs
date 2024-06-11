@@ -13,7 +13,7 @@ namespace RestoranMarioMario.Pages.PageEdit
     public partial class CategoryMenuEditPage : Page
     {
         private Entities.CategoryMenu menu = null;
-        Regex regex = new Regex(@"^[А-ЯЁ][а-яё]+$");
+        Regex regex = new Regex(@"^[a-zA-ZА-ЯЁ][a-zA-Zа-яё ]+$");
         MatchCollection match;
         public CategoryMenuEditPage()
         {

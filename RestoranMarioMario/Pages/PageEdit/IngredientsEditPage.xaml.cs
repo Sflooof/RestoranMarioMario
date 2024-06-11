@@ -12,7 +12,8 @@ namespace RestoranMarioMario.Pages.PageEdit
     public partial class IngredientsEditPage : Page
     {
         private Entities.Ingredient ingredient = null;
-        Regex regex = new Regex(@"^[А-ЯЁ][а-яё]+$");
+        //Regex regex = new Regex(@"^[А-ЯЁ][а-яё]+$");
+        Regex regex = new Regex(@"^[a-zA-ZА-ЯЁ][a-zA-Zа-яё ]+$");
         MatchCollection match;
         public IngredientsEditPage()
         {

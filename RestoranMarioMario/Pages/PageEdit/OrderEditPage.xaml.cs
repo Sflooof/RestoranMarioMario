@@ -109,7 +109,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                 errorBuilder.AppendLine("Поле Дата обязательно для заполнения.");
             match = regexSum.Matches(TbSum.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введена количество.");
+                errorBuilder.AppendLine("Сумма должна быть целым числом.");
 
             if (errorBuilder.Length > 0)
             {

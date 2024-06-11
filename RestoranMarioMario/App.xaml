@@ -94,5 +94,11 @@
             <Setter Property="FontSize" Value="24"></Setter>
             <Setter Property="Foreground" Value="Black"></Setter>
         </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="6"/>            
+        </Style>
     </Application.Resources>
 </Application>
