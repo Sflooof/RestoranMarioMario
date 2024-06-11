@@ -50,8 +50,7 @@ namespace RestoranMarioMario.Pages
                 Height = snakeSquareSize,
                 Fill = new ImageBrush
                 {
-                    ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/head.png"))
-
+                    ImageSource = new ImageSourceConverter().ConvertFrom("../../Img/head.png") as ImageSource
                 }
             };
             Canvas.SetLeft(rectangle, position.X * snakeSquareSize);
@@ -70,7 +69,7 @@ namespace RestoranMarioMario.Pages
             {
                 Width = snakeSquareSize,
                 Height = snakeSquareSize,
-                Source = new BitmapImage(new Uri("pack://application:,,,/Resources/orange.png"))
+                Source = new ImageSourceConverter().ConvertFrom("pack://application:,,,/Img/orange.png") as ImageSource
             };
             Canvas.SetLeft(foodImage, foodX * snakeSquareSize);
             Canvas.SetTop(foodImage, foodY * snakeSquareSize);
@@ -198,7 +197,7 @@ namespace RestoranMarioMario.Pages
                 Height = snakeSquareSize,
                 Fill = new ImageBrush
                 {
-                    ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/body.png"))
+                    ImageSource = new ImageSourceConverter().ConvertFrom("pack://application:,,,/Img/body.png") as ImageSource
                 }
             };
 

@@ -380,16 +380,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\no.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\mario.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\back.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entities\Model1.Context.tt">
@@ -402,13 +393,16 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\orange.png" />
-    <Resource Include="Resources\biggarbagebin_121980.png" />
-    <Resource Include="Resources\body.png" />
-    <Resource Include="Resources\head.png" />
-    <Resource Include="Resources\Снимок экрана 2024-06-01 175121.png" />
-    <Resource Include="Resources\no.png" />
+    <Resource Include="Img\orange.png" />
+    <Resource Include="Img\head.png" />
+    <Resource Include="Img\mario.ico" />
+    <Resource Include="Img\no.jpg" />
+    <Resource Include="Img\no.png" />
+    <Resource Include="Img\back.png" />
+    <Resource Include="Img\biggarbagebin_121980.png" />
+    <Resource Include="Img\body.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

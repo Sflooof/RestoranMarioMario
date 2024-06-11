@@ -42,7 +42,7 @@ namespace RestoranMarioMario.Entities
             get
             {
                 if (PhotoMenu == null)
-                    return File.ReadAllBytes("../../Resources/no.png");
+                    return File.ReadAllBytes("../Resources/no.png");
                 else return PhotoMenu;
             }
         }

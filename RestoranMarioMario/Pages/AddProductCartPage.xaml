@@ -10,7 +10,7 @@
 
     <Grid>
         <Button x:Name="BtBack" Height="25" Width="25" HorizontalAlignment="Left" Click="BtBack_Click" Margin="10,11,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource mouseButtonBack}">
-            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Resources/back.png"/>
+            <Image Width="20" Height="20" Source="/RestoranMarioMario;component/Img/back.png"/>
         </Button>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Foreground="White" Text="Введите модификации"></TextBlock>
