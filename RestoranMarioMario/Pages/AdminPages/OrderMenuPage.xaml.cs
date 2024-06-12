@@ -87,28 +87,18 @@ namespace RestoranMarioMario.Pages.AdminPages
             {
                 updateItem = updateItem.OrderByDescending(item => item.MenuBarCard).ToList();
             }
-            //if (CbFilter.SelectedIndex > 0)
-            //{
-            //    var selectedCategory = CbFilter.SelectedIndex;
-            //    updateItem = updateItem.Where(item => item.MenuBarCard == selectedCategory).ToList();
-            //}
             ListViewCatalog.ItemsSource = updateItem;
             int countFind = ListViewCatalog.Items.Count;
             TbCountFind.Text = countFind.ToString() + " из " + App.db.OrderMenu.Count().ToString();
             if (countFind < 1)
             {
-                TbCountFind.Text += " по вашему запросу ничего не найдено";
+                TbCountFind.Text += " по вашему запросу ничего не найдено.";
             }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateData();
-            //var type = App.db.Menu.OrderBy(x => x.IdMenu).Select(x => x.Name).ToArray();
-            //for (int i = 0; i < type.Length; i++)
-            //{
-            //    CbFilter.Items.Add(type[i]);
-            //}
         }
     }
 }

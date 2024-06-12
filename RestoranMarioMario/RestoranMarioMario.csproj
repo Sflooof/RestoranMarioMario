@@ -393,6 +393,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\no.png" />
     <Resource Include="Img\orange.png" />
     <Resource Include="Img\head.png" />
     <Resource Include="Img\mario.ico" />

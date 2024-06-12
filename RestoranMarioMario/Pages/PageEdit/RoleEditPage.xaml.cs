@@ -37,7 +37,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             var error = CheckErrors();
             if (error.Length > 0)
             {
-                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -61,14 +61,14 @@ namespace RestoranMarioMario.Pages.PageEdit
 
                     App.db.Roles.Add(numRole);
                     App.db.SaveChanges();
-                    MessageBox.Show("Роль пользователя успешно создана", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Роль пользователя успешно создана.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
                 else
                 {
                     role.Name = TbRole.Text;
                     App.db.SaveChanges();
-                    MessageBox.Show("Роль пользователя успешно обновлена", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Роль пользователя успешно обновлена.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
             }
@@ -83,7 +83,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             }
             match = regex.Matches(TbRole.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введена роль");
+                errorBuilder.AppendLine("Некорректно введена роль!");
 
             if (errorBuilder.Length > 0)
             {

@@ -49,7 +49,7 @@ namespace RestoranMarioMario.Pages.AdminPages
             TbCountFind.Text = countFind.ToString() + " из " + App.db.Order.Count().ToString();
             if (countFind < 0)
             {
-                TbCountFind.Text += " по вашему запросу ничего не найдено";
+                TbCountFind.Text += " по вашему запросу ничего не найдено.";
             }
         }
 
@@ -89,11 +89,6 @@ namespace RestoranMarioMario.Pages.AdminPages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateData();
-            //var type = App.db.Waiter.OrderBy(x => x.IdWaiter).Select(x => x.Surname).ToArray();
-            //for (int i = 0; i < type.Length; i++)
-            //{
-            //    CbFilter.Items.Add(type[i]);
-            //}
         }
     }
 }

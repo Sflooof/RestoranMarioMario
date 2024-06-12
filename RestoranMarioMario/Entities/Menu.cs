@@ -42,26 +42,10 @@ namespace RestoranMarioMario.Entities
             get
             {
                 if (PhotoMenu == null)
-                    return File.ReadAllBytes("../Resources/no.png");
+                    return File.ReadAllBytes(Path.GetFullPath("../Resources/no.png"));
                 else return PhotoMenu;
             }
         }
-        //public byte[] CorrectPhotoСart
-        //{
-        //    get
-        //    {
-        //        var menu = this.OrderMenu.FirstOrDefault()?.Menu1;
-        //        if (menu != null)
-        //        {
-        //            return menu.PhotoMenu;
-        //        }
-        //        else
-        //        {
-        //            return File.ReadAllBytes("../../Resources/no.png");
-        //        }
-        //    }
-        //}
-
         public virtual CategoryMenu CategoryMenu1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MenuIngredient> MenuIngredient { get; set; }

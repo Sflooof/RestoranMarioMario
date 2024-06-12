@@ -51,7 +51,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             var error = CheckErrors();
             if (error.Length > 0)
             {
-                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -78,7 +78,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     }
                     App.db.MenuIngredient.Add(correctMenuIngredient);
                     App.db.SaveChanges();
-                    MessageBox.Show("Данные успешно добавлены", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Данные успешно добавлены.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
                 else
@@ -86,7 +86,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     menuIngredient.IdMenu = menu.IdMenu;
                     menuIngredient.IdIngredient = ingredient.IdIngredient;
                     App.db.SaveChanges();
-                    MessageBox.Show("Данные успешно обновлены", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Данные успешно обновлены.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
             }
@@ -95,9 +95,9 @@ namespace RestoranMarioMario.Pages.PageEdit
         {
             var errorBuilder = new StringBuilder();
             if (CbMenu.SelectedItem == null)
-                errorBuilder.AppendLine("Поле Блюдо обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Блюдо обязательно для заполнения!");
             if (CbIngredient.SelectedItem == null)
-                errorBuilder.AppendLine("Поле Ингредиент обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Ингредиент обязательно для заполнения!");
 
 
             if (errorBuilder.Length > 0)

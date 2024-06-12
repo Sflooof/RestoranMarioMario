@@ -12,7 +12,6 @@ namespace RestoranMarioMario.Pages.PageEdit
     public partial class IngredientsEditPage : Page
     {
         private Entities.Ingredient ingredient = null;
-        //Regex regex = new Regex(@"^[А-ЯЁ][а-яё]+$");
         Regex regex = new Regex(@"^[a-zA-ZА-ЯЁ][a-zA-Zа-яё ]+$");
         MatchCollection match;
         public IngredientsEditPage()
@@ -40,7 +39,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             var error = CheckErrors();
             if (error.Length > 0)
             {
-                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -63,14 +62,14 @@ namespace RestoranMarioMario.Pages.PageEdit
                     }
                     App.db.Ingredient.Add(correctIngredient);
                     App.db.SaveChanges();
-                    MessageBox.Show("Игредиент успешно создан", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Игредиент успешно создан.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
                 else
                 {
                     ingredient.Name = TbIngredient.Text;
                     App.db.SaveChanges();
-                    MessageBox.Show("Игредиент успешно обновлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Игредиент успешно обновлен.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
             }

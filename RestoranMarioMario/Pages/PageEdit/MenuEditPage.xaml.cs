@@ -52,7 +52,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             var error = CheckErrors();
             if (error.Length > 0)
             {
-                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -84,7 +84,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     }
                     App.db.Menu.Add(correstMenu);
                     App.db.SaveChanges();
-                    MessageBox.Show("Блюдо успешно добавлено", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Блюдо успешно добавлено.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
                 else
@@ -96,7 +96,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                         menu.PhotoMenu = img;
                     menu.Volume = int.Parse(TbWeight.Text);
                     App.db.SaveChanges();
-                    MessageBox.Show("Блюдо успешно добавлено", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Блюдо успешно обновлено.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
             }
@@ -121,24 +121,24 @@ namespace RestoranMarioMario.Pages.PageEdit
             var errorBuilder = new StringBuilder();
             decimal sum;
             if (string.IsNullOrWhiteSpace(TbName.Text))
-                errorBuilder.AppendLine("Поле Название обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Название обязательно для заполнения!");
             match = regexName.Matches(TbName.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введено название");
+                errorBuilder.AppendLine("Некорректно введено название!");
             if (CbCategory.SelectedItem == null)
-                errorBuilder.AppendLine("Поле Категория обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Категория обязательно для заполнения!");
             if (string.IsNullOrWhiteSpace(TbSum.Text))
-                errorBuilder.AppendLine("Поле Цена обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Цена обязательно для заполнения!");
             match = regexSum.Matches(TbSum.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введена цена.");
+                errorBuilder.AppendLine("Некорректно введена цена!");
             if (decimal.TryParse(TbSum.Text, out sum) == false || sum <= 0)
-                errorBuilder.AppendLine("Цена товара должна быть положительным числом.");
+                errorBuilder.AppendLine("Цена товара должна быть положительным числом!");
             if (string.IsNullOrWhiteSpace(TbWeight.Text))
-                errorBuilder.AppendLine("Поле Вес обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Вес обязательно для заполнения!");
             match = regexSum.Matches(TbWeight.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введен вес.");
+                errorBuilder.AppendLine("Некорректно введен вес!");
 
 
             if (errorBuilder.Length > 0)

@@ -48,7 +48,7 @@ namespace RestoranMarioMario.Pages
                 currentOrderMenu.Quantity++;
             }
             App.CurrentOrder.OrderSum += currentMenu.Sum;
-            MessageBox.Show("Товар добавлен в корзину", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Товар добавлен в корзину!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(new MenuPage());
 
         }
@@ -58,7 +58,7 @@ namespace RestoranMarioMario.Pages
             int count = int.Parse(TbCount.Text);
             if (count == 100)
             {
-                MessageBox.Show("Это миниммальное количество порций", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Это миниммальное количество порций!", "Уведомление!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else count--;
             TbCount.Text = count.ToString();
@@ -69,7 +69,7 @@ namespace RestoranMarioMario.Pages
             int count = int.Parse(TbCount.Text);
             if (count == 10)
             {
-                MessageBox.Show("Это максимальное количество порций", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Это максимальное количество порций!", "Уведомление!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else count++;
             TbCount.Text = count.ToString();

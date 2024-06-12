@@ -91,7 +91,7 @@ namespace RestoranMarioMario.Pages
                 TableNumber = createdOrder.TableNumber,
                 OrderSum = 0,
                 Date = DateTime.Now,
-                NumberOrder = "1231"
+                NumberOrder = createdOrder.IdOrder.ToString(),
             };
             App.CurrentOrderMenu = new List<Entities.OrderMenu>();
             NavigationService.GoBack();
@@ -105,7 +105,7 @@ namespace RestoranMarioMario.Pages
             {
                 if (App.CurrentUser == null)
                 {
-                    if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuTitle}", "Внимание",
+                    if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuTitle}?", "Внимание!",
                         MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                     {
                         App.CurrentOrderMenu.Remove(currentOrderProduct);
@@ -120,7 +120,7 @@ namespace RestoranMarioMario.Pages
                 }
                 else
                 {
-                    if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuTitle}", "Внимание",
+                    if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuTitle}?", "Внимание!",
                         MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                     {
                         App.db.OrderMenu.Remove(currentOrderProduct);
@@ -142,7 +142,7 @@ namespace RestoranMarioMario.Pages
             var currentOrderProduct = button.DataContext as OrderMenu;
             if ((currentOrderProduct.Quantity + 1) > 1000)
             {
-                MessageBox.Show("Превышен лимит");
+                MessageBox.Show("Превышен лимит!");
             }
             else
             {
@@ -159,7 +159,7 @@ namespace RestoranMarioMario.Pages
         {
             var button = (Button)sender;
             var currentOrderProduct = button.DataContext as OrderMenu;
-            if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuTitle}", "Внимание",
+            if (MessageBox.Show($"Вы уверены, что хотите удалить из заказа товар: {currentOrderProduct.MenuTitle}?", "Внимание!",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 App.CurrentOrderMenu.Remove(currentOrderProduct);

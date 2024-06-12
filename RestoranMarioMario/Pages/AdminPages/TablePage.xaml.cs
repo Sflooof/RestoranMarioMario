@@ -44,7 +44,7 @@ namespace RestoranMarioMario.Pages.AdminPages
             TbCountFind.Text = countFind.ToString() + " из " + App.db.Table.Count().ToString();
             if (countFind < 1)
             {
-                TbCountFind.Text += " по вашему запросу ничего не найдено";
+                TbCountFind.Text += " по вашему запросу ничего не найдено.";
             }
         }
 

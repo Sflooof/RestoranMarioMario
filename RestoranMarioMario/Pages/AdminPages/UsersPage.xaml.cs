@@ -69,7 +69,7 @@ namespace RestoranMarioMario.Pages.AdminPages
             TbCountFind.Text = countFind.ToString() + " из " + App.db.Users.Count().ToString();
             if (countFind < 1)
             {
-                TbCountFind.Text += " по вашему запросу ничего не найдено";
+                TbCountFind.Text += " по вашему запросу ничего не найдено.";
             }
         }
 
@@ -100,41 +100,6 @@ namespace RestoranMarioMario.Pages.AdminPages
         }
 
         private void ListViewCatalog_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void TbFind_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void CbFilter_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void CbSort_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void BtDelete_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtEdit_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtAdd_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtBack_Click_1(object sender, RoutedEventArgs e)
         {
 
         }

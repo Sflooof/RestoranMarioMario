@@ -33,7 +33,7 @@ namespace RestoranMarioMario.Pages
 
         private void BtWaiter_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Официант скоро к вам подойдет.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Официант скоро к вам подойдет.", "Информация!", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void BtPlay_Click(object sender, RoutedEventArgs e)

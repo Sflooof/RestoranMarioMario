@@ -36,7 +36,7 @@ namespace RestoranMarioMario.Pages.AdminPages
             var error = CheckErrors();
             if (error.Length > 0)
             {
-                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -66,7 +66,7 @@ namespace RestoranMarioMario.Pages.AdminPages
 
                     App.db.Table.Add(numTable);
                     App.db.SaveChanges();
-                    MessageBox.Show("Стол успешно создан", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Стол успешно создан.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
                 else
@@ -75,7 +75,7 @@ namespace RestoranMarioMario.Pages.AdminPages
                     table.TablePassword = TbPassword.Text;
                     table.TableWaiter = waiter.IdWaiter;
                     App.db.SaveChanges();
-                    MessageBox.Show("Стол успешно обновлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Стол успешно обновлен.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
             }
@@ -90,7 +90,7 @@ namespace RestoranMarioMario.Pages.AdminPages
             }
             match = regex.Matches(TbNumber.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введен номер стола");
+                errorBuilder.AppendLine("Некорректно введен номер стола!");
 
             if (errorBuilder.Length > 0)
             {
@@ -98,7 +98,7 @@ namespace RestoranMarioMario.Pages.AdminPages
             }
             if (CbWaiter.SelectedItem == null)
             {
-                errorBuilder.AppendLine("Поле Категория обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Категория обязательно для заполнения!");
             }
 
             return errorBuilder.ToString();

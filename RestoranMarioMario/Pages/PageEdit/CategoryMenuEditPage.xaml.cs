@@ -38,7 +38,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             var error = CheckErrors();
             if (error.Length > 0)
             {
-                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -62,14 +62,14 @@ namespace RestoranMarioMario.Pages.PageEdit
 
                     App.db.CategoryMenu.Add(numCategory);
                     App.db.SaveChanges();
-                    MessageBox.Show("Категория меню успешно создана", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Категория меню успешно создана.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
                 else
                 {
                     menu.Name = TbCategory.Text;
                     App.db.SaveChanges();
-                    MessageBox.Show("Категория меню успешно обновлена", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Категория меню успешно обновлена.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
             }
@@ -84,7 +84,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             }
             match = regex.Matches(TbCategory.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введена категория меню");
+                errorBuilder.AppendLine("Некорректно введена категория меню!");
 
             if (errorBuilder.Length > 0)
             {

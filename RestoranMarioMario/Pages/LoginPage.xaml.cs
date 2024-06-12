@@ -22,11 +22,11 @@ namespace RestoranMarioMario.Pages
             var login = App.db.Users.FirstOrDefault(x => x.Login == TbLogin.Text && x.Password == PbLogin.Password);
             if (TbLogin.Text == "" || PbLogin.Password == "")
             {
-                MessageBox.Show("Не все поля заполнены", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Не все поля заполнены!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else if (login == null)
             {
-                MessageBox.Show("Пользователь не зарегистрирован", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пользователь не зарегистрирован!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -47,11 +47,11 @@ namespace RestoranMarioMario.Pages
             var loginTable = App.db.Table.FirstOrDefault(x => x.TableNumber.ToString() == TbLoginTable.Text && x.TablePassword == PbLoginTable.Password);
             if (TbLoginTable.Text == "" || PbLoginTable.Password == "")
             {
-                MessageBox.Show("Не все поля заполнены", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Не все поля заполнены!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else if (loginTable == null)
             {
-                MessageBox.Show("Пользователь не зарегистрирован", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пользователь не зарегистрирован!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {

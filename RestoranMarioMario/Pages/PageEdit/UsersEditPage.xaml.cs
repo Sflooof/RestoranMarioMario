@@ -46,7 +46,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             var error = CheckErrors();
             if (error.Length > 0)
             {
-                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -80,7 +80,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     }
                     App.db.Users.Add(correstUsers);
                     App.db.SaveChanges();
-                    MessageBox.Show("Пользователь успешно добавлен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Пользователь успешно добавлен.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
                 else
@@ -92,7 +92,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     users.Login = TbLogin.Text;
                     users.Password = TbPassword.Password;
                     App.db.SaveChanges();
-                    MessageBox.Show("Пользователь успешно добавлен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Пользователь успешно добавлен.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
             }
@@ -101,24 +101,24 @@ namespace RestoranMarioMario.Pages.PageEdit
         {
             var errorBuilder = new StringBuilder();
             if (string.IsNullOrWhiteSpace(TbSurname.Text))
-                errorBuilder.AppendLine("Поле Фамилия обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Фамилия обязательно для заполнения!");
             match = regexName.Matches(TbSurname.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введена фамилия");
+                errorBuilder.AppendLine("Некорректно введена фамилия!");
             if (string.IsNullOrWhiteSpace(TbName.Text))
-                errorBuilder.AppendLine("Поле Имя обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Имя обязательно для заполнения!");
             match = regexName.Matches(TbName.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введено имя.");
+                errorBuilder.AppendLine("Некорректно введено имя!");
             if (CbRole.SelectedItem == null)
-                errorBuilder.AppendLine("Поле Роль обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Роль обязательно для заполнения!");
             if (string.IsNullOrWhiteSpace(TbLogin.Text))
-                errorBuilder.AppendLine("Поле Логин обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Логин обязательно для заполнения!");
             if (string.IsNullOrWhiteSpace(TbPassword.Password))
-                errorBuilder.AppendLine("Поле Пароль обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Пароль обязательно для заполнения!");
             match = regexPassword.Matches(TbPassword.Password);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введен пароль.");
+                errorBuilder.AppendLine("Некорректно введен пароль!");
 
             if (errorBuilder.Length > 0)
             {

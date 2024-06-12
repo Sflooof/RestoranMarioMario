@@ -42,7 +42,7 @@ namespace RestoranMarioMario.Pages
         {
             InitializeComponent();
         }
-        private Rectangle CreateSnake(Point position) //новый квадрат в новых координатах
+        private Rectangle CreateSnake(Point position)
         {
             Rectangle rectangle = new Rectangle
             {
@@ -83,7 +83,7 @@ namespace RestoranMarioMario.Pages
         private void InitialGame()
         {
             snakeHead = CreateSnake(new Point(5, 5));
-            snake.Add(snakeHead); //новая часть змеи помещается в список
+            snake.Add(snakeHead);
             CanvasGame.Children.Add(snakeHead);
             PlaceFood();
             timer = new DispatcherTimer();
@@ -94,7 +94,7 @@ namespace RestoranMarioMario.Pages
 
         private void TimerTick(object sender, EventArgs e)
         {
-            Point newPosition = CalcuteNewPosition(); //новая позиция
+            Point newPosition = CalcuteNewPosition();
             if (newPosition == foodPosition)
             {
                 EatFood();
@@ -112,8 +112,8 @@ namespace RestoranMarioMario.Pages
             {
                 for (int i = 0; i < snake.Count; i++)
                 {
-                    Point currentHeadPosition = new Point(Canvas.GetLeft(snake[i]), Canvas.GetTop(snake[i]));//координата элемента с которым работаю
-                    for (int j = i + 1; j < snake.Count; j++) //вроверка элемента currentHeadPosition с позицией другого элемента
+                    Point currentHeadPosition = new Point(Canvas.GetLeft(snake[i]), Canvas.GetTop(snake[i]));
+                    for (int j = i + 1; j < snake.Count; j++)
                     {
                         Point nextHeadPosition = new Point(Canvas.GetLeft(snake[j]), Canvas.GetTop(snake[j]));
                         if (currentHeadPosition == nextHeadPosition)
@@ -126,7 +126,7 @@ namespace RestoranMarioMario.Pages
                     }
                 }
             }
-            for (int i = snake.Count - 1; i > 0; i--) //перемещение позиции элемента змеи на позицию предыдущего элемента
+            for (int i = snake.Count - 1; i > 0; i--)
             {
                 Canvas.SetLeft(snake[i], Canvas.GetLeft(snake[i - 1]));
                 Canvas.SetTop(snake[i], Canvas.GetTop(snake[i - 1]));
@@ -140,7 +140,7 @@ namespace RestoranMarioMario.Pages
             double top = Canvas.GetTop(snakeHead) / snakeSquareSize;
             Point headCurrentPosotion = new Point(left, top);
             Point newHeadPosition = new Point();
-            switch (direction) //позиция головы
+            switch (direction)
             {
                 case Dicection.Left:
                     newHeadPosition = new Point(headCurrentPosotion.X - 1, headCurrentPosotion.Y);
@@ -185,7 +185,7 @@ namespace RestoranMarioMario.Pages
             score++;
             TbScore.Text = "Счет: " + score.ToString();
             CanvasGame.Children.Remove(CanvasGame.Children.OfType<Image>().FirstOrDefault());
-            Rectangle newSnake = CreateSnakeBody(foodPosition); //змея появляется в том мемсте где была еда
+            Rectangle newSnake = CreateSnakeBody(foodPosition);
             snake.Add(newSnake);
             CanvasGame.Children.Add(newSnake);
         }

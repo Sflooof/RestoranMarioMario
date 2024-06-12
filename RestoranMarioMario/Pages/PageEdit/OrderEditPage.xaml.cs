@@ -52,7 +52,7 @@ namespace RestoranMarioMario.Pages.PageEdit
             var error = CheckErrors();
             if (error.Length > 0)
             {
-                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -83,7 +83,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     }
                     App.db.Order.Add(correctOrder);
                     App.db.SaveChanges();
-                    MessageBox.Show("Данные успешно добавлены", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Данные успешно добавлены.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
                 else
@@ -93,7 +93,7 @@ namespace RestoranMarioMario.Pages.PageEdit
                     order.Date = (DateTime)DpDate.SelectedDate;
                     order.NumberOrder = TbNumberOrder.Text;
                     App.db.SaveChanges();
-                    MessageBox.Show("Данные успешно обновлены", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Данные успешно обновлены.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.GoBack();
                 }
             }
@@ -102,14 +102,14 @@ namespace RestoranMarioMario.Pages.PageEdit
         {
             var errorBuilder = new StringBuilder();
             if (string.IsNullOrWhiteSpace(TbNumberOrder.Text))
-                errorBuilder.AppendLine("Поле Номер заказа обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Номер заказа обязательно для заполнения!");
             if (CbNumberTable.SelectedItem == null)
-                errorBuilder.AppendLine("Поле Номер стола обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Номер стола обязательно для заполнения!");
             if (string.IsNullOrWhiteSpace(DpDate.Text))
-                errorBuilder.AppendLine("Поле Дата обязательно для заполнения.");
+                errorBuilder.AppendLine("Поле Дата обязательно для заполнения!");
             match = regexSum.Matches(TbSum.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Сумма должна быть целым числом.");
+                errorBuilder.AppendLine("Сумма должна быть целым числом!");
 
             if (errorBuilder.Length > 0)
             {
