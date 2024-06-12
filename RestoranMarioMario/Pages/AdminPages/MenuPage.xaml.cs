@@ -85,13 +85,20 @@ namespace RestoranMarioMario.Pages.AdminPages
 
         private void BtDelete_Click(object sender, RoutedEventArgs e)
         {
-            var deleteItem = (sender as Button).DataContext as Entities.Menu;
-            if (MessageBox.Show("Вы действительно хотите удалить это блюдо?", "Внимание!",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            try
             {
-                App.db.Menu.Remove(deleteItem);
-                App.db.SaveChanges();
-                UpdateData();
+                var deleteItem = (sender as Button).DataContext as Entities.Menu;
+                if (MessageBox.Show("Вы действительно хотите удалить это блюдо?", "Внимание!",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    App.db.Menu.Remove(deleteItem);
+                    App.db.SaveChanges();
+                    UpdateData();
+                }
+            }
+            catch (System.Exception)
+            {
+                MessageBox.Show("Удалите сначала запись в таблице Меню-Ингредиент!","Внимание!", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
         }
 

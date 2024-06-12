@@ -40,38 +40,46 @@ namespace RestoranMarioMario.Pages
         }
         private void Update()
         {
-            orderProductsListView.ItemsSource = null;
-            if (App.CurrentUser != null)
+            try
             {
-                var currentOrderProducts = App.db.OrderMenu.Where(op => op.MenuBarCard == currentOrder.IdOrder).ToList();
-                orderProductsListView.ItemsSource = currentOrderProducts;
-                double sum = 0;
-                foreach (var product in currentOrderProducts)
+                orderProductsListView.ItemsSource = null;
+                if (App.CurrentUser != null)
                 {
-                    var currentProduct = App.db.Menu.FirstOrDefault(p => p.IdMenu == product.MenuBarCard);
-                    if (currentProduct != null)
+                    var currentOrderProducts = App.CurrentOrderMenu.ToList();
+                    orderProductsListView.ItemsSource = currentOrderProducts;
+                    double sum = 0;
+                    foreach (var product in currentOrderProducts)
                     {
-                        double productPrice = (double)currentProduct.Sum;
-                        sum += productPrice * (int)product.Quantity;
+                        var currentProduct = App.db.Menu.FirstOrDefault(p => p.IdMenu == product.MenuBarCard);
+                        if (currentProduct != null)
+                        {
+                            double productPrice = (double)currentProduct.Sum;
+                            sum += productPrice * (int)product.Quantity;
+                        }
                     }
+                    OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
                 }
-                OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
+                else
+                {
+                    orderProductsListView.ItemsSource = App.CurrentOrderMenu;
+                    double sum = 0;
+                    foreach (var product in App.CurrentOrderMenu)
+                    {
+                        var currentProduct = App.db.Menu.FirstOrDefault(p => p.IdMenu == product.MenuBarCard);
+                        if (currentProduct != null)
+                        {
+                            double productPrice = (double)currentProduct.Sum;
+                            sum += productPrice * (int)product.Quantity;
+                        }
+                    }
+                    OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
+                }
             }
-            else
+            catch (Exception)
             {
-                orderProductsListView.ItemsSource = App.CurrentOrderMenu;
-                double sum = 0;
-                foreach (var product in App.CurrentOrderMenu)
-                {
-                    var currentProduct = App.db.Menu.FirstOrDefault(p => p.IdMenu == product.MenuBarCard);
-                    if (currentProduct != null)
-                    {
-                        double productPrice = (double)currentProduct.Sum;
-                        sum += productPrice * (int)product.Quantity;
-                    }
-                }
-                OrderPriceBox.Text = $"Стоимость заказа: {sum} руб.";
+                MessageBox.Show("Корзина пустая.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
+            
         }
         private void BtCreateOrder_Click(object sender, RoutedEventArgs e)
         {
