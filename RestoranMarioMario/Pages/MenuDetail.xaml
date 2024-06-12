@@ -64,7 +64,7 @@
                 <TextBlock Foreground="White">Добавить в корзину</TextBlock>
             </Button>
             <Button x:Name="BtBasketPassword" Height="45" Click="BtBasketPassword_Click" Style="{StaticResource mouseButton}" Margin="10">
-                <TextBlock Foreground="White">Вызвать официанта для подтверждения возраста</TextBlock>
+                <TextBlock Foreground="White">Вызвать менеджера для подтверждения возраста</TextBlock>
             </Button>
         </StackPanel>
     </Grid>
